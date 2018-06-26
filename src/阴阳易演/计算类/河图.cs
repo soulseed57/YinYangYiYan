@@ -4,7 +4,6 @@ namespace 阴阳易演.计算类
 {
     using 具象类.地支;
     using 抽象类;
-    using 抽象类.基类;
 
     public class 河图
     {
