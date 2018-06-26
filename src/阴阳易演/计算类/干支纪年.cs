@@ -20,10 +20,11 @@ namespace 阴阳易演.计算类
             阴历月 = 中国农历类.ChineseMonth;
             阴历日 = 中国农历类.ChineseDay;
             // 甲子计算
-            年柱 = 计算年柱(时间);
-            月柱 = 计算月柱(时间);
+            年柱 = 计算年柱(阴历年);
+            月柱 = 计算月柱(年柱, 阴历月);
             日柱 = 计算日柱(时间);
-            时辰 = 计算时辰(时间.Hour);
+            var 时支 = 计算时支(时间.Hour);
+            时柱 = 计算时柱(日柱.天干, 时支);
             // 旬空计算
             旬空 = 查询旬空(日柱);
         }
@@ -34,7 +35,7 @@ namespace 阴阳易演.计算类
         public 甲子 年柱 { get; protected set; }
         public 甲子 月柱 { get; protected set; }
         public 甲子 日柱 { get; protected set; }
-        public 地支 时辰 { get; protected set; }
+        public 甲子 时柱 { get; protected set; }
         public 地支[] 旬空 { get; protected set; }
 
         #region 计算
@@ -46,23 +47,23 @@ namespace 阴阳易演.计算类
             {
                 case 甲 _:
                 case 己 _:
-                    序首 = 干支关系.天干转序数(天干.丙);
+                    序首 = 干支关系.获取天干序数(天干.丙);
                     break;
                 case 乙 _:
                 case 庚 _:
-                    序首 = 干支关系.天干转序数(天干.戊);
+                    序首 = 干支关系.获取天干序数(天干.戊);
                     break;
                 case 丙 _:
                 case 辛 _:
-                    序首 = 干支关系.天干转序数(天干.庚);
+                    序首 = 干支关系.获取天干序数(天干.庚);
                     break;
                 case 丁 _:
                 case 壬 _:
-                    序首 = 干支关系.天干转序数(天干.壬);
+                    序首 = 干支关系.获取天干序数(天干.壬);
                     break;
                 case 戊 _:
                 case 癸 _:
-                    序首 = 干支关系.天干转序数(天干.甲);
+                    序首 = 干支关系.获取天干序数(天干.甲);
                     break;
             }
             return 序首;
@@ -95,7 +96,30 @@ namespace 阴阳易演.计算类
                 throw new Exception($"计算年柱失败:{e.Message}\n当前输入[序数:{序数} 年:{年}]");
             }
         }
-        public static 地支 计算时辰(int 时)
+        public static 甲子 计算月柱(甲子 年柱, int 月份)
+        {
+            // 计算月干
+            var 序首 = 获取正月序首(年柱);
+            var 月干 = 干支关系.获取天干(序首 + 月份 - 1);
+            // 计算月支
+            var 月支 = 干支关系.获取地支(月份 + 1);
+            // 计算月柱
+            return 干支关系.六十甲子(月干, 月支);
+        }
+        public static 甲子 计算日柱(DateTime 时间)
+        {
+            var 甲子日 = new DateTime(1904, 1, 31);
+            var 序数 = 基准天数序数(时间, 甲子日, 60);
+            try
+            {
+                return 甲子表.甲子查询(序数);
+            }
+            catch (Exception e)
+            {
+                throw new Exception($"计算日柱失败:{e.Message}\n当前输入[序数:{序数} 时间:{时间:yyyy-MM-dd HH}]");
+            }
+        }
+        public static 地支 计算时支(int 时)
         {
             地支 时辰 = null;
             switch (时)
@@ -152,6 +176,15 @@ namespace 阴阳易演.计算类
                     break;
             }
             return 时辰;
+        }
+        public static 甲子 计算时柱(天干 日干, 地支 时支)
+        {
+            var 日干序 = 干支关系.获取天干序数(日干);
+            var 时支序 = 干支关系.获取地支序数(时支);
+            var 时干序 = (日干序 * 2 + 时支序) % 10;
+            var 时干名 = 干支关系.获取天干名称(时干序);
+            var 时干 = 干支表.天干查询(时干名);
+            return new 甲子(时干, 时支);
         }
         public static 地支[] 查询旬空(甲子 日柱)
         {
@@ -228,35 +261,6 @@ namespace 阴阳易演.计算类
             名称.Append(日个[个 % 日个.Length]);
             if (加后缀) 名称.Append("日");
             return 名称.ToString();
-        }
-        // 动态
-        public 甲子 计算年柱(DateTime 时间)
-        {
-            return 计算年柱(阴历年);
-        }
-        public 甲子 计算月柱(DateTime 时间)
-        {
-            var 月份 = 阴历月;
-            // 计算月干
-            var 序首 = 获取正月序首(年柱);
-            var 月干 = 干支关系.序数转天干(序首 + 月份 - 1);
-            // 计算月支
-            var 月支 = 干支关系.序数转地支(月份 + 2);
-            // 计算月柱
-            return 干支关系.六十甲子(月干, 月支);
-        }
-        public 甲子 计算日柱(DateTime 时间)
-        {
-            var 甲子日 = new DateTime(1904, 1, 31);
-            var 序数 = 基准天数序数(时间, 甲子日, 60);
-            try
-            {
-                return 甲子表.甲子查询(序数);
-            }
-            catch (Exception e)
-            {
-                throw new Exception($"计算日柱失败:{e.Message}\n当前输入[序数:{序数} 时间:{时间:yyyy-MM-dd HH}]");
-            }
         }
 
         #endregion

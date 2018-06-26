@@ -16,7 +16,7 @@ namespace 阴阳易演.引用库
             }
             catch (Exception e)
             {
-                throw new Exception($"使用序数[{序数}]获取名称{typeof(T)}失败:{e.Message}");
+                throw new Exception($"[{typeof(T).Name}]使用序数[{序数}]获取名称失败:{e.Message}");
             }
         }
         public static string 获取名称(T 枚举)
@@ -27,7 +27,7 @@ namespace 阴阳易演.引用库
             }
             catch (Exception e)
             {
-                throw new Exception($"使用枚举[{枚举}]获取名称{typeof(T)}失败:{e.Message}");
+                throw new Exception($"[{typeof(T).Name}]使用枚举[{枚举}]获取名称失败:{e.Message}");
             }
         }
         public static int 获取序数(string 名称)
@@ -39,7 +39,7 @@ namespace 阴阳易演.引用库
             }
             catch (Exception e)
             {
-                throw new Exception($"使用名称[{名称}]获取序数{typeof(T)}失败:{e.Message}");
+                throw new Exception($"[{typeof(T).Name}]使用名称[{名称}]获取序数失败:{e.Message}");
             }
         }
         public static int 获取序数(T 枚举)
@@ -50,7 +50,7 @@ namespace 阴阳易演.引用库
             }
             catch (Exception e)
             {
-                throw new Exception($"使用枚举[{枚举}]获取序数{typeof(T)}失败:{e.Message}");
+                throw new Exception($"[{typeof(T).Name}]使用枚举[{枚举}]获取序数失败:{e.Message}");
             }
         }
         public static T 获取枚举(string 名称)
@@ -61,7 +61,7 @@ namespace 阴阳易演.引用库
             }
             catch (Exception e)
             {
-                throw new Exception($"使用名称[{名称}]获取枚举{typeof(T)}失败:{e.Message}");
+                throw new Exception($"[{typeof(T).Name}]使用名称[{名称}]获取枚举失败:{e.Message}");
             }
         }
         public static T 获取枚举(int 序数)
@@ -72,7 +72,7 @@ namespace 阴阳易演.引用库
             }
             catch (Exception e)
             {
-                throw new Exception($"使用序数[{序数}]获取枚举{typeof(T)}失败:{e.Message}");
+                throw new Exception($"[{typeof(T).Name}]使用序数[{序数}]获取枚举失败:{e.Message}");
             }
         }
         public static int 序数取余(int 序数, int 除余数)

@@ -3,7 +3,6 @@ using System.Text;
 
 namespace 阴阳易演.计算类
 {
-    using 具象类;
     using 具象类.地支;
     using 具象类.天干;
     using 容器类;
@@ -13,31 +12,68 @@ namespace 阴阳易演.计算类
 
     public static class 干支关系
     {
-        public enum 地支枚举 { 子, 丑, 寅, 卯, 辰, 巳, 午, 未, 申, 酉, 戌, 亥 }
+        static 干支关系()
+        {
+            天干数 = 枚举转换类<天干枚举>.获取所有枚举().Length;
+            地支数 = 枚举转换类<地支枚举>.获取所有枚举().Length;
+        }
+        static readonly int 天干数;
+        static readonly int 地支数;
         public enum 天干枚举 { 甲, 乙, 丙, 丁, 戊, 己, 庚, 辛, 壬, 癸 }
+        public enum 地支枚举 { 子, 丑, 寅, 卯, 辰, 巳, 午, 未, 申, 酉, 戌, 亥 }
 
         #region 天干
-        public static int 天干枚举转序数(天干枚举 枚) => (int)枚 + 1;
-        public static 天干枚举 序数转天干枚举(int 序) => (天干枚举)Enum.ToObject(typeof(天干枚举), (序 - 1) % 10);
-        public static 天干 序数转天干(int 序) => 干支表.天干查询(序数转天干枚举(序).ToString());
-        public static int 天干转序数(天干 干)
+        public static 天干 获取天干(int 数)
         {
-            var 名 = 常用方法.获取类名(干);
-            var 枚 = 枚举转换类<天干枚举>.获取枚举(名);
-            return 天干枚举转序数(枚);
+            var 序 = 枚举转换类<天干枚举>.序数取余(数, 天干数);
+            return 干支表.天干查询(获取天干枚举(序).ToString());
+        }
+        public static int 获取天干序数(天干 干)
+        {
+            var 枚 = 枚举转换类<天干枚举>.获取枚举(干.名称);
+            return 获取天干序数(枚);
+        }
+        public static int 获取天干序数(天干枚举 枚)
+        {
+            return 枚举转换类<天干枚举>.获取序数(枚);
+        }
+        public static 天干枚举 获取天干枚举(int 数)
+        {
+            var 序 = 枚举转换类<天干枚举>.序数取余(数, 天干数);
+            return 枚举转换类<天干枚举>.获取枚举(序);
+        }
+        public static string 获取天干名称(int 数)
+        {
+            var 序 = 枚举转换类<天干枚举>.序数取余(数, 天干数);
+            return 枚举转换类<天干枚举>.获取名称(序);
         }
 
         #endregion
 
         #region 地支
-        public static int 地支枚举转序数(地支枚举 枚) => (int)枚 + 1;
-        public static 地支枚举 序数转地支枚举(int 序) => (地支枚举)Enum.ToObject(typeof(地支枚举), (序 - 1) % 12);
-        public static 地支 序数转地支(int 序) => 干支表.地支查询(序数转地支枚举(序).ToString());
-        public static int 地支转序数(地支 支)
+        public static 地支 获取地支(int 数)
         {
-            var 名 = 常用方法.获取类名(支);
-            var 枚 = 枚举转换类<地支枚举>.获取枚举(名);
-            return 地支枚举转序数(枚);
+            var 序 = 枚举转换类<地支枚举>.序数取余(数, 地支数);
+            return 干支表.地支查询(获取地支枚举(序).ToString());
+        }
+        public static int 获取地支序数(地支 支)
+        {
+            var 枚 = 枚举转换类<地支枚举>.获取枚举(支.名称);
+            return 获取地支序数(枚);
+        }
+        public static int 获取地支序数(地支枚举 枚)
+        {
+            return 枚举转换类<地支枚举>.获取序数(枚);
+        }
+        public static 地支枚举 获取地支枚举(int 数)
+        {
+            var 序 = 枚举转换类<地支枚举>.序数取余(数, 地支数);
+            return 枚举转换类<地支枚举>.获取枚举(序);
+        }
+        public static string 获取地支名称(int 数)
+        {
+            var 序 = 枚举转换类<地支枚举>.序数取余(数, 地支数);
+            return 枚举转换类<地支枚举>.获取名称(序);
         }
 
         #endregion
