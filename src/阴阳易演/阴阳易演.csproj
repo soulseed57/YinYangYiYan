@@ -116,4 +116,10 @@
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>if not exist "$(SolutionDir)plugins\" (
+    md "$(SolutionDir)plugins\"
+)
+copy "$(TargetPath)" "$(SolutionDir)plugins\$(TargetFileName)"</PostBuildEvent>
+  </PropertyGroup>
 </Project>
