@@ -18,16 +18,10 @@ namespace 阴阳易演.抽象类
             太阳 = new 太阳();
             少阴 = new 少阴();
             太阴 = new 太阴();
-            临爻 = new StringBuilder();
         }
 
-        static readonly StringBuilder 临爻;
         //动态
-        protected 四象()
-        {
-            仪属 = new List<两仪>();
-        }
-        protected List<两仪> 仪属 { get; }
+        protected 两仪[] 仪属 { get; set; }
 
         #endregion
 
@@ -47,15 +41,12 @@ namespace 阴阳易演.抽象类
         {
             get
             {
-                lock (临爻)
+                var 临爻 = new StringBuilder();
+                foreach (var 仪 in 仪属)
                 {
-                    临爻.Clear();
-                    foreach (var 仪 in 仪属)
-                    {
-                        临爻.AppendLine(仪.爻);
-                    }
-                    return 临爻;
+                    临爻.AppendLine(仪.爻);
                 }
+                return 临爻;
             }
         }
 

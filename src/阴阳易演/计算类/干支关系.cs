@@ -7,6 +7,7 @@ namespace 阴阳易演.计算类
     using 具象类.地支;
     using 具象类.天干;
     using 容器类;
+    using 引用库;
     using 抽象类;
     using 查询类;
 
@@ -21,7 +22,8 @@ namespace 阴阳易演.计算类
         public static 天干 序数转天干(int 序) => 干支表.天干查询(序数转天干枚举(序).ToString());
         public static int 天干转序数(天干 干)
         {
-            if (!Enum.TryParse(干.GetType().Name, out 天干枚举 枚)) return -1;
+            var 名 = 常用方法.获取类名(干);
+            var 枚 = 枚举转换类<天干枚举>.获取枚举(名);
             return 天干枚举转序数(枚);
         }
 
@@ -33,7 +35,8 @@ namespace 阴阳易演.计算类
         public static 地支 序数转地支(int 序) => 干支表.地支查询(序数转地支枚举(序).ToString());
         public static int 地支转序数(地支 支)
         {
-            if (!Enum.TryParse(支.GetType().Name, out 地支枚举 枚)) return -1;
+            var 名 = 常用方法.获取类名(支);
+            var 枚 = 枚举转换类<地支枚举>.获取枚举(名);
             return 地支枚举转序数(枚);
         }
 
@@ -197,10 +200,7 @@ namespace 阴阳易演.计算类
             var 名称 = new StringBuilder();
             名称.Append(干.GetType().Name);
             名称.Append(支.GetType().Name);
-            if (!Enum.TryParse(名称.ToString(), out 甲子表.甲子枚举 枚))
-            {
-                return null;
-            }
+            var 枚 = 枚举转换类<甲子表.甲子枚举>.获取枚举(名称.ToString());
             return new 甲子(枚);
         }
 
