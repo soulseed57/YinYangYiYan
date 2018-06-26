@@ -78,7 +78,6 @@
             return 四象;
         }
         //动态
-        public string 名称 => GetType().Name;
 
         #endregion
 
