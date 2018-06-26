@@ -9,7 +9,7 @@
         {
             甲子数 = 枚举转换类<甲子枚举>.获取所有枚举().Length;
         }
-        static readonly int 甲子数;
+        public static readonly int 甲子数;
         public enum 甲子枚举
         {
             甲子, 乙丑, 丙寅, 丁卯, 戊辰, 己巳, 庚午, 辛未, 壬申, 癸酉,
@@ -20,14 +20,15 @@
             甲寅, 乙卯, 丙辰, 丁巳, 戊午, 己未, 庚申, 辛酉, 壬戌, 癸亥
         }
 
+        #region 查询
         public static 甲子 甲子查询(string 名)
         {
             var 枚 = 枚举转换类<甲子枚举>.获取枚举(名);
             return 甲子查询(枚);
         }
-        public static 甲子 甲子查询(int 序)
+        public static 甲子 甲子查询(int 数)
         {
-            序 = 枚举转换类<甲子枚举>.序数取余(序, 甲子数);
+            var 序 = 枚举转换类<甲子枚举>.序数取余(数, 甲子数);
             var 枚 = 枚举转换类<甲子枚举>.获取枚举(序);
             return 甲子查询(枚);
         }
@@ -35,6 +36,8 @@
         {
             return new 甲子(枚);
         }
+
+        #endregion
 
     }
 }

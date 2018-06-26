@@ -93,7 +93,6 @@
     <Compile Include="查询类\干支表.cs" />
     <Compile Include="查询类\甲子表.cs" />
     <Compile Include="计算类\二十四节气.cs" />
-    <Compile Include="计算类\干支关系.cs" />
     <Compile Include="容器类\甲子.cs" />
     <Compile Include="计算类\河图.cs" />
     <Compile Include="计算类\干支纪年.cs" />
