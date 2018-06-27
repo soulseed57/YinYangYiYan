@@ -20,6 +20,28 @@
             甲寅, 乙卯, 丙辰, 丁巳, 戊午, 己未, 庚申, 辛酉, 壬戌, 癸亥
         }
 
+        #region 甲子枚举
+        public static int 获取甲子序数(甲子 甲)
+        {
+            return 枚举转换类<甲子枚举>.获取序数(甲.名称);
+        }
+        public static int 获取甲子序数(甲子枚举 枚)
+        {
+            return 枚举转换类<甲子枚举>.获取序数(枚);
+        }
+        public static 甲子枚举 获取甲子枚举(int 数)
+        {
+            var 序 = 枚举转换类<甲子枚举>.序数取余(数, 甲子数);
+            return 枚举转换类<甲子枚举>.获取枚举(序);
+        }
+        public static string 获取甲子名称(int 数)
+        {
+            var 序 = 枚举转换类<甲子枚举>.序数取余(数, 甲子数);
+            return 枚举转换类<甲子枚举>.获取名称(序);
+        }
+
+        #endregion
+
         #region 查询
         public static 甲子 甲子查询(string 名)
         {

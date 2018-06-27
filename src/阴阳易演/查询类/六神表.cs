@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace 阴阳易演.查询类
 {
+    using 具象类.天干;
     using 引用库;
     using 抽象类;
 
@@ -17,8 +19,7 @@ namespace 阴阳易演.查询类
         #region 六神枚举
         public static int 获取六神序数(六神 神)
         {
-            var 枚 = 枚举转换类<六神枚举>.获取枚举(神.名称);
-            return 获取六神序数(枚);
+            return 枚举转换类<六神枚举>.获取序数(神.名称);
         }
         public static int 获取六神序数(六神枚举 枚)
         {
@@ -68,6 +69,55 @@ namespace 阴阳易演.查询类
                 default:
                     throw new Exception($"输入的枚举不是六神枚举,当前输入:{枚}");
             }
+        }
+
+        #endregion
+
+        #region 运算
+        // 内部
+        static int 六神序数(天干 时干)
+        {
+            switch (时干)
+            {
+                case 甲 _:
+                case 乙 _:
+                    return 获取六神序数(六神枚举.青龙);
+                case 丙 _:
+                case 丁 _:
+                    return 获取六神序数(六神枚举.朱雀);
+                case 戊 _:
+                    return 获取六神序数(六神枚举.勾陈);
+                case 己 _:
+                    return 获取六神序数(六神枚举.腾蛇);
+                case 庚 _:
+                case 辛 _:
+                    return 获取六神序数(六神枚举.白虎);
+                case 壬 _:
+                case 癸 _:
+                    return 获取六神序数(六神枚举.玄武);
+                default:
+                    throw new Exception($"无法从给定的时干起六神,当前时干:{时干}");
+            }
+        }
+        // 公开
+        public static 六神[] 配六神(天干 时干)
+        {
+            var 顺排 = 时干.阴阳 == 两仪.阳;// 阳顺阴逆
+            var 神列 = new List<六神>();
+            var 神序 = 六神序数(时干);
+            for (var i = 0; i < 六神数; i++)
+            {
+                var 神 = 六神查询(神序++);
+                if (顺排)
+                {
+                    神列.Add(神);
+                }
+                else
+                {
+                    神列.Insert(0, 神);
+                }
+            }
+            return 神列.ToArray();
         }
 
         #endregion

@@ -18,7 +18,7 @@
         }
         public 甲子(天干 干, 地支 支)
         {
-            var 枚举名 = 常用方法.获取类名(干) + 常用方法.获取类名(支);
+            var 枚举名 = 干.名称 + 支.名称;
             var 枚 = 枚举转换类<甲子表.甲子枚举>.获取枚举(枚举名);
             初始化(枚);
         }
@@ -26,7 +26,6 @@
         {
             初始化(枚);
         }
-
         public string 名称 { get; private set; }
         public 甲子表.甲子枚举 枚举 { get; private set; }
         public int 序数 { get; private set; }

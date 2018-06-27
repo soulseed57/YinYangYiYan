@@ -1,8 +1,8 @@
 ﻿using System;
+using System.Text;
 
 namespace 阴阳易演.查询类
 {
-    using System.Text;
     using 具象类.地支;
     using 具象类.天干;
     using 容器类;
@@ -24,8 +24,7 @@ namespace 阴阳易演.查询类
         #region 天干枚举
         public static int 获取天干序数(天干 干)
         {
-            var 枚 = 枚举转换类<天干枚举>.获取枚举(干.名称);
-            return 获取天干序数(枚);
+            return 枚举转换类<天干枚举>.获取序数(干.名称);
         }
         public static int 获取天干序数(天干枚举 枚)
         {
@@ -47,8 +46,7 @@ namespace 阴阳易演.查询类
         #region 地支枚举
         public static int 获取地支序数(地支 支)
         {
-            var 枚 = 枚举转换类<地支枚举>.获取枚举(支.名称);
-            return 获取地支序数(枚);
+            return 枚举转换类<地支枚举>.获取序数(支.名称);
         }
         public static int 获取地支序数(地支枚举 枚)
         {
@@ -63,6 +61,122 @@ namespace 阴阳易演.查询类
         {
             var 序 = 枚举转换类<地支枚举>.序数取余(数, 地支数);
             return 枚举转换类<地支枚举>.获取名称(序);
+        }
+
+        #endregion
+
+        #region 天干查询
+        public static 天干 天干查询(天干枚举 枚)
+        {
+            var 名 = 枚举转换类<天干枚举>.获取名称(枚);
+            return 天干查询(名);
+        }
+        public static 天干 天干查询(int 数)
+        {
+            var 序 = 枚举转换类<天干枚举>.序数取余(数, 天干数);
+            var 名 = 枚举转换类<天干枚举>.获取名称(序);
+            return 天干查询(名);
+        }
+        public static 天干 天干查询(string 名)
+        {
+            天干 结果;
+            switch (名)
+            {
+                case "甲":
+                    结果 = 天干.甲;
+                    break;
+                case "乙":
+                    结果 = 天干.乙;
+                    break;
+                case "丙":
+                    结果 = 天干.丙;
+                    break;
+                case "丁":
+                    结果 = 天干.丁;
+                    break;
+                case "戊":
+                    结果 = 天干.戊;
+                    break;
+                case "己":
+                    结果 = 天干.己;
+                    break;
+                case "庚":
+                    结果 = 天干.庚;
+                    break;
+                case "辛":
+                    结果 = 天干.辛;
+                    break;
+                case "壬":
+                    结果 = 天干.壬;
+                    break;
+                case "癸":
+                    结果 = 天干.癸;
+                    break;
+                default:
+                    throw new Exception($"输入的名称[{名}]不是天干");
+            }
+            return 结果;
+        }
+
+        #endregion
+
+        #region 地支查询
+        public static 地支 地支查询(地支枚举 枚)
+        {
+            var 名 = 枚举转换类<地支枚举>.获取名称(枚);
+            return 地支查询(名);
+        }
+        public static 地支 地支查询(int 数)
+        {
+            var 序 = 枚举转换类<地支枚举>.序数取余(数, 地支数);
+            var 名 = 枚举转换类<地支枚举>.获取名称(序);
+            return 地支查询(名);
+        }
+        public static 地支 地支查询(string 名)
+        {
+            地支 结果;
+            switch (名)
+            {
+                case "子":
+                    结果 = 地支.子;
+                    break;
+                case "丑":
+                    结果 = 地支.丑;
+                    break;
+                case "寅":
+                    结果 = 地支.寅;
+                    break;
+                case "卯":
+                    结果 = 地支.卯;
+                    break;
+                case "辰":
+                    结果 = 地支.辰;
+                    break;
+                case "巳":
+                    结果 = 地支.巳;
+                    break;
+                case "午":
+                    结果 = 地支.午;
+                    break;
+                case "未":
+                    结果 = 地支.未;
+                    break;
+                case "申":
+                    结果 = 地支.申;
+                    break;
+                case "酉":
+                    结果 = 地支.酉;
+                    break;
+                case "戌":
+                    结果 = 地支.戌;
+                    break;
+                case "亥":
+                    结果 = 地支.亥;
+                    break;
+                default:
+                    throw new Exception($"输入的名称[{名}]不是地支");
+            }
+            return 结果;
         }
 
         #endregion
@@ -227,119 +341,6 @@ namespace 阴阳易演.查询类
             名称.Append(支.GetType().Name);
             var 枚 = 枚举转换类<甲子表.甲子枚举>.获取枚举(名称.ToString());
             return new 甲子(枚);
-        }
-
-        #endregion
-
-        #region 查询
-        public static 天干 天干查询(天干枚举 枚)
-        {
-            var 名 = 枚举转换类<天干枚举>.获取名称(枚);
-            return 天干查询(名);
-        }
-        public static 天干 天干查询(int 数)
-        {
-            var 序 = 枚举转换类<天干枚举>.序数取余(数, 天干数);
-            var 名 = 枚举转换类<天干枚举>.获取名称(序);
-            return 天干查询(名);
-        }
-        public static 天干 天干查询(string 名)
-        {
-            天干 结果;
-            switch (名)
-            {
-                case "甲":
-                    结果 = 天干.甲;
-                    break;
-                case "乙":
-                    结果 = 天干.乙;
-                    break;
-                case "丙":
-                    结果 = 天干.丙;
-                    break;
-                case "丁":
-                    结果 = 天干.丁;
-                    break;
-                case "戊":
-                    结果 = 天干.戊;
-                    break;
-                case "己":
-                    结果 = 天干.己;
-                    break;
-                case "庚":
-                    结果 = 天干.庚;
-                    break;
-                case "辛":
-                    结果 = 天干.辛;
-                    break;
-                case "壬":
-                    结果 = 天干.壬;
-                    break;
-                case "癸":
-                    结果 = 天干.癸;
-                    break;
-                default:
-                    throw new Exception($"输入的名称[{名}]不是天干");
-            }
-            return 结果;
-        }
-
-        public static 地支 地支查询(地支枚举 枚)
-        {
-            var 名 = 枚举转换类<地支枚举>.获取名称(枚);
-            return 地支查询(名);
-        }
-        public static 地支 地支查询(int 数)
-        {
-            var 序 = 枚举转换类<地支枚举>.序数取余(数, 地支数);
-            var 名 = 枚举转换类<地支枚举>.获取名称(序);
-            return 地支查询(名);
-        }
-        public static 地支 地支查询(string 名)
-        {
-            地支 结果;
-            switch (名)
-            {
-                case "子":
-                    结果 = 地支.子;
-                    break;
-                case "丑":
-                    结果 = 地支.丑;
-                    break;
-                case "寅":
-                    结果 = 地支.寅;
-                    break;
-                case "卯":
-                    结果 = 地支.卯;
-                    break;
-                case "辰":
-                    结果 = 地支.辰;
-                    break;
-                case "巳":
-                    结果 = 地支.巳;
-                    break;
-                case "午":
-                    结果 = 地支.午;
-                    break;
-                case "未":
-                    结果 = 地支.未;
-                    break;
-                case "申":
-                    结果 = 地支.申;
-                    break;
-                case "酉":
-                    结果 = 地支.酉;
-                    break;
-                case "戌":
-                    结果 = 地支.戌;
-                    break;
-                case "亥":
-                    结果 = 地支.亥;
-                    break;
-                default:
-                    throw new Exception($"输入的名称[{名}]不是地支");
-            }
-            return 结果;
         }
 
         #endregion
