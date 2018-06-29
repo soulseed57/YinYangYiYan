@@ -31,6 +31,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="具象类\两仪\阳.cs" />
     <Compile Include="具象类\两仪\阴.cs" />
@@ -82,13 +88,14 @@
     <Compile Include="引用库\中国农历类.cs" />
     <Compile Include="引用库\枚举转换类.cs" />
     <Compile Include="引用库\常用方法.cs" />
+    <Compile Include="容器类\节气.cs" />
     <Compile Include="查询类\十二宫表.cs" />
     <Compile Include="抽象类\基类\干支.cs" />
     <Compile Include="抽象类\基类\无极.cs" />
     <Compile Include="查询类\六神表.cs" />
     <Compile Include="查询类\干支表.cs" />
     <Compile Include="查询类\甲子表.cs" />
-    <Compile Include="计算类\二十四节气.cs" />
+    <Compile Include="查询类\二十四节气.cs" />
     <Compile Include="容器类\甲子.cs" />
     <Compile Include="计算类\河图.cs" />
     <Compile Include="计算类\干支纪年.cs" />
@@ -109,9 +116,7 @@
     <Compile Include="具象类\六神\青龙.cs" />
     <Compile Include="查询类\纳音表.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Reference Include="System.Drawing" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>if not exist "$(SolutionDir)plugins\" (

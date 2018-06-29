@@ -2,11 +2,17 @@
 
 namespace 阴阳易演.计算类
 {
-    using 具象类.季节;
+    using 容器类;
+    using 引用库;
     using 抽象类;
 
-    public class 二十四节气
+    public static class 二十四节气
     {
+        static 二十四节气()
+        {
+            节气数 = 枚举转换类<节气枚举>.获取所有枚举().Length;
+        }
+        public static readonly int 节气数;
         public enum 节气枚举
         {
             小寒, 大寒,
@@ -23,28 +29,29 @@ namespace 阴阳易演.计算类
             大雪, 冬至
         }
 
-        public 二十四节气(int 年份, 节气枚举 节气)
+        #region 节气枚举
+        public static int 获取节气序数(节气 节)
         {
-            名称 = 节气.ToString();
-            日期 = 节气查询(年份, 节气);
+            return 枚举转换类<节气枚举>.获取序数(节.名称);
         }
-        public string 名称 { get; protected set; }
-        public DateTime 日期 { get; protected set; }
-
-        #region 运算
-        // 内部
-        static readonly int[] 节气修正值 =
+        public static int 获取节气序数(节气枚举 枚)
         {
-            0, 21208, 42467, 63836,
-            85337,107014, 128867, 150921,
-            173149, 195551,218072, 240693,
-            263343, 285989, 308563,331033,
-            353350, 375494, 397447, 419210,
-            440795, 462224, 483532, 504758
-        };
-        static readonly DateTime 基准时间 = new DateTime(1900, 1, 6, 2, 5, 0);
-        static double 基准偏移分钟(int year, int st) => 525948.76 * (year - 1900) + 节气修正值[st];
-        // 公开
+            return 枚举转换类<节气枚举>.获取序数(枚);
+        }
+        public static 节气枚举 获取节气枚举(int 数)
+        {
+            var 序 = 枚举转换类<节气枚举>.序数取余(数, 节气数);
+            return 枚举转换类<节气枚举>.获取枚举(序);
+        }
+        public static string 获取节气名称(int 数)
+        {
+            var 序 = 枚举转换类<节气枚举>.序数取余(数, 节气数);
+            return 枚举转换类<节气枚举>.获取名称(序);
+        }
+
+        #endregion
+
+        #region 查询
         public static 节气枚举 节气查询(DateTime date)
         {
             var 当前节气 = 节气枚举.冬至;
@@ -163,6 +170,23 @@ namespace 阴阳易演.计算类
             }
             return 结果;
         }
+
+        #endregion
+
+        #region 运算
+        // 内部
+        static readonly int[] 节气修正值 =
+        {
+            0, 21208, 42467, 63836,
+            85337,107014, 128867, 150921,
+            173149, 195551,218072, 240693,
+            263343, 285989, 308563,331033,
+            353350, 375494, 397447, 419210,
+            440795, 462224, 483532, 504758
+        };
+        static readonly DateTime 基准时间 = new DateTime(1900, 1, 6, 2, 5, 0);
+        static double 基准偏移分钟(int year, int st) => 525948.76 * (year - 1900) + 节气修正值[st];
+        // 公开
         public static double? 日期转修正儒略日(DateTime date)
         {
             double? res = null;
