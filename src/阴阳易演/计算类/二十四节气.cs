@@ -2,6 +2,9 @@
 
 namespace 阴阳易演.计算类
 {
+    using 具象类.季节;
+    using 抽象类;
+
     public class 二十四节气
     {
         public enum 节气枚举
@@ -29,6 +32,7 @@ namespace 阴阳易演.计算类
         public DateTime 日期 { get; protected set; }
 
         #region 运算
+        // 内部
         static readonly int[] 节气修正值 =
         {
             0, 21208, 42467, 63836,
@@ -40,6 +44,7 @@ namespace 阴阳易演.计算类
         };
         static readonly DateTime 基准时间 = new DateTime(1900, 1, 6, 2, 5, 0);
         static double 基准偏移分钟(int year, int st) => 525948.76 * (year - 1900) + 节气修正值[st];
+        // 公开
         public static 节气枚举 节气查询(DateTime date)
         {
             var 当前节气 = 节气枚举.冬至;
@@ -104,6 +109,59 @@ namespace 阴阳易演.计算类
                 default:
                     throw new ArgumentOutOfRangeException();
             }
+        }
+        public static 季节 季节查询(DateTime 时间)
+        {
+            季节 结果 = null;
+            var 年份 = 时间.Year;
+            var 节气 = 节气枚举.冬至;
+            for (var i = 0; i < 24; i++)
+            {
+                var 节 = (节气枚举)Enum.ToObject(typeof(节气枚举), i);
+                var 时 = 节气查询(年份, 节);
+                if (时.DayOfYear <= 时间.DayOfYear)
+                    节气 = 节;
+                else
+                    break;
+            }
+            switch (节气)
+            {
+                case 节气枚举.小寒:
+                case 节气枚举.大寒:
+                case 节气枚举.清明:
+                case 节气枚举.谷雨:
+                case 节气枚举.小暑:
+                case 节气枚举.大暑:
+                case 节气枚举.寒露:
+                case 节气枚举.霜降:
+                    结果 = 季节.四季;
+                    break;
+                case 节气枚举.立春:
+                case 节气枚举.雨水:
+                case 节气枚举.惊蛰:
+                case 节气枚举.春分:
+                    结果 = 季节.春季;
+                    break;
+                case 节气枚举.立夏:
+                case 节气枚举.小满:
+                case 节气枚举.芒种:
+                case 节气枚举.夏至:
+                    结果 = 季节.夏季;
+                    break;
+                case 节气枚举.立秋:
+                case 节气枚举.处暑:
+                case 节气枚举.白露:
+                case 节气枚举.秋分:
+                    结果 = 季节.秋季;
+                    break;
+                case 节气枚举.立冬:
+                case 节气枚举.小雪:
+                case 节气枚举.大雪:
+                case 节气枚举.冬至:
+                    结果 = 季节.冬季;
+                    break;
+            }
+            return 结果;
         }
         public static double? 日期转修正儒略日(DateTime date)
         {

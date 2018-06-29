@@ -1,11 +1,8 @@
-﻿using System;
-
-namespace 阴阳易演.抽象类
+﻿namespace 阴阳易演.抽象类
 {
     using 具象类.五行;
     using 具象类.季节;
     using 基类;
-    using 计算类;
 
     public abstract class 季节 : 无极
     {
@@ -74,61 +71,6 @@ namespace 阴阳易演.抽象类
                 case 冬季 _ when 行属 is 火:
                 case 四季 _ when 行属 is 水:
                     结果 = "死";
-                    break;
-            }
-            return 结果;
-        }
-        public static 季节 季节判断(DateTime 时间)
-        {
-            季节 结果 = null;
-            var 年份 = 时间.Year;
-            var 节气 = 二十四节气.节气枚举.冬至;
-            for (var i = 0; i < 24; i++)
-            {
-                var 节 = (二十四节气.节气枚举)Enum.ToObject(typeof(二十四节气.节气枚举), i);
-                var 时 = 二十四节气.节气查询(年份, 节);
-                if (时.DayOfYear <= 时间.DayOfYear)
-                    节气 = 节;
-                else
-                    break;
-            }
-            switch (节气)
-            {
-                case 二十四节气.节气枚举.小寒:
-                case 二十四节气.节气枚举.大寒:
-                case 二十四节气.节气枚举.清明:
-                case 二十四节气.节气枚举.谷雨:
-                case 二十四节气.节气枚举.小暑:
-                case 二十四节气.节气枚举.大暑:
-                case 二十四节气.节气枚举.寒露:
-                case 二十四节气.节气枚举.霜降:
-                    结果 = 四季;
-                    break;
-                case 二十四节气.节气枚举.立春:
-                case 二十四节气.节气枚举.雨水:
-                case 二十四节气.节气枚举.惊蛰:
-                case 二十四节气.节气枚举.春分:
-                    结果 = 春季;
-                    break;
-                case 二十四节气.节气枚举.立夏:
-                case 二十四节气.节气枚举.小满:
-                case 二十四节气.节气枚举.芒种:
-                case 二十四节气.节气枚举.夏至:
-                    结果 = 夏季;
-                    break;
-                case 二十四节气.节气枚举.立秋:
-                case 二十四节气.节气枚举.处暑:
-                case 二十四节气.节气枚举.白露:
-                case 二十四节气.节气枚举.秋分:
-                    结果 = 秋季;
-                    break;
-                case 二十四节气.节气枚举.立冬:
-                case 二十四节气.节气枚举.小雪:
-                case 二十四节气.节气枚举.大雪:
-                case 二十四节气.节气枚举.冬至:
-                    结果 = 冬季;
-                    break;
-                default:
                     break;
             }
             return 结果;
