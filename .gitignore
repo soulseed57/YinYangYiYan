@@ -1,9 +1,2 @@
-/src/.vs
-/src/packages
-/src/TestResults
-
-/src/YinYangYiYan.Test/bin
-/src/YinYangYiYan.Test/obj
-
-/src/阴阳易演/bin
 /src/阴阳易演/obj
+/src/阴阳易演/bin
