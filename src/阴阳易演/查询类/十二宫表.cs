@@ -42,50 +42,71 @@ namespace 阴阳易演.查询类
 
         #region 运算
         // 内部
-        static int 起宫序数(地支 支)
+        static bool 地支顺逆(地支 支)
+        {
+            switch (支)
+            {
+                case 子 _:
+                case 丑 _:
+                case 寅 _:
+                case 午 _:
+                case 未 _:
+                case 申 _:
+                    return true;
+                case 卯 _:
+                case 辰 _:
+                case 巳 _:
+                case 酉 _:
+                case 戌 _:
+                case 亥 _:
+                    return false;
+            }
+            throw new Exception("未找到给定的地支");
+        }
+        static int 命寿起支(地支 支)
         {
             switch (支)
             {
                 case 未 _:
-                    return 1;
+                    return 干支表.获取地支序数(地支.丑);
                 case 午 _:
                 case 巳 _:
-                    return 2;
+                    return 干支表.获取地支序数(地支.寅);
                 case 戌 _:
-                    return 4;
+                    return 干支表.获取地支序数(地支.辰);
                 case 申 _:
                 case 酉 _:
-                    return 5;
+                    return 干支表.获取地支序数(地支.巳);
                 case 丑 _:
-                    return 7;
+                    return 干支表.获取地支序数(地支.未);
                 case 子 _:
                 case 亥 _:
-                    return 8;
+                    return 干支表.获取地支序数(地支.申);
                 case 辰 _:
-                    return 10;
+                    return 干支表.获取地支序数(地支.戌);
                 case 寅 _:
                 case 卯 _:
-                    return 11;
+                    return 干支表.获取地支序数(地支.亥);
                 default:
                     throw new Exception($"无法从给定的地支起宫序,当前地支:{支}");
             }
         }
         static 地支[] 排宫支(地支 支)
         {
-            var 顺序 = 支.阴阳 == 两仪.阳;// 阳顺阴逆
+            var 顺序 = 地支顺逆(支);
             var 宫列 = new List<地支>();
-            var 宫序 = 起宫序数(支);
+            var 起支 = 命寿起支(支);
             for (var i = 0; i < 干支表.地支数; i++)
             {
-                var 宫 = 干支表.地支查询(宫序);
+                var 宫 = 干支表.地支查询(起支);
                 宫列.Add(宫);
                 if (顺序)
                 {
-                    宫序++;
+                    起支++;
                 }
                 else
                 {
-                    宫序--;
+                    起支--;
                 }
             }
             return 宫列.ToArray();
