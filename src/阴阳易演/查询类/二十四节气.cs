@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace 阴阳易演.计算类
+namespace 阴阳易演.查询类
 {
     using 容器类;
     using 引用库;

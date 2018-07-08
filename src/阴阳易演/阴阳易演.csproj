@@ -89,6 +89,7 @@
     <Compile Include="引用库\枚举转换类.cs" />
     <Compile Include="引用库\常用方法.cs" />
     <Compile Include="容器类\节气.cs" />
+    <Compile Include="查询类\十二神煞表.cs" />
     <Compile Include="查询类\十二宫表.cs" />
     <Compile Include="抽象类\基类\干支.cs" />
     <Compile Include="抽象类\基类\无极.cs" />
@@ -97,6 +98,7 @@
     <Compile Include="查询类\甲子表.cs" />
     <Compile Include="查询类\二十四节气.cs" />
     <Compile Include="容器类\甲子.cs" />
+    <Compile Include="容器类\神煞.cs" />
     <Compile Include="计算类\河图.cs" />
     <Compile Include="计算类\干支纪年.cs" />
     <Compile Include="抽象类\两仪.cs" />

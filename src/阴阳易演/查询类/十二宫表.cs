@@ -9,7 +9,7 @@ namespace 阴阳易演.查询类
     using 引用库;
     using 抽象类;
 
-    public class 十二宫表
+    public static class 十二宫表
     {
         static 十二宫表()
         {

@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Text;
+using System.Collections.Generic;
 
 namespace 阴阳易演.计算类
 {
-    using System.Collections.Generic;
     using 具象类.天干;
     using 容器类;
     using 引用库;

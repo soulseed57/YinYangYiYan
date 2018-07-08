@@ -2,7 +2,7 @@
 
 namespace 阴阳易演.容器类
 {
-    using 计算类;
+    using 查询类;
 
     public class 节气
     {

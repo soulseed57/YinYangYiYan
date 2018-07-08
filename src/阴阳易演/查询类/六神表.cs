@@ -4,10 +4,10 @@ using System.Collections.Generic;
 namespace 阴阳易演.查询类
 {
     using 具象类.天干;
-    using 引用库;
     using 抽象类;
+    using 引用库;
 
-    public class 六神表
+    public static class 六神表
     {
         static 六神表()
         {
