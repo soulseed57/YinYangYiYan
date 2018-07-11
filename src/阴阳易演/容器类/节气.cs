@@ -2,16 +2,19 @@
 
 namespace 阴阳易演.容器类
 {
-    using 查询类;
+    using static 阴阳易演.查询类.二十四节气;
 
     public class 节气
     {
-        public 节气(int 年份, 二十四节气.节气枚举 节)
+        public 节气(DateTime 时间)
         {
+            var 节 = 节气查询(时间);
             名称 = 节.ToString();
-            日期 = 二十四节气.节气查询(年份, 节);
+            枚举 = 节;
+            交节 = 节气查询(时间.Year, 节);
         }
         public string 名称 { get; protected set; }
-        public DateTime 日期 { get; protected set; }
+        public 节气枚举 枚举 { get; protected set; }
+        public DateTime 交节 { get; protected set; }
     }
 }

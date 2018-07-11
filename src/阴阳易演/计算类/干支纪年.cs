@@ -9,6 +9,7 @@ namespace 阴阳易演.计算类
     using 引用库;
     using 抽象类;
     using 查询类;
+    using static 阴阳易演.查询类.二十四节气;
 
     public class 干支纪年
     {
@@ -21,7 +22,7 @@ namespace 阴阳易演.计算类
             阴历日 = 中国农历类.ChineseDay;
             // 甲子计算
             年柱 = 计算年柱(阴历年);
-            月柱 = 计算月柱(年柱, 阴历月);
+            月柱 = 计算月柱(时间);
             日柱 = 计算日柱(时间);
             var 时支 = 计算时支(时间.Hour);
             时柱 = 计算时柱(日柱.天干, 时支);
@@ -40,40 +41,85 @@ namespace 阴阳易演.计算类
 
         #region 计算
         // 内部
-        static int 获取正月序首(甲子 甲子年)
+        static int 天干序号(天干 干) => 干支表.获取天干序数(干) + 1;
+        static int 地支序号(地支 支) => 干支表.获取地支序数(支) + 1;
+        static 天干 序号查天干(int 序号) => 干支表.天干查询(序号 - 1);
+        static 地支 序号查地支(int 序号) => 干支表.地支查询(序号 - 1);
+        static int 天干相合序号(天干 干)
         {
-            var 序首 = -1;
-            switch (甲子年.天干)
+            switch (干)
             {
                 case 甲 _:
                 case 己 _:
-                    序首 = 干支表.获取天干序数(天干.丙);
-                    break;
+                    return 0;
                 case 乙 _:
                 case 庚 _:
-                    序首 = 干支表.获取天干序数(天干.戊);
-                    break;
+                    return 2;
                 case 丙 _:
                 case 辛 _:
-                    序首 = 干支表.获取天干序数(天干.庚);
-                    break;
+                    return 4;
                 case 丁 _:
                 case 壬 _:
-                    序首 = 干支表.获取天干序数(天干.壬);
-                    break;
+                    return 6;
                 case 戊 _:
                 case 癸 _:
-                    序首 = 干支表.获取天干序数(天干.甲);
-                    break;
+                    return 8;
+                default:
+                    throw new Exception($"[{干}]不是天干");
             }
-            return 序首;
-        }
-        static int 基准天数序数(DateTime 当前时间, DateTime 基准时间, int 求余数)
-        {
-            var span = (当前时间 - 基准时间).Days;
-            return span < 0 ? 求余数 + span % 求余数 : span % 求余数;
         }
         // 公开
+        public static 地支 月支查询(DateTime 时间)
+        {
+            节气枚举 枚 = 节气查询(时间);
+            switch (枚)
+            {
+                case 节气枚举.立春:
+                case 节气枚举.雨水:
+                    return 地支.寅;
+                case 节气枚举.惊蛰:
+                case 节气枚举.春分:
+                    return 地支.卯;
+                case 节气枚举.清明:
+                case 节气枚举.谷雨:
+                    return 地支.辰;
+                case 节气枚举.立夏:
+                case 节气枚举.小满:
+                    return 地支.巳;
+                case 节气枚举.芒种:
+                case 节气枚举.夏至:
+                    return 地支.午;
+                case 节气枚举.小暑:
+                case 节气枚举.大暑:
+                    return 地支.未;
+                case 节气枚举.立秋:
+                case 节气枚举.处暑:
+                    return 地支.申;
+                case 节气枚举.白露:
+                case 节气枚举.秋分:
+                    return 地支.酉;
+                case 节气枚举.寒露:
+                case 节气枚举.霜降:
+                    return 地支.戌;
+                case 节气枚举.立冬:
+                case 节气枚举.小雪:
+                    return 地支.亥;
+                case 节气枚举.大雪:
+                case 节气枚举.冬至:
+                    return 地支.子;
+                case 节气枚举.小寒:
+                case 节气枚举.大寒:
+                    return 地支.丑;
+            }
+            throw new Exception($"节气枚举[{枚}]输入错误");
+        }
+        public static 天干 月干查询(天干 年干, 地支 月支)
+        {
+            var 相合序号 = 天干相合序号(年干);
+            var 月支序号 = 地支序号(月支);
+            var 序号 = (相合序号 + 月支序号) % 10;
+            return 序号查天干(序号);
+        }
         public static 甲子 计算年柱(int 年)
         {
             int 序数;
@@ -96,20 +142,18 @@ namespace 阴阳易演.计算类
                 throw new Exception($"计算年柱失败:{e.Message}\n当前输入[序数:{序数} 年:{年}]");
             }
         }
-        public static 甲子 计算月柱(甲子 年柱, int 月份)
+        public static 甲子 计算月柱(DateTime 时间)
         {
-            // 计算月干
-            var 序首 = 获取正月序首(年柱);
-            var 月干 = 干支表.天干查询(序首 + 月份);
-            // 计算月支
-            var 月支 = 干支表.地支查询(月份 + 2);
-            // 计算月柱
+            var 年干 = 计算年柱(时间.Year).天干;
+            var 月支 = 月支查询(时间);
+            var 月干 = 月干查询(年干, 月支);
             return 干支表.六十甲子(月干, 月支);
         }
         public static 甲子 计算日柱(DateTime 时间)
         {
             var 甲子日 = new DateTime(1904, 1, 31);
-            var 序数 = 基准天数序数(时间, 甲子日, 60);
+            var 天数 = (时间 - 甲子日).Days;
+            var 序数 = 天数 < 0 ? 60 + 天数 % 60 : 天数 % 60;
             try
             {
                 return 甲子表.甲子查询(序数);
