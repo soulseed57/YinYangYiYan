@@ -12,6 +12,14 @@ namespace 阴阳易演.容器类
             天干 = 甲.天干;
             地支 = 甲.地支;
         }
+        public 宫(string 名, 地支 支)
+        {
+            名称 = 名;
+            干支 = null;
+            纳音 = null;
+            天干 = null;
+            地支 = 支;
+        }
         public string 名称 { get; }
         public string 干支 { get; }
         public string 纳音 { get; }

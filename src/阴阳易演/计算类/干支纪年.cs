@@ -9,7 +9,7 @@ namespace 阴阳易演.计算类
     using 引用库;
     using 抽象类;
     using 查询类;
-    using static 阴阳易演.查询类.二十四节气;
+    using static 查询类.二十四节气;
 
     public class 干支纪年
     {
@@ -40,38 +40,10 @@ namespace 阴阳易演.计算类
         public 地支[] 旬空 { get; protected set; }
 
         #region 计算
-        // 内部
-        static int 天干序号(天干 干) => 干支表.获取天干序数(干) + 1;
-        static int 地支序号(地支 支) => 干支表.获取地支序数(支) + 1;
-        static 天干 序号查天干(int 序号) => 干支表.天干查询(序号 - 1);
-        static 地支 序号查地支(int 序号) => 干支表.地支查询(序号 - 1);
-        static int 天干相合序号(天干 干)
-        {
-            switch (干)
-            {
-                case 甲 _:
-                case 己 _:
-                    return 0;
-                case 乙 _:
-                case 庚 _:
-                    return 2;
-                case 丙 _:
-                case 辛 _:
-                    return 4;
-                case 丁 _:
-                case 壬 _:
-                    return 6;
-                case 戊 _:
-                case 癸 _:
-                    return 8;
-                default:
-                    throw new Exception($"[{干}]不是天干");
-            }
-        }
         // 公开
         public static 地支 月支查询(DateTime 时间)
         {
-            节气枚举 枚 = 节气查询(时间);
+            var 枚 = 节气查询(时间);
             switch (枚)
             {
                 case 节气枚举.立春:
@@ -113,12 +85,9 @@ namespace 阴阳易演.计算类
             }
             throw new Exception($"节气枚举[{枚}]输入错误");
         }
-        public static 天干 月干查询(天干 年干, 地支 月支)
+        public static 天干 月干查询(天干 干, 地支 支)
         {
-            var 相合序号 = 天干相合序号(年干);
-            var 月支序号 = 地支序号(月支);
-            var 序号 = (相合序号 + 月支序号) % 10;
-            return 序号查天干(序号);
+            return 干支表.五鼠遁(干, 支);
         }
         public static 甲子 计算年柱(int 年)
         {

@@ -184,7 +184,7 @@ namespace 阴阳易演.查询类
         #region 运算
         public static string 十二长生(天干 干, 地支 支)
         {
-            var 结果 = string.Empty;
+            var 结果 = String.Empty;
             switch (干)
             {
                 case 甲木 _ when 支 is 亥:
@@ -389,5 +389,74 @@ namespace 阴阳易演.查询类
 
         #endregion
 
+        #region 起遁
+        public static 天干 五鼠遁(天干 干, 地支 支)
+        {
+            天干 起;
+            switch (干)
+            {
+                case 甲 _:
+                case 己 _:
+                    起 = 天干.甲;// 甲己合化土，甲木克之
+                    break;
+                case 乙 _:
+                case 庚 _:
+                    起 = 天干.丙;// 乙庚合化金，丙火克之
+                    break;
+                case 丙 _:
+                case 辛 _:
+                    起 = 天干.戊;// 丙辛合化水，戊土克之
+                    break;
+                case 丁 _:
+                case 壬 _:
+                    起 = 天干.庚;// 丁壬合化木，庚金克之
+                    break;
+                case 戊 _:
+                case 癸 _:
+                    起 = 天干.壬;// 戊癸合化火，壬水克之
+                    break;
+                default:
+                    throw new Exception($"起遁失败,当前给定天干错误[{干}]");
+            }
+            var 序首 = 获取天干序数(起);
+            var 偏移 = 获取地支序数(支);
+            var 干序 = (序首 + 偏移) % 10;
+            return 天干查询(干序);
+        }
+        public static 天干 五虎遁(天干 干, 地支 支)
+        {
+            天干 起;
+            switch (干)
+            {
+                case 甲 _:
+                case 己 _:
+                    起 = 天干.丙;// 甲己合化土，丙火生之
+                    break;
+                case 乙 _:
+                case 庚 _:
+                    起 = 天干.戊;// 乙庚合化金，戊土生之
+                    break;
+                case 丙 _:
+                case 辛 _:
+                    起 = 天干.庚;// 丙辛合化水，庚金生之
+                    break;
+                case 丁 _:
+                case 壬 _:
+                    起 = 天干.壬;// 丁壬合化木，壬水生之
+                    break;
+                case 戊 _:
+                case 癸 _:
+                    起 = 天干.甲;// 戊癸合化火，甲木生之
+                    break;
+                default:
+                    throw new Exception($"起遁失败,当前给定天干错误[{干}]");
+            }
+            var 序首 = 获取天干序数(起);
+            var 偏移 = 获取地支序数(支);
+            var 干序 = (序首 + 偏移) % 10;
+            return 天干查询(干序);
+        }
+
+        #endregion
     }
 }
