@@ -39,7 +39,7 @@
         public int 成数 { get; protected set; }
         public string 先天位 { get; protected set; }
         public string 后天位 { get; protected set; }
-        public byte 卦值 { get; protected set; }
+        public byte 先天卦值 { get; protected set; }
 
         #endregion
 
