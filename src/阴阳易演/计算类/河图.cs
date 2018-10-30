@@ -14,7 +14,7 @@ namespace 阴阳易演.计算类
 
         public 河图(int 原数)
         {
-            河图数 = 太极.河洛数(原数);
+            河图数 = 河洛数(原数);
             switch (河图数)
             {
                 //1 6为水，1数为阳水，6数为阴水，故1可配子，6可配亥；
@@ -75,6 +75,12 @@ namespace 阴阳易演.计算类
                 default:
                     throw new Exception($"数值错误,当前给定数值{原数}不正确");
             }
+        }
+
+        public static int 河洛数(int 原数)
+        {
+            var 算数 = Math.Abs(原数) % 10;
+            return 算数 == 0 ? 10 : 算数;
         }
 
     }

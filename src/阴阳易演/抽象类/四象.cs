@@ -1,5 +1,4 @@
 ﻿using System.Drawing;
-using System.Text;
 
 namespace 阴阳易演.抽象类
 {
@@ -19,9 +18,6 @@ namespace 阴阳易演.抽象类
             太阴 = new 太阴();
         }
 
-        //动态
-        protected 两仪[] 仪属 { get; set; }
-
         #endregion
 
         #region 公开
@@ -36,18 +32,7 @@ namespace 阴阳易演.抽象类
         public string 神兽 { get; protected set; }
         public 季节 四季 { get; protected set; }
         public Color 颜色 { get; protected set; }
-        public StringBuilder 爻
-        {
-            get
-            {
-                var 临爻 = new StringBuilder();
-                foreach (var 仪 in 仪属)
-                {
-                    临爻.AppendLine(仪.爻);
-                }
-                return 临爻;
-            }
-        }
+        public byte 卦值 { get; protected set; }
 
         #endregion
 

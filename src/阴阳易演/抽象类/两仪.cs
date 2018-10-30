@@ -20,7 +20,7 @@
         public static 阴 阴 { get; }
         public static 阳 阳 { get; }
         //动态
-        public char 值 { get; protected set; }
+        public byte 值 { get; protected set; }
         public string 爻 { get; protected set; }
 
         #endregion
