@@ -35,10 +35,10 @@
         public static 艮 艮 { get; }
         public static 坤 坤 { get; }
         //动态
-        public int 先天数 { get; protected set; }
-        public int 后天数 { get; protected set; }
-        public string 先天位 { get; protected set; }
-        public string 后天位 { get; protected set; }
+        public int 先天卦序 { get; protected set; }
+        public int 后天卦序 { get; protected set; }
+        public string 先天方位 { get; protected set; }
+        public string 后天方位 { get; protected set; }
         public byte 卦值 { get; protected set; }
 
         #endregion
@@ -60,12 +60,12 @@
         }
 
         /// <summary>
-        /// 还原卦序计算,将二进制数还原为卦序,注意卦序的低位在左而二进制的低位在右所以卦序与二进制位序相反,默认爻数为3,可根据需要自行设置
+        /// 还原卦值计算,将二进制数还原为卦序,注意卦序的低位在左而二进制的低位在右所以卦序与二进制位序相反,默认爻数为3,可根据需要自行设置
         /// </summary>
         /// <param name="卦值"></param>
         /// <param name="爻数"></param>
         /// <returns></returns>
-        public static string 还原卦序(byte 卦值, int 爻数 = 3)
+        public static string 还原卦值(byte 卦值, int 爻数 = 3)
         {
             var charArray = "".PadLeft(爻数, '0').ToCharArray();
             var convArray = Convert.ToString(卦值, 2).ToCharArray();
