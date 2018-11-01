@@ -35,8 +35,8 @@
         public static 艮 艮 { get; }
         public static 坤 坤 { get; }
         //动态
-        public int 生数 { get; protected set; }
-        public int 成数 { get; protected set; }
+        public int 先天数 { get; protected set; }
+        public int 后天数 { get; protected set; }
         public string 先天位 { get; protected set; }
         public string 后天位 { get; protected set; }
         public byte 卦值 { get; protected set; }
