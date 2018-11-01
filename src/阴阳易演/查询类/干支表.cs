@@ -345,50 +345,6 @@ namespace 阴阳易演.查询类
 
         #endregion
 
-        #region 天干阴阳
-        /* ----- 天干表 ----- */
-        public static 天干[] 天干表 => new 天干[] { 阳干.甲木, 阳干.丙火, 阳干.戊土, 阳干.庚金, 阳干.壬水, 阴干.乙木, 阴干.丁火, 阴干.己土, 阴干.辛金, 阴干.癸水 };
-        public static 天干[] 阳干表 => new 天干[] { 阳干.甲木, 阳干.丙火, 阳干.戊土, 阳干.庚金, 阳干.壬水 };
-        public static 天干[] 阴干表 => new 天干[] { 阴干.乙木, 阴干.丁火, 阴干.己土, 阴干.辛金, 阴干.癸水 };
-
-        /* ----- 地支表 ----- */
-        public static 地支[] 地支表 => new 地支[] { 地支.子, 地支.丑, 地支.寅, 地支.卯, 地支.辰, 地支.巳, 地支.午, 地支.未, 地支.申, 地支.酉, 地支.戌, 地支.亥 };
-
-        public static class 阳干
-        {
-            static 阳干()
-            {
-                甲木 = new 甲木();
-                丙火 = new 丙火();
-                戊土 = new 戊土();
-                庚金 = new 庚金();
-                壬水 = new 壬水();
-            }
-            public static 甲木 甲木 { get; }
-            public static 丙火 丙火 { get; }
-            public static 戊土 戊土 { get; }
-            public static 庚金 庚金 { get; }
-            public static 壬水 壬水 { get; }
-        }
-        public static class 阴干
-        {
-            static 阴干()
-            {
-                乙木 = new 乙木();
-                丁火 = new 丁火();
-                己土 = new 己土();
-                辛金 = new 辛金();
-                癸水 = new 癸水();
-            }
-            public static 乙木 乙木 { get; }
-            public static 丁火 丁火 { get; }
-            public static 己土 己土 { get; }
-            public static 辛金 辛金 { get; }
-            public static 癸水 癸水 { get; }
-        }
-
-        #endregion
-
         #region 起遁
         public static 天干 五鼠遁(天干 干, 地支 支)
         {

@@ -1,11 +1,12 @@
-﻿namespace 阴阳易演.抽象类
+﻿using System.Collections.Generic;
+
+namespace 阴阳易演.抽象类
 {
     using 具象类.地支;
     using 基类;
 
     public abstract class 地支 : 干支
     {
-        
         #region 内部
         //静态
         static 地支()
@@ -42,6 +43,15 @@
         public static 亥 亥 { get; }
         //动态
         public string 生肖 { get; protected set; }
+
+        #endregion
+
+        #region 计算
+        public static 地支[] 阴阳配五行(两仪 仪, 五行 行)
+        {
+            var 列 = new List<地支> { 子, 丑, 寅, 卯, 辰, 巳, 午, 未, 申, 酉, 戌, 亥 };
+            return 列.FindAll(t => t.阴阳 == 仪 && t.五行 == 行).ToArray();
+        }
 
         #endregion
 

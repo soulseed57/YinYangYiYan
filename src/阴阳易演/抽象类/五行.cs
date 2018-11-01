@@ -33,8 +33,6 @@ namespace 阴阳易演.抽象类
         public string 神兽 { get; protected set; }
         public 季节 四季 { get; protected set; }
         public Color 颜色 { get; protected set; }
-        public 天干 阳干 { get; protected set; }
-        public 天干 阴干 { get; protected set; }
 
         #endregion
 

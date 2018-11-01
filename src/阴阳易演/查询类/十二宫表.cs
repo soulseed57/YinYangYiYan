@@ -123,11 +123,11 @@ namespace 阴阳易演.查询类
         // 公开
         public static 宫[] 起十二宫(天干 干, 地支 支)
         {
-            var 宫集 = 排宫支(支);
+            var 宫组 = 排宫支(支);
             var 宫位 = new 宫[12];
-            for (var i = 0; i < 宫集.Length; i++)
+            for (var i = 0; i < 宫组.Length; i++)
             {
-                var 宫支 = 宫集[i];
+                var 宫支 = 宫组[i];
                 var 宫干 = 干支表.五鼠遁(干, 宫支);
                 var 甲子 = new 甲子(宫干, 宫支);
                 宫位[i] = new 宫(获取十二宫名称(i), 甲子);
@@ -136,11 +136,11 @@ namespace 阴阳易演.查询类
         }
         public static 宫[] 起十二宫(地支 支)
         {
-            var 宫集 = 排宫支(支);
+            var 宫组 = 排宫支(支);
             var 宫位 = new 宫[12];
-            for (var i = 0; i < 宫集.Length; i++)
+            for (var i = 0; i < 宫组.Length; i++)
             {
-                var 宫支 = 宫集[i];
+                var 宫支 = 宫组[i];
                 宫位[i] = new 宫(获取十二宫名称(i), 宫支);
             }
             return 宫位;

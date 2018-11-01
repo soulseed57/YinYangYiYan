@@ -117,6 +117,8 @@
     <Compile Include="具象类\六神\白虎.cs" />
     <Compile Include="具象类\六神\青龙.cs" />
     <Compile Include="查询类\纳音表.cs" />
+    <Compile Include="抽象类\河图洛书.cs" />
+    <Compile Include="计算类\洛书.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

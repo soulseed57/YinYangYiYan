@@ -1,11 +1,12 @@
-﻿namespace 阴阳易演.抽象类
+﻿using System.Collections.Generic;
+
+namespace 阴阳易演.抽象类
 {
     using 具象类.天干;
     using 基类;
 
     public abstract class 天干 : 干支
     {
-
         #region 内部
         //静态
         static 天干()
@@ -37,6 +38,15 @@
         public static 壬 壬 { get; }
         public static 癸 癸 { get; }
         //动态
+
+        #endregion
+
+        #region 计算
+        public static 天干[] 阴阳配五行(两仪 仪, 五行 行)
+        {
+            var 列 = new List<天干> { 甲, 乙, 丙, 丁, 戊, 己, 庚, 辛, 壬, 癸 };
+            return 列.FindAll(t => t.阴阳 == 仪 && t.五行 == 行).ToArray();
+        }
 
         #endregion
 
