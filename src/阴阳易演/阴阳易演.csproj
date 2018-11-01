@@ -99,7 +99,7 @@
     <Compile Include="查询类\二十四节气.cs" />
     <Compile Include="容器类\甲子.cs" />
     <Compile Include="容器类\神煞.cs" />
-    <Compile Include="计算类\河图.cs" />
+    <Compile Include="容器类\河图.cs" />
     <Compile Include="计算类\干支纪年.cs" />
     <Compile Include="抽象类\两仪.cs" />
     <Compile Include="抽象类\五行.cs" />
@@ -118,7 +118,7 @@
     <Compile Include="具象类\六神\青龙.cs" />
     <Compile Include="查询类\纳音表.cs" />
     <Compile Include="抽象类\河图洛书.cs" />
-    <Compile Include="计算类\洛书.cs" />
+    <Compile Include="容器类\洛书.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
