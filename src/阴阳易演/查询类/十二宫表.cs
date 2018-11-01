@@ -4,7 +4,6 @@ using System.Collections.Generic;
 namespace 阴阳易演.查询类
 {
     using 具象类.地支;
-    using 具象类.天干;
     using 容器类;
     using 引用库;
     using 抽象类;
