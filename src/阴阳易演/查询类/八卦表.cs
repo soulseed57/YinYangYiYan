@@ -40,6 +40,11 @@ namespace 阴阳易演.查询类
             var 序 = 枚举转换类<八卦枚举>.序数取余(数, 八卦数);
             return 枚举转换类<八卦枚举>.获取名称(序);
         }
+        public static 八卦 获取八卦实例(int 数)
+        {
+            var 名 = 获取八卦名称(数);
+            return 八卦列表.Find(t => t.名称 == 名);
+        }
 
         #endregion
 

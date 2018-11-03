@@ -6,8 +6,7 @@ namespace 阴阳易演.查询类
 
     public static class 纳音表
     {
-        /* ----- 纳音 ----- */
-        static readonly Dictionary<string, string> 六十甲子纳音表 = new Dictionary<string, string>
+        public static readonly Dictionary<string, string> 六十甲子纳音表 = new Dictionary<string, string>
         {
             {"甲子", "海中金"}, {"乙丑", "海中金"},
             {"丙寅", "炉中火"}, {"丁卯", "炉中火"},
@@ -45,6 +44,8 @@ namespace 阴阳易演.查询类
             {"庚申", "石榴木"}, {"辛酉", "石榴木"},
             {"壬戌", "大海水"}, {"癸亥", "大海水"}
         };
+
+        #region 查询
         public static string 甲子纳音查询(string 甲子名称)
         {
             六十甲子纳音表.TryGetValue(甲子名称, out var 结果);
@@ -54,5 +55,8 @@ namespace 阴阳易演.查询类
             }
             return 结果;
         }
+
+        #endregion
+
     }
 }
