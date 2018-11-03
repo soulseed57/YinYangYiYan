@@ -23,25 +23,19 @@
 
         public static T[] 顺逆排序<T>(bool isOrder, T[] array)
         {
+            if (isOrder) return array;
             var list = new List<T>();
             var len = array.Length;
             for (var i = 0; i < len; i++)
             {
                 int index;
-                if (isOrder)
+                if (i == 0)
                 {
                     index = i;
                 }
                 else
                 {
-                    if (i == 0)
-                    {
-                        index = i;
-                    }
-                    else
-                    {
-                        index = len - i;
-                    }
+                    index = len - i;
                 }
                 list.Add(array[index]);
             }
