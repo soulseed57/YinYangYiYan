@@ -42,5 +42,21 @@
             return list.ToArray();
         }
 
+        public static T[] 指定首位<T>(T[] array, int index)
+        {
+            // 处理索引
+            if (index == 0) return array;
+            index = index % array.Length;
+            index = index < 0 ? array.Length + index : index;
+            // 出队入队
+            var queue = new Queue<T>(array);
+            for (var i = 0; i < index; i++)
+            {
+                var item = queue.Dequeue();
+                queue.Enqueue(item);
+            }
+            return queue.ToArray();
+        }
+
     }
 }
