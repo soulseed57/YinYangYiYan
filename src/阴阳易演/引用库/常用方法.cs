@@ -9,15 +9,15 @@
             return obj?.GetType().Name;
         }
 
-        public static void 顺逆插入<T>(bool isOrder, List<T> list, T obj)
+        public static void 顺逆插入<T>(bool isOrder, List<T> list, T item)
         {
             if (isOrder)
             {
-                list.Add(obj);
+                list.Add(item);
             }
             else
             {
-                list.Insert(0, obj);
+                list.Insert(0, item);
             }
         }
     }
