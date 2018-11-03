@@ -7,8 +7,7 @@ namespace 阴阳易演.抽象类
 
     public abstract class 地支 : 干支
     {
-        #region 内部
-        //静态
+        #region 天清
         static 地支()
         {
             子 = new 子();
@@ -27,8 +26,8 @@ namespace 阴阳易演.抽象类
 
         #endregion
 
-        #region 公开
-        //静态
+        #region 地浊
+        //阴静
         public static 子 子 { get; }
         public static 丑 丑 { get; }
         public static 寅 寅 { get; }
@@ -41,12 +40,12 @@ namespace 阴阳易演.抽象类
         public static 酉 酉 { get; }
         public static 戌 戌 { get; }
         public static 亥 亥 { get; }
-        //动态
+        //阳动
         public string 生肖 { get; protected set; }
 
         #endregion
 
-        #region 计算
+        #region 运算
         public static 地支[] 阴阳配五行(两仪 仪, 五行 行)
         {
             var 列 = new List<地支> { 子, 丑, 寅, 卯, 辰, 巳, 午, 未, 申, 酉, 戌, 亥 };

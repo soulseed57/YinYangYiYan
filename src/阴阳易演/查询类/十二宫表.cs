@@ -40,7 +40,7 @@ namespace 阴阳易演.查询类
         #endregion
 
         #region 运算
-        // 内部
+        //内部
         static bool 地支顺逆(地支 支)
         {
             switch (支)
@@ -120,7 +120,7 @@ namespace 阴阳易演.查询类
             }
             return 宫列.ToArray();
         }
-        // 公开
+        //公开
         public static 宫[] 起十二宫(天干 干, 地支 支)
         {
             var 宫组 = 排宫支(支);

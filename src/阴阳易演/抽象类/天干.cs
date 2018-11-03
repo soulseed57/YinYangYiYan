@@ -7,8 +7,7 @@ namespace 阴阳易演.抽象类
 
     public abstract class 天干 : 干支
     {
-        #region 内部
-        //静态
+        #region 天清
         static 天干()
         {
             甲 = new 甲();
@@ -25,8 +24,7 @@ namespace 阴阳易演.抽象类
 
         #endregion
 
-        #region 公开
-        //静态
+        #region 地浊
         public static 甲 甲 { get; }
         public static 乙 乙 { get; }
         public static 丙 丙 { get; }
@@ -37,11 +35,10 @@ namespace 阴阳易演.抽象类
         public static 辛 辛 { get; }
         public static 壬 壬 { get; }
         public static 癸 癸 { get; }
-        //动态
 
         #endregion
 
-        #region 计算
+        #region 运算
         public static 天干[] 阴阳配五行(两仪 仪, 五行 行)
         {
             var 列 = new List<天干> { 甲, 乙, 丙, 丁, 戊, 己, 庚, 辛, 壬, 癸 };

@@ -2,12 +2,12 @@ namespace 阴阳易演.引用库
 {
     using System;
 
-    /// <summary>
-    /// 中国农历类 版本V1.0 支持 1900.1.31日起至 2049.12.31日止的数据
-    /// </summary>
-    /// <remarks>
-    /// 本程序使用数据来源于网上的万年历查询，并综合了一些其它数据
-    /// </remarks>
+    ///<summary>
+    ///中国农历类 版本V1.0 支持 1900.1.31日起至 2049.12.31日止的数据
+    ///</summary>
+    ///<remarks>
+    ///本程序使用数据来源于网上的万年历查询，并综合了一些其它数据
+    ///</remarks>
     public class ChineseCalendar
     {
         #region 内部结构
@@ -93,14 +93,14 @@ namespace 阴阳易演.引用库
 
         #region _阴历数据
 
-        /// <summary>
-        /// 来源于网上的农历数据
-        /// </summary>
-        /// <remarks>
-        /// 数据结构如下，共使用17位数据
-        /// 第17位：表示闰月天数，0表示29天   1表示30天
-        /// 第16位-第5位（共12位）表示12个月，其中第16位表示第一月，如果该月为30天则为1，29天为0
-        /// 第4位-第1位（共4位）表示闰月是哪个月，如果当年没有闰月，则置0
+        ///<summary>
+        ///来源于网上的农历数据
+        ///</summary>
+        ///<remarks>
+        ///数据结构如下，共使用17位数据
+        ///第17位：表示闰月天数，0表示29天   1表示30天
+        ///第16位-第5位（共12位）表示12个月，其中第16位表示第一月，如果该月为30天则为1，29天为0
+        ///第4位-第1位（共4位）表示闰月是哪个月，如果当年没有闰月，则置0
         ///</remarks>
         static readonly int[] _lunarDateArray = {
             0x04BD8,0x04AE0,0x0A570,0x054D5,0x0D260,0x0D950,0x16554,0x056A0,0x09AD0,0x055D2,
@@ -150,7 +150,7 @@ namespace 阴阳易演.引用库
         #region _二十八星宿
 
         static readonly string[] _chineseConstellationName = {
-            // 四       五       六       日       一       二       三
+            //四       五       六       日       一       二       三
             "角木蛟","亢金龙","女土蝠","房日兔","心月狐","尾火虎","箕水豹",
             "斗木獬","牛金牛","氐土貉","虚日鼠","危月燕","室火猪","壁水獝",
             "奎木狼","娄金狗","胃土彘","昴日鸡","毕月乌","觜火猴","参水猿",
@@ -203,9 +203,9 @@ namespace 阴阳易演.引用库
         static readonly string _nStr1 = "日一二三四五六七八九";
         static readonly string _nStr2 = "初十廿卅";
         static readonly string[] _monthString = { "出错", "正月", "二月", "三月", "四月", "五月", "六月", "七月", "八月", "九月", "十月", "十一月", "腊月" };
-        /// <summary>
-        /// 甲子纪年
-        /// </summary>
+        ///<summary>
+        ///甲子纪年
+        ///</summary>
         public static string[] JiaZhi = {
             "甲子", "乙丑", "丙寅", "丁卯", "戊辰", "己巳", "庚午", "辛未", "壬申", "癸酉",
             "甲戊", "乙亥", "丙子", "丁丑", "戊寅", "己卯", "庚辰", "辛巳", "壬午", "癸未",
@@ -219,9 +219,9 @@ namespace 阴阳易演.引用库
 
         #region _按公历计算的节日
 
-        /// <summary>
-        /// 按公历计算的节日
-        /// </summary>
+        ///<summary>
+        ///按公历计算的节日
+        ///</summary>
         static readonly SolarHolidayStruct[] _sHolidayInfo = {
             new SolarHolidayStruct(1, 1, 1, "元旦"),
             new SolarHolidayStruct(2, 2, 0, "世界湿地日"),
@@ -280,9 +280,9 @@ namespace 阴阳易演.引用库
 
         #region _按农历计算的节日
 
-        /// <summary>
-        /// 按农历计算的节日
-        /// </summary>
+        ///<summary>
+        ///按农历计算的节日
+        ///</summary>
         static readonly LunarHolidayStruct[] _lHolidayInfo = {
             new LunarHolidayStruct(1, 1, 1, "春节"),
             new LunarHolidayStruct(1, 15, 0, "元宵节"),
@@ -301,9 +301,9 @@ namespace 阴阳易演.引用库
 
         #region _按某月第几个星期几的节日
 
-        /// <summary>
-        /// 按某月第几个星期几的节日
-        /// </summary>
+        ///<summary>
+        ///按某月第几个星期几的节日
+        ///</summary>
         static readonly WeekHolidayStruct[] _wHolidayInfo = {
             new WeekHolidayStruct(5, 2, 1, "母亲节"),
             new WeekHolidayStruct(5, 3, 1, "全国助残日"),
@@ -321,10 +321,10 @@ namespace 阴阳易演.引用库
 
         #region 构造函数
 
-        /// <summary>
-        /// 用一个标准的公历日期来初使化
-        /// </summary>
-        /// <param name="dt"></param>
+        ///<summary>
+        ///用一个标准的公历日期来初使化
+        ///</summary>
+        ///<param name="dt"></param>
         public ChineseCalendar(DateTime dt)
         {
             CheckDateLimit(dt);
@@ -375,13 +375,13 @@ namespace 阴阳易演.引用库
             _cDay = offset;
         }
 
-        /// <summary>
-        /// 用农历的日期来初使化
-        /// </summary>
-        /// <param name="cy">农历年</param>
-        /// <param name="cm">农历月</param>
-        /// <param name="cd">农历日</param>
-        /// <param name="LeapFlag">闰月标志</param>
+        ///<summary>
+        ///用农历的日期来初使化
+        ///</summary>
+        ///<param name="cy">农历年</param>
+        ///<param name="cm">农历月</param>
+        ///<param name="cd">农历日</param>
+        ///<param name="LeapFlag">闰月标志</param>
         public ChineseCalendar(int cy, int cm, int cd, bool leapMonthFlag)
         {
             CheckChineseDateLimit(cy, cm, cd, leapMonthFlag);
@@ -467,32 +467,32 @@ namespace 阴阳易演.引用库
 
         #region 私有函数
 
-        /// <summary>
-        /// 传回农历 y年m月的总天数
-        /// </summary>
-        /// <param name="year"></param>
-        /// <param name="month"></param>
-        /// <returns></returns>
+        ///<summary>
+        ///传回农历 y年m月的总天数
+        ///</summary>
+        ///<param name="year"></param>
+        ///<param name="month"></param>
+        ///<returns></returns>
         int GetChineseMonthDays(int year, int month)
         {
             return BitTest32((_lunarDateArray[year - MinYear] & 0x0000FFFF), (16 - month)) ? 30 : 29;
         }
 
-        /// <summary>
-        /// 传回农历 y年闰哪个月 1-12 , 没闰传回 0
-        /// </summary>
-        /// <param name="year"></param>
-        /// <returns></returns>
+        ///<summary>
+        ///传回农历 y年闰哪个月 1-12 , 没闰传回 0
+        ///</summary>
+        ///<param name="year"></param>
+        ///<returns></returns>
         int GetChineseLeapMonth(int year)
         {
             return _lunarDateArray[year - MinYear] & 0xF;
         }
 
-        /// <summary>
-        /// 传回农历 y年闰月的天数
-        /// </summary>
-        /// <param name="year"></param>
-        /// <returns></returns>
+        ///<summary>
+        ///传回农历 y年闰月的天数
+        ///</summary>
+        ///<param name="year"></param>
+        ///<returns></returns>
         int GetChineseLeapMonthDays(int year)
         {
             if (GetChineseLeapMonth(year) != 0)
@@ -502,11 +502,11 @@ namespace 阴阳易演.引用库
             return 0;
         }
 
-        /// <summary>
-        /// 取农历年一年的天数
-        /// </summary>
-        /// <param name="year"></param>
-        /// <returns></returns>
+        ///<summary>
+        ///取农历年一年的天数
+        ///</summary>
+        ///<param name="year"></param>
+        ///<returns></returns>
         int GetChineseYearDays(int year)
         {
             int i, f, sumDay, info;
@@ -530,12 +530,12 @@ namespace 阴阳易演.引用库
             return sumDay + GetChineseLeapMonthDays(year);
         }
 
-        /// <summary>
-        /// 获得当前时间的时辰
-        /// </summary>
-        /// <param name="time"></param>
-        /// <returns></returns>
-        /// 
+        ///<summary>
+        ///获得当前时间的时辰
+        ///</summary>
+        ///<param name="time"></param>
+        ///<returns></returns>
+        ///
         string GetChineseHour(DateTime dt)
         {
             //计算时辰的地支
@@ -558,10 +558,10 @@ namespace 阴阳易演.引用库
             return tmpGan[offset] + _zhiStr[offset].ToString();
         }
 
-        /// <summary>
-        /// 检查公历日期是否符合要求
-        /// </summary>
-        /// <param name="dt"></param>
+        ///<summary>
+        ///检查公历日期是否符合要求
+        ///</summary>
+        ///<param name="dt"></param>
         void CheckDateLimit(DateTime dt)
         {
             if ((dt < _minDay) || (dt > _maxDay))
@@ -570,13 +570,13 @@ namespace 阴阳易演.引用库
             }
         }
 
-        /// <summary>
-        /// 检查农历日期是否合理
-        /// </summary>
-        /// <param name="year"></param>
-        /// <param name="month"></param>
-        /// <param name="day"></param>
-        /// <param name="leapMonth"></param>
+        ///<summary>
+        ///检查农历日期是否合理
+        ///</summary>
+        ///<param name="year"></param>
+        ///<param name="month"></param>
+        ///<param name="day"></param>
+        ///<param name="leapMonth"></param>
         void CheckChineseDateLimit(int year, int month, int day, bool leapMonth)
         {
             if ((year < MinYear) || (year > MaxYear))
@@ -591,7 +591,7 @@ namespace 阴阳易演.引用库
             {
                 throw new Exception("非法农历日期");
             }
-            var leap = GetChineseLeapMonth(year);// 计算该年应该闰哪个月
+            var leap = GetChineseLeapMonth(year);//计算该年应该闰哪个月
             if (leapMonth && (month != leap))
             {
                 throw new Exception("非法农历日期");
@@ -599,11 +599,11 @@ namespace 阴阳易演.引用库
 
         }
 
-        /// <summary>
-        /// 将0-9转成汉字形式
-        /// </summary>
-        /// <param name="n"></param>
-        /// <returns></returns>
+        ///<summary>
+        ///将0-9转成汉字形式
+        ///</summary>
+        ///<param name="n"></param>
+        ///<returns></returns>
         string ConvertNumToChineseNum(char n)
         {
             if ((n < '0') || (n > '9')) return "";
@@ -634,12 +634,12 @@ namespace 阴阳易演.引用库
             }
         }
 
-        /// <summary>
-        /// 测试某位是否为真
-        /// </summary>
-        /// <param name="num"></param>
-        /// <param name="bitpostion"></param>
-        /// <returns></returns>
+        ///<summary>
+        ///测试某位是否为真
+        ///</summary>
+        ///<param name="num"></param>
+        ///<param name="bitpostion"></param>
+        ///<returns></returns>
         bool BitTest32(int num, int bitpostion)
         {
 
@@ -661,11 +661,11 @@ namespace 阴阳易演.引用库
             }
         }
 
-        /// <summary>
-        /// 将星期几转成数字表示
-        /// </summary>
-        /// <param name="dayOfWeek"></param>
-        /// <returns></returns>
+        ///<summary>
+        ///将星期几转成数字表示
+        ///</summary>
+        ///<param name="dayOfWeek"></param>
+        ///<returns></returns>
         int ConvertDayOfWeek(DayOfWeek dayOfWeek)
         {
             switch (dayOfWeek)
@@ -689,14 +689,14 @@ namespace 阴阳易演.引用库
             }
         }
 
-        /// <summary>
-        /// 比较当天是不是指定的第周几
-        /// </summary>
-        /// <param name="date"></param>
-        /// <param name="month"></param>
-        /// <param name="week"></param>
-        /// <param name="day"></param>
-        /// <returns></returns>
+        ///<summary>
+        ///比较当天是不是指定的第周几
+        ///</summary>
+        ///<param name="date"></param>
+        ///<param name="month"></param>
+        ///<param name="week"></param>
+        ///<param name="day"></param>
+        ///<returns></returns>
         bool CompareWeekDayHoliday(DateTime date, int month, int week, int day)
         {
             var ret = false;
@@ -738,9 +738,9 @@ namespace 阴阳易演.引用库
 
         #region _节日
 
-        /// <summary>
-        /// 计算中国农历节日
-        /// </summary>
+        ///<summary>
+        ///计算中国农历节日
+        ///</summary>
         public string ChineseCalendarHoliday
         {
             get
@@ -776,9 +776,9 @@ namespace 阴阳易演.引用库
             }
         }
 
-        /// <summary>
-        /// 按某月第几周第几日计算的节日
-        /// </summary>
+        ///<summary>
+        ///按某月第几周第几日计算的节日
+        ///</summary>
         public string WeekDayHoliday
         {
             get
@@ -796,9 +796,9 @@ namespace 阴阳易演.引用库
             }
         }
 
-        /// <summary>
-        /// 按公历日计算的节日
-        /// </summary>
+        ///<summary>
+        ///按公历日计算的节日
+        ///</summary>
         public string DateHoliday
         {
             get
@@ -822,26 +822,26 @@ namespace 阴阳易演.引用库
 
         #region _公历日期
 
-        /// <summary>
-        /// 取对应的公历日期
-        /// </summary>
+        ///<summary>
+        ///取对应的公历日期
+        ///</summary>
         public DateTime Date
         {
             get { return _date; }
             set { _date = value; }
         }
 
-        /// <summary>
-        /// 取星期几
-        /// </summary>
+        ///<summary>
+        ///取星期几
+        ///</summary>
         public DayOfWeek WeekDay
         {
             get { return _date.DayOfWeek; }
         }
 
-        /// <summary>
-        /// 周几的字符
-        /// </summary>
+        ///<summary>
+        ///周几的字符
+        ///</summary>
         public string WeekDayStr
         {
             get
@@ -868,9 +868,9 @@ namespace 阴阳易演.引用库
             }
         }
 
-        /// <summary>
-        /// 公历日期中文表示法 如一九九七年七月一日
-        /// </summary>
+        ///<summary>
+        ///公历日期中文表示法 如一九九七年七月一日
+        ///</summary>
         public string DateString
         {
             get
@@ -879,9 +879,9 @@ namespace 阴阳易演.引用库
             }
         }
 
-        /// <summary>
-        /// 当前是否公历闰年
-        /// </summary>
+        ///<summary>
+        ///当前是否公历闰年
+        ///</summary>
         public bool IsLeapYear
         {
             get
@@ -890,9 +890,9 @@ namespace 阴阳易演.引用库
             }
         }
 
-        /// <summary>
-        /// 28星宿计算
-        /// </summary>
+        ///<summary>
+        ///28星宿计算
+        ///</summary>
         public string ChineseConstellation
         {
             get
@@ -908,9 +908,9 @@ namespace 阴阳易演.引用库
             }
         }
 
-        /// <summary>
-        /// 时辰
-        /// </summary>
+        ///<summary>
+        ///时辰
+        ///</summary>
         public string ChineseHour
         {
             get
@@ -923,17 +923,17 @@ namespace 阴阳易演.引用库
 
         #region _农历日期
 
-        /// <summary>
-        /// 是否闰月
-        /// </summary>
+        ///<summary>
+        ///是否闰月
+        ///</summary>
         public bool IsChineseLeapMonth
         {
             get { return _cIsLeapMonth; }
         }
 
-        /// <summary>
-        /// 当年是否有闰月
-        /// </summary>
+        ///<summary>
+        ///当年是否有闰月
+        ///</summary>
         public bool IsChineseLeapYear
         {
             get
@@ -942,17 +942,17 @@ namespace 阴阳易演.引用库
             }
         }
 
-        /// <summary>
-        /// 农历日
-        /// </summary>
+        ///<summary>
+        ///农历日
+        ///</summary>
         public int ChineseDay
         {
             get { return _cDay; }
         }
 
-        /// <summary>
-        /// 农历日中文表示
-        /// </summary>
+        ///<summary>
+        ///农历日中文表示
+        ///</summary>
         public string ChineseDayString
         {
             get
@@ -975,17 +975,17 @@ namespace 阴阳易演.引用库
             }
         }
 
-        /// <summary>
-        /// 农历的月份
-        /// </summary>
+        ///<summary>
+        ///农历的月份
+        ///</summary>
         public int ChineseMonth
         {
             get { return _cMonth; }
         }
 
-        /// <summary>
-        /// 农历月份字符串
-        /// </summary>
+        ///<summary>
+        ///农历月份字符串
+        ///</summary>
         public string ChineseMonthString
         {
             get
@@ -994,17 +994,17 @@ namespace 阴阳易演.引用库
             }
         }
 
-        /// <summary>
-        /// 取农历年份
-        /// </summary>
+        ///<summary>
+        ///取农历年份
+        ///</summary>
         public int ChineseYear
         {
             get { return _cYear; }
         }
 
-        /// <summary>
-        /// 取农历年字符串如，一九九七年
-        /// </summary>
+        ///<summary>
+        ///取农历年字符串如，一九九七年
+        ///</summary>
         public string ChineseYearString
         {
             get
@@ -1019,9 +1019,9 @@ namespace 阴阳易演.引用库
             }
         }
 
-        /// <summary>
-        /// 取农历日期表示法：农历一九九七年正月初五
-        /// </summary>
+        ///<summary>
+        ///取农历日期表示法：农历一九九七年正月初五
+        ///</summary>
         public string ChineseDateString
         {
             get
@@ -1037,17 +1037,17 @@ namespace 阴阳易演.引用库
             }
         }
 
-        /// <summary>
-        /// 定气法计算二十四节气,二十四节气是按地球公转来计算的，并非是阴历计算的
-        /// </summary>
-        /// <remarks>
-        /// 节气的定法有两种。古代历法采用的称为"恒气"，即按时间把一年等分为24份，
-        /// 每一节气平均得15天有余，所以又称"平气"。现代农历采用的称为"定气"，即
-        /// 按地球在轨道上的位置为标准，一周360°，两节气之间相隔15°。由于冬至时地
-        /// 球位于近日点附近，运动速度较快，因而太阳在黄道上移动15°的时间不到15天。
-        /// 夏至前后的情况正好相反，太阳在黄道上移动较慢，一个节气达16天之多。采用
-        /// 定气时可以保证春、秋两分必然在昼夜平分的那两天。
-        /// </remarks>
+        ///<summary>
+        ///定气法计算二十四节气,二十四节气是按地球公转来计算的，并非是阴历计算的
+        ///</summary>
+        ///<remarks>
+        ///节气的定法有两种。古代历法采用的称为"恒气"，即按时间把一年等分为24份，
+        ///每一节气平均得15天有余，所以又称"平气"。现代农历采用的称为"定气"，即
+        ///按地球在轨道上的位置为标准，一周360°，两节气之间相隔15°。由于冬至时地
+        ///球位于近日点附近，运动速度较快，因而太阳在黄道上移动15°的时间不到15天。
+        ///夏至前后的情况正好相反，太阳在黄道上移动较慢，一个节气达16天之多。采用
+        ///定气时可以保证春、秋两分必然在昼夜平分的那两天。
+        ///</remarks>
         public string ChineseTwentyFourDay
         {
             get
@@ -1078,9 +1078,9 @@ namespace 阴阳易演.引用库
             }
         }
 
-        /// <summary>
-        /// 当前日期前一个最近节气
-        /// </summary>
+        ///<summary>
+        ///当前日期前一个最近节气
+        ///</summary>
         public string ChineseTwentyFourPrevDay
         {
             get
@@ -1117,9 +1117,9 @@ namespace 阴阳易演.引用库
 
         }
 
-        /// <summary>
-        /// 当前日期后一个最近节气
-        /// </summary>
+        ///<summary>
+        ///当前日期后一个最近节气
+        ///</summary>
         public string ChineseTwentyFourNextDay
         {
             get
@@ -1157,10 +1157,10 @@ namespace 阴阳易演.引用库
         #endregion
 
         #region _星座
-        /// <summary>
-        /// 计算指定日期的星座序号 
-        /// </summary>
-        /// <returns></returns>
+        ///<summary>
+        ///计算指定日期的星座序号 
+        ///</summary>
+        ///<returns></returns>
         public string Constellation
         {
             get
@@ -1196,10 +1196,10 @@ namespace 阴阳易演.引用库
 
         #region _属相
 
-        /// <summary>
-        /// 计算属相的索引，注意虽然属相是以农历年来区别的，但是目前在实际使用中是按公历来计算的
-        /// 鼠年为1,其它类推
-        /// </summary>
+        ///<summary>
+        ///计算属相的索引，注意虽然属相是以农历年来区别的，但是目前在实际使用中是按公历来计算的
+        ///鼠年为1,其它类推
+        ///</summary>
         public int Animal
         {
             get
@@ -1209,9 +1209,9 @@ namespace 阴阳易演.引用库
             }
         }
 
-        /// <summary>
-        /// 取属相字符串
-        /// </summary>
+        ///<summary>
+        ///取属相字符串
+        ///</summary>
         public string AnimalString
         {
             get
@@ -1226,9 +1226,9 @@ namespace 阴阳易演.引用库
 
         #region _天干地支
 
-        /// <summary>
-        /// 取农历年的干支表示法如 乙丑年
-        /// </summary>
+        ///<summary>
+        ///取农历年的干支表示法如 乙丑年
+        ///</summary>
         public string GanZhiYearString
         {
             get
@@ -1239,9 +1239,9 @@ namespace 阴阳易演.引用库
             }
         }
 
-        /// <summary>
-        /// 取干支的月表示字符串，注意农历的闰月不记干支
-        /// </summary>
+        ///<summary>
+        ///取干支的月表示字符串，注意农历的闰月不记干支
+        ///</summary>
         public string GanZhiMonthString
         {
             get
@@ -1303,9 +1303,9 @@ namespace 阴阳易演.引用库
             }
         }
 
-        /// <summary>
-        /// 取干支日表示法
-        /// </summary>
+        ///<summary>
+        ///取干支日表示法
+        ///</summary>
         public string GanZhiDayString
         {
             get
@@ -1318,9 +1318,9 @@ namespace 阴阳易演.引用库
             }
         }
 
-        /// <summary>
-        /// 取干支时表示法
-        /// </summary>
+        ///<summary>
+        ///取干支时表示法
+        ///</summary>
         public string GanZhiHourString
         {
             get
@@ -1346,9 +1346,9 @@ namespace 阴阳易演.引用库
             }
         }
 
-        /// <summary>
-        /// 取当前日期的干支表示法如 甲子年乙丑月丙庚日
-        /// </summary>
+        ///<summary>
+        ///取当前日期的干支表示法如 甲子年乙丑月丙庚日
+        ///</summary>
         public string GanZhiDateString
         {
             get
@@ -1363,20 +1363,20 @@ namespace 阴阳易演.引用库
 
         #region 方法
 
-        /// <summary>
-        /// 取下一天
-        /// </summary>
-        /// <returns></returns>
+        ///<summary>
+        ///取下一天
+        ///</summary>
+        ///<returns></returns>
         public ChineseCalendar NextDay()
         {
             var nextDay = _date.AddDays(1);
             return new ChineseCalendar(nextDay);
         }
 
-        /// <summary>
-        /// 取前一天
-        /// </summary>
-        /// <returns></returns>
+        ///<summary>
+        ///取前一天
+        ///</summary>
+        ///<returns></returns>
         public ChineseCalendar PervDay()
         {
             var pervDay = _date.AddDays(-1);

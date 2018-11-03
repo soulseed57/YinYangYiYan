@@ -6,6 +6,7 @@
 
     public class 甲子
     {
+        #region 天清
         void 初始化(甲子表.甲子枚举 枚)
         {
             var 枚举名 = 枚.ToString();
@@ -26,11 +27,18 @@
         {
             初始化(枚);
         }
+
+        #endregion
+
+        #region 地浊
         public string 名称 { get; private set; }
         public 甲子表.甲子枚举 枚举 { get; private set; }
         public int 序数 { get; private set; }
         public 天干 天干 { get; private set; }
         public 地支 地支 { get; private set; }
         public string 纳音 { get; private set; }
+
+        #endregion
+
     }
 }

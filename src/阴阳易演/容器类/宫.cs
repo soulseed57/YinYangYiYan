@@ -1,9 +1,10 @@
-﻿using 阴阳易演.抽象类;
-
-namespace 阴阳易演.容器类
+﻿namespace 阴阳易演.容器类
 {
+    using 抽象类;
+
     public class 宫
     {
+        #region 天清
         public 宫(string 名, 甲子 甲)
         {
             名称 = 名;
@@ -20,10 +21,17 @@ namespace 阴阳易演.容器类
             天干 = null;
             地支 = 支;
         }
+
+        #endregion
+
+        #region 地浊
         public string 名称 { get; }
         public string 干支 { get; }
         public string 纳音 { get; }
         public 天干 天干 { get; }
         public 地支 地支 { get; }
+
+        #endregion
+
     }
 }

@@ -12,34 +12,39 @@ namespace 阴阳易演.计算类
 
     public class 干支纪年
     {
+        #region 天清
         public 干支纪年(DateTime 时间)
         {
             var 中国农历类 = new ChineseCalendar(时间);
-            // 阴历计算
+            //阴历计算
             阴历年 = 中国农历类.ChineseYear;
             阴历月 = 中国农历类.ChineseMonth;
             阴历日 = 中国农历类.ChineseDay;
-            // 甲子计算
+            //甲子计算
             年柱 = 计算年柱(阴历年);
             月柱 = 计算月柱(时间);
             日柱 = 计算日柱(时间);
             var 时支 = 计算时支(时间.Hour);
             时柱 = 计算时柱(日柱.天干, 时支);
-            // 旬空计算
+            //旬空计算
             旬空 = 查询旬空(日柱);
         }
+
+        #endregion
+
+        #region 地浊
         public int 阴历年 { get; protected set; }
         public int 阴历月 { get; protected set; }
         public int 阴历日 { get; protected set; }
-
         public 甲子 年柱 { get; protected set; }
         public 甲子 月柱 { get; protected set; }
         public 甲子 日柱 { get; protected set; }
         public 甲子 时柱 { get; protected set; }
         public 地支[] 旬空 { get; protected set; }
 
-        #region 计算
-        // 公开
+        #endregion
+
+        #region 运算
         public static 地支 月支查询(DateTime 时间)
         {
             var 枚 = 节气查询(时间);
@@ -204,7 +209,7 @@ namespace 阴阳易演.计算类
             var 天干数 = 枚举转换类<干支表.天干枚举>.获取序数(常用方法.获取类名(日柱.天干)) + 1;
             var 地支数 = 枚举转换类<干支表.地支枚举>.获取序数(常用方法.获取类名(日柱.地支)) + 1;
             var 旬空数 = 地支数 - 天干数;
-            旬空数 = 旬空数 < 0 ? 12 + 旬空数 : 旬空数;// 为负数时补足一个循环
+            旬空数 = 旬空数 < 0 ? 12 + 旬空数 : 旬空数;//为负数时补足一个循环
             switch (旬空数)
             {
                 case 0:

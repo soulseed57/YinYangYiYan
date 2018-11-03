@@ -74,7 +74,7 @@ namespace 阴阳易演.查询类
         #endregion
 
         #region 运算
-        // 内部
+        //内部
         static int 六神序数(天干 时干)
         {
             switch (时干)
@@ -99,10 +99,10 @@ namespace 阴阳易演.查询类
                     throw new Exception($"无法从给定的时干起六神,当前时干:{时干}");
             }
         }
-        // 公开
+        //公开
         public static 六神[] 配六神(天干 时干)
         {
-            var 顺排 = 时干.阴阳 == 两仪.阳;// 阳顺阴逆
+            var 顺排 = 时干.阴阳 == 两仪.阳;//阳顺阴逆
             var 神列 = new List<六神>();
             var 神序 = 六神序数(时干);
             for (var i = 0; i < 六神数; i++)

@@ -8,8 +8,7 @@ namespace 阴阳易演.抽象类
 
     public abstract class 四象 : 无极
     {
-        #region 内部
-        //静态
+        #region 天清
         static 四象()
         {
             少阳 = new 少阳();
@@ -20,13 +19,13 @@ namespace 阴阳易演.抽象类
 
         #endregion
 
-        #region 公开
-        //静态
+        #region 地浊
+        //阴静
         public static 少阳 少阳 { get; }
         public static 太阳 太阳 { get; }
         public static 少阴 少阴 { get; }
         public static 太阴 太阴 { get; }
-        //动态
+        //阳动
         public int 数字 { get; protected set; }
         public string 方位 { get; protected set; }
         public string 神兽 { get; protected set; }
@@ -37,7 +36,6 @@ namespace 阴阳易演.抽象类
         #endregion
 
         #region 运算
-        //静态
         public static 四象 推演(四象 象属)
         {
             四象 象 = null;

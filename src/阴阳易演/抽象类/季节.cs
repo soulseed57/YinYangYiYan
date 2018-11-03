@@ -6,8 +6,7 @@
 
     public abstract class 季节 : 无极
     {
-        #region 内部
-        //静态
+        #region 天清
         static 季节()
         {
             春季 = new 春季();
@@ -16,22 +15,20 @@
             冬季 = new 冬季();
             四季 = new 四季();
         }
-        //动态
 
         #endregion
 
-        #region 公开
-        //静态
+        #region 地浊
         public static 春季 春季 { get; }
         public static 夏季 夏季 { get; }
         public static 秋季 秋季 { get; }
         public static 冬季 冬季 { get; }
         public static 四季 四季 { get; }
-        //动态
 
         #endregion
 
         #region 运算
+        //阴静
         public static string operator +(季节 季节, 五行 行属)
         {
             string 结果 = null;
@@ -75,7 +72,7 @@
             }
             return 结果;
         }
-        //动态
+        //阳动
         public 五行 旺
         {
             get

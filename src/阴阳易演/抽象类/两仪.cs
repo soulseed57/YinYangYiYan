@@ -1,12 +1,12 @@
-﻿namespace 阴阳易演.抽象类
+﻿#pragma warning disable 660,661
+namespace 阴阳易演.抽象类
 {
     using 具象类.两仪;
     using 基类;
 
     public abstract class 两仪 : 无极
     {
-        #region 内部
-        //静态
+        #region 天清
         static 两仪()
         {
             阴 = new 阴();
@@ -15,20 +15,17 @@
 
         #endregion
 
-        #region 公开
-        //静态
+        #region 地浊
+        //阴静
         public static 阴 阴 { get; }
         public static 阳 阳 { get; }
-        //动态
+        //阳动
         public byte 值 { get; protected set; }
         public string 爻 { get; protected set; }
 
         #endregion
 
         #region 运算
-        //静态
-        public override bool Equals(object obj) => base.Equals(obj);
-        public override int GetHashCode() => base.GetHashCode();
         public static bool operator ==(两仪 仪1, 两仪 仪2)
         {
             var 结果 = false;
@@ -77,7 +74,6 @@
             }
             return 四象;
         }
-        //动态
 
         #endregion
 
