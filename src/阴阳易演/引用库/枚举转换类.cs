@@ -75,10 +75,5 @@ namespace 阴阳易演.引用库
                 throw new Exception($"[{typeof(T).Name}]使用序数[{序数}]获取枚举失败:{e.Message}");
             }
         }
-        public static int 序数取余(int 序数, int 除余数)
-        {
-            var 算数 = 序数 % 除余数;
-            return 算数 < 0 ? 除余数 + 算数 : 算数;
-        }
     }
 }

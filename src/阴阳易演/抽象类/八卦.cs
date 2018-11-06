@@ -36,8 +36,8 @@ namespace 阴阳易演.抽象类
         //阳动
         public int 先天卦序 { get; protected set; }
         public int 后天卦序 { get; protected set; }
-        public string 先天方位 { get; protected set; }
-        public string 后天方位 { get; protected set; }
+        public string 先天卦位 { get; protected set; }
+        public string 后天卦位 { get; protected set; }
         public byte 卦值 { get; protected set; }
 
         #endregion

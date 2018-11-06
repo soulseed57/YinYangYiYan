@@ -40,7 +40,7 @@ namespace 阴阳易演.查询类
         }
         public static 节气枚举 获取节气枚举(int 数)
         {
-            var 序 = 枚举转换类<节气枚举>.序数取余(数, 节气数);
+            var 序 = 常用方法.序数取余(数, 节气数);
             return 枚举转换类<节气枚举>.获取枚举(序);
         }
         public static 节气枚举 获取节气枚举(string 名)
@@ -49,7 +49,7 @@ namespace 阴阳易演.查询类
         }
         public static string 获取节气名称(int 数)
         {
-            var 序 = 枚举转换类<节气枚举>.序数取余(数, 节气数);
+            var 序 = 常用方法.序数取余(数, 节气数);
             return 枚举转换类<节气枚举>.获取名称(序);
         }
 
