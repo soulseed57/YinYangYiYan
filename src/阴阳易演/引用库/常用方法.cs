@@ -5,23 +5,47 @@
 
     public static class 常用方法
     {
-        public static string 获取类名(object obj)
+        /// <summary>
+        /// 序数取余,当为负数时以倒数计算
+        /// </summary>
+        /// <param name="原数"></param>
+        /// <param name="进位数"></param>
+        /// <returns></returns>
+        public static int 序数取余(int 原数, int 进位数)
         {
-            return obj?.GetType().Name;
+            var 余数 = 原数 % 进位数;
+            return 余数 < 0 ? 进位数 + 余数 : 余数;
         }
-
-        public static int 序数取余(int 原数, int 除余数)
+        /// <summary>
+        /// 归零取余,取绝对值,余数除尽时归零
+        /// </summary>
+        /// <param name="原数"></param>
+        /// <param name="进位数"></param>
+        /// <returns></returns>
+        public static int 归零取余(int 原数, int 进位数)
         {
-            var 序数 = 原数 % 除余数;
-            return 序数 < 0 ? 除余数 + 序数 : 序数;
+            var 余数 = Math.Abs(原数) % 进位数;
+            return 余数;
         }
-
-        public static int 算数取余(int 原数, int 除余数)
+        /// <summary>
+        /// 进位取余,取绝对值,余数除尽时进位
+        /// </summary>
+        /// <param name="原数"></param>
+        /// <param name="进位数"></param>
+        /// <returns></returns>
+        public static int 进位取余(int 原数, int 进位数)
         {
-            return Math.Abs(原数) % 除余数;
+            var 余数 = Math.Abs(原数) % 进位数;
+            return 余数 == 0 ? 进位数 : 余数;
         }
-
-        public static void 顺逆插入<T>(bool isOrder, List<T> list, T item)
+        /// <summary>
+        /// 列表顺逆插入,按指定顺逆方向插入项,顺序时向后插入,逆序时向前插入
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="isOrder"></param>
+        /// <param name="list"></param>
+        /// <param name="item"></param>
+        public static void 列表顺逆插入<T>(bool isOrder, List<T> list, T item)
         {
             if (isOrder)
             {
@@ -32,8 +56,14 @@
                 list.Insert(0, item);
             }
         }
-
-        public static T[] 顺逆排序<T>(bool isOrder, T[] array)
+        /// <summary>
+        /// 列表顺逆排序,按照指定方向排序,首位不变
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="isOrder"></param>
+        /// <param name="array"></param>
+        /// <returns></returns>
+        public static T[] 列表顺逆排序<T>(bool isOrder, T[] array)
         {
             if (isOrder) return array;
             var list = new List<T>();
@@ -53,8 +83,14 @@
             }
             return list.ToArray();
         }
-
-        public static T[] 指定首位<T>(T[] array, int index)
+        /// <summary>
+        /// 列表指定首位,将指定位置的项提前至首位,其他项依次排在队尾
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="array"></param>
+        /// <param name="index"></param>
+        /// <returns></returns>
+        public static T[] 列表指定首位<T>(T[] array, int index)
         {
             // 处理索引
             if (index == 0) return array;
