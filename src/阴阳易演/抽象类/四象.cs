@@ -26,7 +26,6 @@ namespace 阴阳易演.抽象类
         public static 少阴 少阴 { get; }
         public static 太阴 太阴 { get; }
         //阳动
-        public int 数字 { get; protected set; }
         public string 方位 { get; protected set; }
         public string 神兽 { get; protected set; }
         public 季节 四季 { get; protected set; }

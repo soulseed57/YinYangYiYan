@@ -34,11 +34,11 @@ namespace 阴阳易演.抽象类
         public static 艮 艮 { get; }
         public static 坤 坤 { get; }
         //阳动
-        public int 先天卦序 { get; protected set; }
-        public int 后天卦序 { get; protected set; }
-        public string 先天卦位 { get; protected set; }
-        public string 后天卦位 { get; protected set; }
+        public int 序数 { get; protected set; }
+        public int 本数 { get; protected set; }
+        public string 方位 { get; protected set; }
         public byte 卦值 { get; protected set; }
+        public 四象 四象 { get; protected set; }
 
         #endregion
 
