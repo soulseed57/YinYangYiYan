@@ -1,5 +1,6 @@
 ﻿namespace 阴阳易演.引用库
 {
+    using System;
     using System.Collections.Generic;
 
     public static class 常用方法
@@ -9,10 +10,15 @@
             return obj?.GetType().Name;
         }
 
-        public static int 序数取余(int 序数, int 除余数)
+        public static int 序数取余(int 原数, int 除余数)
         {
-            var 算数 = 序数 % 除余数;
-            return 算数 < 0 ? 除余数 + 算数 : 算数;
+            var 序数 = 原数 % 除余数;
+            return 序数 < 0 ? 除余数 + 序数 : 序数;
+        }
+
+        public static int 算数取余(int 原数, int 除余数)
+        {
+            return Math.Abs(原数) % 除余数;
         }
 
         public static void 顺逆插入<T>(bool isOrder, List<T> list, T item)

@@ -2,6 +2,7 @@
 
 namespace 阴阳易演.容器类
 {
+    using 引用库;
     using 抽象类;
     using 查询类;
 
@@ -10,7 +11,7 @@ namespace 阴阳易演.容器类
         #region 天清
         public 河洛数(int 原数)
         {
-            数字 = 十进制取余(原数);
+            数字 = 常用方法.算数取余(原数, 10);
             switch (数字)
             {
                 case 0:
@@ -80,14 +81,6 @@ namespace 阴阳易演.容器类
         public 八卦 后天卦 { get; }
         public 天干 配天干 { get; }
         public 地支[] 配地支 { get; }
-
-        #endregion
-
-        #region 运算
-        public static int 十进制取余(int 原数)
-        {
-            return Math.Abs(原数) % 10;
-        }
 
         #endregion
 
