@@ -36,6 +36,7 @@ namespace 阴阳易演.抽象类
         //阳动
         public int 序数 { get; protected set; }
         public int 本数 { get; protected set; }
+        public string 卦位 { get; protected set; }
         public string 方位 { get; protected set; }
         public byte 卦值 { get; protected set; }
         public 四象 四象 { get; protected set; }
