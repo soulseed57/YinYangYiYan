@@ -58,6 +58,8 @@ namespace 阴阳易演.容器类
             }
             先天卦 = 八卦表.八卦列表.Find(t => t.先天卦序 == 数字);
             后天卦 = 八卦表.八卦列表.Find(t => t.后天卦序 == 数字);
+            配天干 = 干支表.天干列表.Find(t => t.阴阳 == 阴阳 && t.五行 == 五行);
+            配地支 = 干支表.地支列表.FindAll(t => t.阴阳 == 阴阳 && t.五行 == 五行).ToArray();
         }
 
         #endregion
@@ -76,6 +78,8 @@ namespace 阴阳易演.容器类
         public 五行 五行 { get; protected set; }
         public 八卦 先天卦 { get; }
         public 八卦 后天卦 { get; }
+        public 天干 配天干 { get; }
+        public 地支[] 配地支 { get; }
 
         #endregion
 

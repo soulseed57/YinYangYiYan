@@ -3,6 +3,7 @@ using System.Text;
 
 namespace 阴阳易演.查询类
 {
+    using System.Collections.Generic;
     using 具象类.地支;
     using 具象类.天干;
     using 容器类;
@@ -20,6 +21,8 @@ namespace 阴阳易演.查询类
         public static readonly int 地支数;
         public enum 天干枚举 { 甲, 乙, 丙, 丁, 戊, 己, 庚, 辛, 壬, 癸 }
         public enum 地支枚举 { 子, 丑, 寅, 卯, 辰, 巳, 午, 未, 申, 酉, 戌, 亥 }
+        public static List<天干> 天干列表 = new List<天干> { 天干.甲, 天干.乙, 天干.丙, 天干.丁, 天干.戊, 天干.己, 天干.庚, 天干.辛, 天干.壬, 天干.癸 };
+        public static List<地支> 地支列表 = new List<地支> { 地支.子, 地支.丑, 地支.寅, 地支.卯, 地支.辰, 地支.巳, 地支.午, 地支.未, 地支.申, 地支.酉, 地支.戌, 地支.亥 };
 
         #region 天干枚举
         public static int 获取天干序数(天干 干)

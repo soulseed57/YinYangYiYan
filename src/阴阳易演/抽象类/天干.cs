@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace 阴阳易演.抽象类
+﻿namespace 阴阳易演.抽象类
 {
     using 具象类.天干;
     using 基类;
@@ -35,15 +33,6 @@ namespace 阴阳易演.抽象类
         public static 辛 辛 { get; }
         public static 壬 壬 { get; }
         public static 癸 癸 { get; }
-
-        #endregion
-
-        #region 运算
-        public static 天干[] 阴阳配五行(两仪 仪, 五行 行)
-        {
-            var 列 = new List<天干> { 甲, 乙, 丙, 丁, 戊, 己, 庚, 辛, 壬, 癸 };
-            return 列.FindAll(t => t.阴阳 == 仪 && t.五行 == 行).ToArray();
-        }
 
         #endregion
 
