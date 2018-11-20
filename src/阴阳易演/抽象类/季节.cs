@@ -13,7 +13,7 @@
             夏季 = new 夏季();
             秋季 = new 秋季();
             冬季 = new 冬季();
-            四季 = new 四季();
+            长夏 = new 长夏();
         }
 
         #endregion
@@ -23,7 +23,7 @@
         public static 夏季 夏季 { get; }
         public static 秋季 秋季 { get; }
         public static 冬季 冬季 { get; }
-        public static 四季 四季 { get; }
+        public static 长夏 长夏 { get; }
 
         #endregion
 
@@ -38,35 +38,35 @@
                 case 夏季 _ when 行属 is 火:
                 case 秋季 _ when 行属 is 金:
                 case 冬季 _ when 行属 is 水:
-                case 四季 _ when 行属 is 土:
+                case 长夏 _ when 行属 is 土:
                     结果 = "旺";
                     break;
                 case 春季 _ when 行属 is 火:
                 case 夏季 _ when 行属 is 土:
                 case 秋季 _ when 行属 is 水:
                 case 冬季 _ when 行属 is 木:
-                case 四季 _ when 行属 is 金:
+                case 长夏 _ when 行属 is 金:
                     结果 = "相";
                     break;
                 case 春季 _ when 行属 is 水:
                 case 夏季 _ when 行属 is 木:
                 case 秋季 _ when 行属 is 土:
                 case 冬季 _ when 行属 is 金:
-                case 四季 _ when 行属 is 火:
+                case 长夏 _ when 行属 is 火:
                     结果 = "休";
                     break;
                 case 春季 _ when 行属 is 金:
                 case 夏季 _ when 行属 is 水:
                 case 秋季 _ when 行属 is 火:
                 case 冬季 _ when 行属 is 土:
-                case 四季 _ when 行属 is 木:
+                case 长夏 _ when 行属 is 木:
                     结果 = "囚";
                     break;
                 case 春季 _ when 行属 is 土:
                 case 夏季 _ when 行属 is 金:
                 case 秋季 _ when 行属 is 木:
                 case 冬季 _ when 行属 is 火:
-                case 四季 _ when 行属 is 水:
+                case 长夏 _ when 行属 is 水:
                     结果 = "死";
                     break;
             }
@@ -92,7 +92,7 @@
                     case 冬季 _:
                         行属 = 五行.水;
                         break;
-                    case 四季 _:
+                    case 长夏 _:
                         行属 = 五行.土;
                         break;
                 }
@@ -118,7 +118,7 @@
                     case 冬季 _:
                         行属 = 五行.木;
                         break;
-                    case 四季 _:
+                    case 长夏 _:
                         行属 = 五行.金;
                         break;
                 }
@@ -144,7 +144,7 @@
                     case 冬季 _:
                         行属 = 五行.金;
                         break;
-                    case 四季 _:
+                    case 长夏 _:
                         行属 = 五行.火;
                         break;
                 }
@@ -170,7 +170,7 @@
                     case 冬季 _:
                         行属 = 五行.土;
                         break;
-                    case 四季 _:
+                    case 长夏 _:
                         行属 = 五行.木;
                         break;
                 }
@@ -196,7 +196,7 @@
                     case 冬季 _:
                         行属 = 五行.火;
                         break;
-                    case 四季 _:
+                    case 长夏 _:
                         行属 = 五行.水;
                         break;
                 }

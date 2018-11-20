@@ -875,7 +875,7 @@ namespace 阴阳易演.引用库
         {
             get
             {
-                return "公元" + _date.ToLongDateString();
+                return "公元" + _date.ToString("yyyy年MM月dd日");
             }
         }
 

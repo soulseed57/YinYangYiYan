@@ -3,7 +3,7 @@
     using 五行;
     using 抽象类;
 
-    public class 四季 : 季节
+    public class 长夏 : 季节
     {
         public new 土 旺 => 五行.土;
         public new 金 相 => 五行.金;
