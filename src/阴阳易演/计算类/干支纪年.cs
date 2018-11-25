@@ -20,6 +20,7 @@ namespace 阴阳易演.计算类
             阴历年 = 中国农历类.ChineseYear;
             阴历月 = 中国农历类.ChineseMonth;
             阴历日 = 中国农历类.ChineseDay;
+            阴历 = $"{年份名称(阴历年)}年{月份名称(阴历月)}月{日期名称(阴历日)}";
             //甲子计算
             年柱 = 计算年柱(阴历年);
             月柱 = 计算月柱(时间);
@@ -36,6 +37,7 @@ namespace 阴阳易演.计算类
         public int 阴历年 { get; protected set; }
         public int 阴历月 { get; protected set; }
         public int 阴历日 { get; protected set; }
+        public string 阴历 { get; protected set; }
         public 甲子 年柱 { get; protected set; }
         public 甲子 月柱 { get; protected set; }
         public 甲子 日柱 { get; protected set; }
