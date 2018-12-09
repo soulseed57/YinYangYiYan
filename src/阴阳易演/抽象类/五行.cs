@@ -1,6 +1,4 @@
-﻿using System.Drawing;
-
-namespace 阴阳易演.抽象类
+﻿namespace 阴阳易演.抽象类
 {
     using 具象类.五行;
     using 基类;
@@ -31,7 +29,7 @@ namespace 阴阳易演.抽象类
         public string 方位 { get; protected set; }
         public string 神兽 { get; protected set; }
         public 季节 四季 { get; protected set; }
-        public Color 颜色 { get; protected set; }
+        public string 颜色 { get; protected set; }
 
         #endregion
 

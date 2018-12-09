@@ -104,34 +104,33 @@ namespace 阴阳易演.查询类
             }
             switch (节气)
             {
-                case 节气枚举.小寒:
-                case 节气枚举.大寒:
-                case 节气枚举.清明:
-                case 节气枚举.谷雨:
-                case 节气枚举.小暑:
-                case 节气枚举.大暑:
-                case 节气枚举.寒露:
-                case 节气枚举.霜降:
-                    return 季节.四季;
                 case 节气枚举.立春:
                 case 节气枚举.雨水:
                 case 节气枚举.惊蛰:
                 case 节气枚举.春分:
+                case 节气枚举.清明:
+                case 节气枚举.谷雨:
                     return 季节.春季;
                 case 节气枚举.立夏:
                 case 节气枚举.小满:
                 case 节气枚举.芒种:
                 case 节气枚举.夏至:
+                case 节气枚举.小暑:
+                case 节气枚举.大暑:
                     return 季节.夏季;
                 case 节气枚举.立秋:
                 case 节气枚举.处暑:
                 case 节气枚举.白露:
                 case 节气枚举.秋分:
+                case 节气枚举.寒露:
+                case 节气枚举.霜降:
                     return 季节.秋季;
                 case 节气枚举.立冬:
                 case 节气枚举.小雪:
                 case 节气枚举.大雪:
                 case 节气枚举.冬至:
+                case 节气枚举.小寒:
+                case 节气枚举.大寒:
                     return 季节.冬季;
             }
             throw new Exception($"当前日期[{时间}]未查询到匹配季节");

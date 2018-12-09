@@ -1,6 +1,4 @@
-﻿using System.Drawing;
-
-namespace 阴阳易演.具象类.五行
+﻿namespace 阴阳易演.具象类.五行
 {
     using 抽象类;
 
@@ -17,8 +15,8 @@ namespace 阴阳易演.具象类.五行
             数字 = 5;
             方位 = "中";
             神兽 = "黄麟";
-            四季 = 季节.四季;
-            颜色 = Color.Yellow;
+            四季 = 季节.长夏;
+            颜色 = "#FFFF00";
         }
     }
 }

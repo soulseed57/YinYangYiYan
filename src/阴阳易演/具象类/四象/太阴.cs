@@ -1,6 +1,4 @@
-﻿using System.Drawing;
-
-namespace 阴阳易演.具象类.四象
+﻿namespace 阴阳易演.具象类.四象
 {
     using 抽象类;
 
@@ -14,7 +12,7 @@ namespace 阴阳易演.具象类.四象
             方位 = "北";
             神兽 = "玄武";
             四季 = 季节.冬季;
-            颜色 = Color.Black;
+            颜色 = "#000000";
             卦值 = 八卦.生成卦值("00");
         }
     }

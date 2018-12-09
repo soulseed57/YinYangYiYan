@@ -8,6 +8,10 @@ namespace 阴阳易演.引用库
         {
             return (T[])Enum.GetValues(typeof(T));
         }
+        public static string[] 获取所有名称()
+        {
+            return Enum.GetNames(typeof(T));
+        }
         public static string 获取名称(int 序数)
         {
             try
