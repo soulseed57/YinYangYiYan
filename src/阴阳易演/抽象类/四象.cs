@@ -1,6 +1,5 @@
 ﻿namespace 阴阳易演.抽象类
 {
-    using 具象类.两仪;
     using 具象类.四象;
     using 基类;
 
@@ -72,38 +71,6 @@
                     break;
             }
             return 象;
-        }
-        public static 八卦 operator +(四象 象, 两仪 仪)
-        {
-            八卦 八卦 = null;
-            switch (象)
-            {
-                case 太阴 _ when 仪 is 阴:
-                    八卦 = 八卦.坤;
-                    break;
-                case 太阴 _ when 仪 is 阳:
-                    八卦 = 八卦.艮;
-                    break;
-                case 少阳 _ when 仪 is 阴:
-                    八卦 = 八卦.坎;
-                    break;
-                case 少阳 _ when 仪 is 阳:
-                    八卦 = 八卦.巽;
-                    break;
-                case 少阴 _ when 仪 is 阴:
-                    八卦 = 八卦.震;
-                    break;
-                case 少阴 _ when 仪 is 阳:
-                    八卦 = 八卦.离;
-                    break;
-                case 太阳 _ when 仪 is 阴:
-                    八卦 = 八卦.兑;
-                    break;
-                case 太阳 _ when 仪 is 阳:
-                    八卦 = 八卦.乾;
-                    break;
-            }
-            return 八卦;
         }
 
         #endregion
