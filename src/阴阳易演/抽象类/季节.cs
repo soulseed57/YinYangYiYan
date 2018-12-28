@@ -31,130 +31,100 @@
         {
             get
             {
-                五行 行属 = null;
                 switch (this)
                 {
                     case 春季 _:
-                        行属 = 春季.旺;
-                        break;
+                        return 春季.旺;
                     case 夏季 _:
-                        行属 = 夏季.旺;
-                        break;
+                        return 夏季.旺;
                     case 秋季 _:
-                        行属 = 秋季.旺;
-                        break;
+                        return 秋季.旺;
                     case 冬季 _:
-                        行属 = 冬季.旺;
-                        break;
+                        return 冬季.旺;
                     case 长夏 _:
-                        行属 = 长夏.旺;
-                        break;
+                        return 长夏.旺;
                 }
-                return 行属;
+                return null;
             }
         }
         public 五行 相
         {
             get
             {
-                五行 行属 = null;
                 switch (this)
                 {
                     case 春季 _:
-                        行属 = 春季.相;
-                        break;
+                        return 春季.相;
                     case 夏季 _:
-                        行属 = 夏季.相;
-                        break;
+                        return 夏季.相;
                     case 秋季 _:
-                        行属 = 秋季.相;
-                        break;
+                        return 秋季.相;
                     case 冬季 _:
-                        行属 = 冬季.相;
-                        break;
+                        return 冬季.相;
                     case 长夏 _:
-                        行属 = 长夏.相;
-                        break;
+                        return 长夏.相;
                 }
-                return 行属;
+                return null;
             }
         }
         public 五行 休
         {
             get
             {
-                五行 行属 = null;
                 switch (this)
                 {
                     case 春季 _:
-                        行属 = 春季.休;
-                        break;
+                        return 春季.休;
                     case 夏季 _:
-                        行属 = 夏季.休;
-                        break;
+                        return 夏季.休;
                     case 秋季 _:
-                        行属 = 秋季.休;
-                        break;
+                        return 秋季.休;
                     case 冬季 _:
-                        行属 = 冬季.休;
-                        break;
+                        return 冬季.休;
                     case 长夏 _:
-                        行属 = 长夏.休;
-                        break;
+                        return 长夏.休;
                 }
-                return 行属;
+                return null;
             }
         }
         public 五行 囚
         {
             get
             {
-                五行 行属 = null;
                 switch (this)
                 {
                     case 春季 _:
-                        行属 = 春季.囚;
-                        break;
+                        return 春季.囚;
                     case 夏季 _:
-                        行属 = 夏季.囚;
-                        break;
+                        return 夏季.囚;
                     case 秋季 _:
-                        行属 = 秋季.囚;
-                        break;
+                        return 秋季.囚;
                     case 冬季 _:
-                        行属 = 冬季.囚;
-                        break;
+                        return 冬季.囚;
                     case 长夏 _:
-                        行属 = 长夏.囚;
-                        break;
+                        return 长夏.囚;
                 }
-                return 行属;
+                return null;
             }
         }
         public 五行 死
         {
             get
             {
-                五行 行属 = null;
                 switch (this)
                 {
                     case 春季 _:
-                        行属 = 春季.死;
-                        break;
+                        return 春季.死;
                     case 夏季 _:
-                        行属 = 夏季.死;
-                        break;
+                        return 夏季.死;
                     case 秋季 _:
-                        行属 = 秋季.死;
-                        break;
+                        return 秋季.死;
                     case 冬季 _:
-                        行属 = 冬季.死;
-                        break;
+                        return 冬季.死;
                     case 长夏 _:
-                        行属 = 长夏.死;
-                        break;
+                        return 长夏.死;
                 }
-                return 行属;
+                return null;
             }
         }
 
