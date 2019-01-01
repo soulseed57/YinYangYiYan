@@ -3,6 +3,7 @@ namespace 阴阳易演.抽象类
 {
     using 具象类.两仪;
     using 基类;
+    using 查询类;
 
     public abstract class 两仪 : 无极
     {
@@ -26,34 +27,6 @@ namespace 阴阳易演.抽象类
         #endregion
 
         #region 运算
-        public static bool operator ==(两仪 仪1, 两仪 仪2)
-        {
-            var 结果 = false;
-            switch (仪1)
-            {
-                case 阴 _ when 仪2 is 阴:
-                    结果 = true;
-                    break;
-                case 阳 _ when 仪2 is 阳:
-                    结果 = true;
-                    break;
-            }
-            return 结果;
-        }
-        public static bool operator !=(两仪 仪1, 两仪 仪2)
-        {
-            var 结果 = false;
-            switch (仪1)
-            {
-                case 阴 _ when 仪2 is 阳:
-                    结果 = true;
-                    break;
-                case 阳 _ when 仪2 is 阴:
-                    结果 = true;
-                    break;
-            }
-            return 结果;
-        }
         public static 四象 operator +(两仪 仪1, 两仪 仪2)
         {
             四象 四象 = null;
@@ -73,6 +46,18 @@ namespace 阴阳易演.抽象类
                     break;
             }
             return 四象;
+        }
+        public static 八卦 operator +(四象 象, 两仪 仪)
+        {
+            var 卦序 = 八卦.还原卦值(象.卦值, 2) + 八卦.还原卦值(仪.值, 1);
+            var 卦值 = 八卦.生成卦值(卦序);
+            return 八卦表.八卦列表.Find(t => t.卦值 == 卦值);
+        }
+        public static 八卦 operator +(两仪 仪, 四象 象)
+        {
+            var 卦序 = 八卦.还原卦值(象.卦值, 2) + 八卦.还原卦值(仪.值, 1);
+            var 卦值 = 八卦.生成卦值(卦序);
+            return 八卦表.八卦列表.Find(t => t.卦值 == 卦值);
         }
 
         #endregion

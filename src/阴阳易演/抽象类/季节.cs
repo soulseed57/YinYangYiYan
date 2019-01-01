@@ -1,6 +1,5 @@
 ﻿namespace 阴阳易演.抽象类
 {
-    using 具象类.五行;
     using 具象类.季节;
     using 基类;
 
@@ -28,182 +27,106 @@
         #endregion
 
         #region 运算
-        //阴静
-        public static string operator +(季节 季节, 五行 行属)
-        {
-            string 结果 = null;
-            switch (季节)
-            {
-                case 春季 _ when 行属 is 木:
-                case 夏季 _ when 行属 is 火:
-                case 秋季 _ when 行属 is 金:
-                case 冬季 _ when 行属 is 水:
-                case 长夏 _ when 行属 is 土:
-                    结果 = "旺";
-                    break;
-                case 春季 _ when 行属 is 火:
-                case 夏季 _ when 行属 is 土:
-                case 秋季 _ when 行属 is 水:
-                case 冬季 _ when 行属 is 木:
-                case 长夏 _ when 行属 is 金:
-                    结果 = "相";
-                    break;
-                case 春季 _ when 行属 is 水:
-                case 夏季 _ when 行属 is 木:
-                case 秋季 _ when 行属 is 土:
-                case 冬季 _ when 行属 is 金:
-                case 长夏 _ when 行属 is 火:
-                    结果 = "休";
-                    break;
-                case 春季 _ when 行属 is 金:
-                case 夏季 _ when 行属 is 水:
-                case 秋季 _ when 行属 is 火:
-                case 冬季 _ when 行属 is 土:
-                case 长夏 _ when 行属 is 木:
-                    结果 = "囚";
-                    break;
-                case 春季 _ when 行属 is 土:
-                case 夏季 _ when 行属 is 金:
-                case 秋季 _ when 行属 is 木:
-                case 冬季 _ when 行属 is 火:
-                case 长夏 _ when 行属 is 水:
-                    结果 = "死";
-                    break;
-            }
-            return 结果;
-        }
-        //阳动
         public 五行 旺
         {
             get
             {
-                五行 行属 = null;
                 switch (this)
                 {
                     case 春季 _:
-                        行属 = 五行.木;
-                        break;
+                        return 春季.旺;
                     case 夏季 _:
-                        行属 = 五行.火;
-                        break;
+                        return 夏季.旺;
                     case 秋季 _:
-                        行属 = 五行.金;
-                        break;
+                        return 秋季.旺;
                     case 冬季 _:
-                        行属 = 五行.水;
-                        break;
+                        return 冬季.旺;
                     case 长夏 _:
-                        行属 = 五行.土;
-                        break;
+                        return 长夏.旺;
                 }
-                return 行属;
+                return null;
             }
         }
         public 五行 相
         {
             get
             {
-                五行 行属 = null;
                 switch (this)
                 {
                     case 春季 _:
-                        行属 = 五行.火;
-                        break;
+                        return 春季.相;
                     case 夏季 _:
-                        行属 = 五行.土;
-                        break;
+                        return 夏季.相;
                     case 秋季 _:
-                        行属 = 五行.水;
-                        break;
+                        return 秋季.相;
                     case 冬季 _:
-                        行属 = 五行.木;
-                        break;
+                        return 冬季.相;
                     case 长夏 _:
-                        行属 = 五行.金;
-                        break;
+                        return 长夏.相;
                 }
-                return 行属;
+                return null;
             }
         }
         public 五行 休
         {
             get
             {
-                五行 行属 = null;
                 switch (this)
                 {
                     case 春季 _:
-                        行属 = 五行.水;
-                        break;
+                        return 春季.休;
                     case 夏季 _:
-                        行属 = 五行.木;
-                        break;
+                        return 夏季.休;
                     case 秋季 _:
-                        行属 = 五行.土;
-                        break;
+                        return 秋季.休;
                     case 冬季 _:
-                        行属 = 五行.金;
-                        break;
+                        return 冬季.休;
                     case 长夏 _:
-                        行属 = 五行.火;
-                        break;
+                        return 长夏.休;
                 }
-                return 行属;
+                return null;
             }
         }
         public 五行 囚
         {
             get
             {
-                五行 行属 = null;
                 switch (this)
                 {
                     case 春季 _:
-                        行属 = 五行.金;
-                        break;
+                        return 春季.囚;
                     case 夏季 _:
-                        行属 = 五行.水;
-                        break;
+                        return 夏季.囚;
                     case 秋季 _:
-                        行属 = 五行.火;
-                        break;
+                        return 秋季.囚;
                     case 冬季 _:
-                        行属 = 五行.土;
-                        break;
+                        return 冬季.囚;
                     case 长夏 _:
-                        行属 = 五行.木;
-                        break;
+                        return 长夏.囚;
                 }
-                return 行属;
+                return null;
             }
         }
         public 五行 死
         {
             get
             {
-                五行 行属 = null;
                 switch (this)
                 {
                     case 春季 _:
-                        行属 = 五行.土;
-                        break;
+                        return 春季.死;
                     case 夏季 _:
-                        行属 = 五行.金;
-                        break;
+                        return 夏季.死;
                     case 秋季 _:
-                        行属 = 五行.木;
-                        break;
+                        return 秋季.死;
                     case 冬季 _:
-                        行属 = 五行.火;
-                        break;
+                        return 冬季.死;
                     case 长夏 _:
-                        行属 = 五行.水;
-                        break;
+                        return 长夏.死;
                 }
-                return 行属;
+                return null;
             }
         }
-        public string 衰旺(五行 行属) => this + 行属;
 
         #endregion
 
