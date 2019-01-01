@@ -1,0 +1,108 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="..\阴阳易演\具象类\两仪\阳.cs" Link="具象类\两仪\阳.cs" />
+    <Compile Include="..\阴阳易演\具象类\两仪\阴.cs" Link="具象类\两仪\阴.cs" />
+    <Compile Include="..\阴阳易演\具象类\五行\土.cs" Link="具象类\五行\土.cs" />
+    <Compile Include="..\阴阳易演\具象类\五行\木.cs" Link="具象类\五行\木.cs" />
+    <Compile Include="..\阴阳易演\具象类\五行\水.cs" Link="具象类\五行\水.cs" />
+    <Compile Include="..\阴阳易演\具象类\五行\火.cs" Link="具象类\五行\火.cs" />
+    <Compile Include="..\阴阳易演\具象类\五行\金.cs" Link="具象类\五行\金.cs" />
+    <Compile Include="..\阴阳易演\具象类\八卦\乾.cs" Link="具象类\八卦\乾.cs" />
+    <Compile Include="..\阴阳易演\具象类\八卦\兑.cs" Link="具象类\八卦\兑.cs" />
+    <Compile Include="..\阴阳易演\具象类\八卦\坎.cs" Link="具象类\八卦\坎.cs" />
+    <Compile Include="..\阴阳易演\具象类\八卦\坤.cs" Link="具象类\八卦\坤.cs" />
+    <Compile Include="..\阴阳易演\具象类\八卦\巽.cs" Link="具象类\八卦\巽.cs" />
+    <Compile Include="..\阴阳易演\具象类\八卦\离.cs" Link="具象类\八卦\离.cs" />
+    <Compile Include="..\阴阳易演\具象类\八卦\艮.cs" Link="具象类\八卦\艮.cs" />
+    <Compile Include="..\阴阳易演\具象类\八卦\震.cs" Link="具象类\八卦\震.cs" />
+    <Compile Include="..\阴阳易演\具象类\六神\勾陈.cs" Link="具象类\六神\勾陈.cs" />
+    <Compile Include="..\阴阳易演\具象类\六神\朱雀.cs" Link="具象类\六神\朱雀.cs" />
+    <Compile Include="..\阴阳易演\具象类\六神\滕蛇.cs" Link="具象类\六神\滕蛇.cs" />
+    <Compile Include="..\阴阳易演\具象类\六神\玄武.cs" Link="具象类\六神\玄武.cs" />
+    <Compile Include="..\阴阳易演\具象类\六神\白虎.cs" Link="具象类\六神\白虎.cs" />
+    <Compile Include="..\阴阳易演\具象类\六神\青龙.cs" Link="具象类\六神\青龙.cs" />
+    <Compile Include="..\阴阳易演\具象类\四象\太阳.cs" Link="具象类\四象\太阳.cs" />
+    <Compile Include="..\阴阳易演\具象类\四象\太阴.cs" Link="具象类\四象\太阴.cs" />
+    <Compile Include="..\阴阳易演\具象类\四象\少阳.cs" Link="具象类\四象\少阳.cs" />
+    <Compile Include="..\阴阳易演\具象类\四象\少阴.cs" Link="具象类\四象\少阴.cs" />
+    <Compile Include="..\阴阳易演\具象类\地支\丑.cs" Link="具象类\地支\丑.cs" />
+    <Compile Include="..\阴阳易演\具象类\地支\亥.cs" Link="具象类\地支\亥.cs" />
+    <Compile Include="..\阴阳易演\具象类\地支\午.cs" Link="具象类\地支\午.cs" />
+    <Compile Include="..\阴阳易演\具象类\地支\卯.cs" Link="具象类\地支\卯.cs" />
+    <Compile Include="..\阴阳易演\具象类\地支\子.cs" Link="具象类\地支\子.cs" />
+    <Compile Include="..\阴阳易演\具象类\地支\寅.cs" Link="具象类\地支\寅.cs" />
+    <Compile Include="..\阴阳易演\具象类\地支\巳.cs" Link="具象类\地支\巳.cs" />
+    <Compile Include="..\阴阳易演\具象类\地支\戌.cs" Link="具象类\地支\戌.cs" />
+    <Compile Include="..\阴阳易演\具象类\地支\未.cs" Link="具象类\地支\未.cs" />
+    <Compile Include="..\阴阳易演\具象类\地支\申.cs" Link="具象类\地支\申.cs" />
+    <Compile Include="..\阴阳易演\具象类\地支\辰.cs" Link="具象类\地支\辰.cs" />
+    <Compile Include="..\阴阳易演\具象类\地支\酉.cs" Link="具象类\地支\酉.cs" />
+    <Compile Include="..\阴阳易演\具象类\天干\丁.cs" Link="具象类\天干\丁.cs" />
+    <Compile Include="..\阴阳易演\具象类\天干\丙.cs" Link="具象类\天干\丙.cs" />
+    <Compile Include="..\阴阳易演\具象类\天干\乙.cs" Link="具象类\天干\乙.cs" />
+    <Compile Include="..\阴阳易演\具象类\天干\壬.cs" Link="具象类\天干\壬.cs" />
+    <Compile Include="..\阴阳易演\具象类\天干\己.cs" Link="具象类\天干\己.cs" />
+    <Compile Include="..\阴阳易演\具象类\天干\庚.cs" Link="具象类\天干\庚.cs" />
+    <Compile Include="..\阴阳易演\具象类\天干\戊.cs" Link="具象类\天干\戊.cs" />
+    <Compile Include="..\阴阳易演\具象类\天干\甲.cs" Link="具象类\天干\甲.cs" />
+    <Compile Include="..\阴阳易演\具象类\天干\癸.cs" Link="具象类\天干\癸.cs" />
+    <Compile Include="..\阴阳易演\具象类\天干\辛.cs" Link="具象类\天干\辛.cs" />
+    <Compile Include="..\阴阳易演\具象类\季节\冬季.cs" Link="具象类\季节\冬季.cs" />
+    <Compile Include="..\阴阳易演\具象类\季节\夏季.cs" Link="具象类\季节\夏季.cs" />
+    <Compile Include="..\阴阳易演\具象类\季节\春季.cs" Link="具象类\季节\春季.cs" />
+    <Compile Include="..\阴阳易演\具象类\季节\秋季.cs" Link="具象类\季节\秋季.cs" />
+    <Compile Include="..\阴阳易演\具象类\季节\长夏.cs" Link="具象类\季节\长夏.cs" />
+    <Compile Include="..\阴阳易演\容器类\宫.cs" Link="容器类\宫.cs" />
+    <Compile Include="..\阴阳易演\容器类\河洛数.cs" Link="容器类\河洛数.cs" />
+    <Compile Include="..\阴阳易演\容器类\甲子.cs" Link="容器类\甲子.cs" />
+    <Compile Include="..\阴阳易演\容器类\神煞.cs" Link="容器类\神煞.cs" />
+    <Compile Include="..\阴阳易演\容器类\节气.cs" Link="容器类\节气.cs" />
+    <Compile Include="..\阴阳易演\引用库\中国农历类.cs" Link="引用库\中国农历类.cs" />
+    <Compile Include="..\阴阳易演\引用库\常用方法.cs" Link="引用库\常用方法.cs" />
+    <Compile Include="..\阴阳易演\引用库\枚举转换类.cs" Link="引用库\枚举转换类.cs" />
+    <Compile Include="..\阴阳易演\抽象类\两仪.cs" Link="抽象类\两仪.cs" />
+    <Compile Include="..\阴阳易演\抽象类\五行.cs" Link="抽象类\五行.cs" />
+    <Compile Include="..\阴阳易演\抽象类\八卦.cs" Link="抽象类\八卦.cs" />
+    <Compile Include="..\阴阳易演\抽象类\六神.cs" Link="抽象类\六神.cs" />
+    <Compile Include="..\阴阳易演\抽象类\四象.cs" Link="抽象类\四象.cs" />
+    <Compile Include="..\阴阳易演\抽象类\地支.cs" Link="抽象类\地支.cs" />
+    <Compile Include="..\阴阳易演\抽象类\基类\干支.cs" Link="抽象类\基类\干支.cs" />
+    <Compile Include="..\阴阳易演\抽象类\基类\无极.cs" Link="抽象类\基类\无极.cs" />
+    <Compile Include="..\阴阳易演\抽象类\天干.cs" Link="抽象类\天干.cs" />
+    <Compile Include="..\阴阳易演\抽象类\太极.cs" Link="抽象类\太极.cs" />
+    <Compile Include="..\阴阳易演\抽象类\季节.cs" Link="抽象类\季节.cs" />
+    <Compile Include="..\阴阳易演\枚举类\八方方位.cs" Link="枚举类\八方方位.cs" />
+    <Compile Include="..\阴阳易演\枚举类\十六方位.cs" Link="枚举类\十六方位.cs" />
+    <Compile Include="..\阴阳易演\查询类\二十四节气.cs" Link="查询类\二十四节气.cs" />
+    <Compile Include="..\阴阳易演\查询类\八卦表.cs" Link="查询类\八卦表.cs" />
+    <Compile Include="..\阴阳易演\查询类\六神表.cs" Link="查询类\六神表.cs" />
+    <Compile Include="..\阴阳易演\查询类\十二宫表.cs" Link="查询类\十二宫表.cs" />
+    <Compile Include="..\阴阳易演\查询类\十二神煞表.cs" Link="查询类\十二神煞表.cs" />
+    <Compile Include="..\阴阳易演\查询类\干支表.cs" Link="查询类\干支表.cs" />
+    <Compile Include="..\阴阳易演\查询类\甲子表.cs" Link="查询类\甲子表.cs" />
+    <Compile Include="..\阴阳易演\查询类\纳音表.cs" Link="查询类\纳音表.cs" />
+    <Compile Include="..\阴阳易演\计算类\干支纪年.cs" Link="计算类\干支纪年.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="具象类\两仪\" />
+    <Folder Include="具象类\五行\" />
+    <Folder Include="具象类\八卦\" />
+    <Folder Include="具象类\六神\" />
+    <Folder Include="具象类\四象\" />
+    <Folder Include="具象类\地支\" />
+    <Folder Include="具象类\天干\" />
+    <Folder Include="容器类\" />
+    <Folder Include="引用库\" />
+    <Folder Include="抽象类\基类\" />
+    <Folder Include="枚举类\" />
+    <Folder Include="查询类\" />
+    <Folder Include="计算类\" />
+  </ItemGroup>
+
+</Project>

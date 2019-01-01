@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>337a6720-9b0c-4dc6-b87d-7b2e5192cc91</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>阴阳易演</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)具象类\两仪\阳.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)具象类\两仪\阴.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)具象类\五行\土.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)具象类\五行\木.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)具象类\五行\水.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)具象类\五行\火.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)具象类\五行\金.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)具象类\八卦\乾.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)具象类\八卦\兑.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)具象类\八卦\坎.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)具象类\八卦\坤.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)具象类\八卦\巽.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)具象类\八卦\离.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)具象类\八卦\艮.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)具象类\八卦\震.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)具象类\六神\勾陈.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)具象类\六神\朱雀.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)具象类\六神\滕蛇.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)具象类\六神\玄武.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)具象类\六神\白虎.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)具象类\六神\青龙.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)具象类\四象\太阳.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)具象类\四象\太阴.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)具象类\四象\少阳.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)具象类\四象\少阴.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)具象类\地支\丑.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)具象类\地支\亥.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)具象类\地支\午.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)具象类\地支\卯.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)具象类\地支\子.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)具象类\地支\寅.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)具象类\地支\巳.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)具象类\地支\戌.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)具象类\地支\未.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)具象类\地支\申.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)具象类\地支\辰.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)具象类\地支\酉.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)具象类\天干\丁.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)具象类\天干\丙.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)具象类\天干\乙.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)具象类\天干\壬.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)具象类\天干\己.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)具象类\天干\庚.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)具象类\天干\戊.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)具象类\天干\甲.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)具象类\天干\癸.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)具象类\天干\辛.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)具象类\季节\冬季.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)具象类\季节\长夏.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)具象类\季节\夏季.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)具象类\季节\春季.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)具象类\季节\秋季.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)容器类\宫.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)容器类\河洛数.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)容器类\甲子.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)容器类\神煞.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)容器类\节气.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)引用库\中国农历类.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)引用库\常用方法.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)引用库\枚举转换类.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)抽象类\两仪.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)抽象类\五行.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)抽象类\八卦.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)抽象类\六神.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)抽象类\四象.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)抽象类\地支.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)抽象类\基类\干支.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)抽象类\基类\无极.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)抽象类\天干.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)抽象类\太极.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)抽象类\季节.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)枚举类\八方方位.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)枚举类\十六方位.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)查询类\二十四节气.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)查询类\八卦表.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)查询类\六神表.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)查询类\十二宫表.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)查询类\十二神煞表.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)查询类\干支表.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)查询类\甲子表.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)查询类\纳音表.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)计算类\干支纪年.cs" />
+  </ItemGroup>
+</Project>
