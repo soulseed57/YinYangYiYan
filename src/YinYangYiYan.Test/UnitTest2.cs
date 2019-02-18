@@ -45,30 +45,6 @@
         }
 
         [TestMethod]
-        public void 五行旺衰()
-        {
-            var showMsg = new StringBuilder();
-            var 季节列表 = new List<季节> { 季节.春季, 季节.夏季, 季节.秋季, 季节.冬季, 季节.长夏 };
-            var 五行列表 = new List<五行> { 五行.金, 五行.木, 五行.水, 五行.火, 五行.土 };
-            foreach (var 季 in 季节列表)
-            {
-                showMsg.Append($"{季.名称}\r\n");
-                foreach (var 行 in 五行列表)
-                {
-                    showMsg.Append($"{行.名称}{季 + 行}\t");
-                }
-                showMsg.AppendLine();
-                showMsg.Append($"{季.旺.名称}旺\t");
-                showMsg.Append($"{季.相.名称}相\t");
-                showMsg.Append($"{季.休.名称}休\t");
-                showMsg.Append($"{季.囚.名称}囚\t");
-                showMsg.Append($"{季.死.名称}死\t");
-                showMsg.AppendLine();
-            }
-            Console.Write(showMsg.ToString());
-        }
-
-        [TestMethod]
         public void 六十甲子()
         {
             var showMsg = new StringBuilder();

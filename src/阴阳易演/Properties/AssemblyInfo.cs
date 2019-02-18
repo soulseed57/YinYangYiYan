@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // 有关程序集的一般信息由以下
 // 控制。更改这些特性值可修改
 // 与程序集关联的信息。
-[assembly: AssemblyTitle("阴阳易演.ForNF")]
+[assembly: AssemblyTitle("阴阳易演")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("阴阳易演.ForNF")]
+[assembly: AssemblyProduct("阴阳易演")]
 [assembly: AssemblyCopyright("Copyright ©  2019")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // 如果此项目向 COM 公开，则下列 GUID 用于类型库的 ID
-[assembly: Guid("8e4708af-4487-458b-a1bc-5964ace656f1")]
+[assembly: Guid("8d008554-39be-4860-942b-0398155f2e43")]
 
 // 程序集的版本信息由下列四个值组成: 
 //

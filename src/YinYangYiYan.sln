@@ -5,20 +5,11 @@ VisualStudioVersion = 15.0.27703.2026
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YinYangYiYan.Test", "YinYangYiYan.Test\YinYangYiYan.Test.csproj", "{C4DDA94C-2326-479F-8571-32632DE86D08}"
 EndProject
-Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "阴阳易演", "阴阳易演\阴阳易演.shproj", "{337A6720-9B0C-4DC6-B87D-7B2E5192CC91}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "模型", "模型", "{3D335458-DF6D-4DC6-9420-2ACAFAE388BE}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1.模型", "1.模型", "{3D335458-DF6D-4DC6-9420-2ACAFAE388BE}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2.类库", "2.类库", "{40ACE168-FACD-4B33-8E0D-BB56C68D7ED6}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "阴阳易演.ForNS", "阴阳易演.ForNS\阴阳易演.ForNS.csproj", "{5B0C1834-482D-4E07-BF83-2B92B21781AA}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "阴阳易演.ForNF", "阴阳易演.ForNF\阴阳易演.ForNF.csproj", "{8E4708AF-4487-458B-A1BC-5964ACE656F1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "阴阳易演", "阴阳易演\阴阳易演.csproj", "{8D008554-39BE-4860-942B-0398155F2E43}"
 EndProject
 Global
-	GlobalSection(SharedMSBuildProjectFiles) = preSolution
-		阴阳易演\阴阳易演.projitems*{337a6720-9b0c-4dc6-b87d-7b2e5192cc91}*SharedItemsImports = 13
-	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
@@ -28,22 +19,16 @@ Global
 		{C4DDA94C-2326-479F-8571-32632DE86D08}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C4DDA94C-2326-479F-8571-32632DE86D08}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C4DDA94C-2326-479F-8571-32632DE86D08}.Release|Any CPU.Build.0 = Release|Any CPU
-		{5B0C1834-482D-4E07-BF83-2B92B21781AA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5B0C1834-482D-4E07-BF83-2B92B21781AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5B0C1834-482D-4E07-BF83-2B92B21781AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5B0C1834-482D-4E07-BF83-2B92B21781AA}.Release|Any CPU.Build.0 = Release|Any CPU
-		{8E4708AF-4487-458B-A1BC-5964ACE656F1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{8E4708AF-4487-458B-A1BC-5964ACE656F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{8E4708AF-4487-458B-A1BC-5964ACE656F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{8E4708AF-4487-458B-A1BC-5964ACE656F1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8D008554-39BE-4860-942B-0398155F2E43}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8D008554-39BE-4860-942B-0398155F2E43}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8D008554-39BE-4860-942B-0398155F2E43}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8D008554-39BE-4860-942B-0398155F2E43}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{337A6720-9B0C-4DC6-B87D-7B2E5192CC91} = {3D335458-DF6D-4DC6-9420-2ACAFAE388BE}
-		{5B0C1834-482D-4E07-BF83-2B92B21781AA} = {40ACE168-FACD-4B33-8E0D-BB56C68D7ED6}
-		{8E4708AF-4487-458B-A1BC-5964ACE656F1} = {40ACE168-FACD-4B33-8E0D-BB56C68D7ED6}
+		{8D008554-39BE-4860-942B-0398155F2E43} = {3D335458-DF6D-4DC6-9420-2ACAFAE388BE}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {43E651DC-48E1-43C6-BCF7-E84CDB6BACE8}

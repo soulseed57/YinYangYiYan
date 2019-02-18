@@ -56,9 +56,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\阴阳易演.ForNF\阴阳易演.ForNF.csproj">
-      <Project>{8e4708af-4487-458b-a1bc-5964ace656f1}</Project>
-      <Name>阴阳易演.ForNF</Name>
+    <ProjectReference Include="..\阴阳易演\阴阳易演.csproj">
+      <Project>{8d008554-39be-4860-942b-0398155f2e43}</Project>
+      <Name>阴阳易演</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
