@@ -4,15 +4,15 @@ namespace 阴阳易演.查询类
 {
     using 抽象类;
     using 引用库;
+    using 枚举类;
 
     public static class 六神表
     {
         static 六神表()
         {
-            六神数 = 枚举转换类<六神枚举>.获取所有枚举().Length;
+            六神数 = 枚举转换类<六神枚举>.获取枚举数();
         }
         public static readonly int 六神数;
-        public enum 六神枚举 { 青龙, 朱雀, 勾陈, 腾蛇, 白虎, 玄武 }
 
         #region 六神枚举
         public static int 获取六神序数(六神 神)

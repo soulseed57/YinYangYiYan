@@ -4,21 +4,15 @@
     using 容器类;
     using 引用库;
     using 具象类.地支;
+    using 枚举类;
 
     public static class 十二神煞表
     {
         static 十二神煞表()
         {
-            神煞数 = 枚举转换类<神煞枚举>.获取所有枚举().Length;
+            神煞数 = 枚举转换类<神煞枚举>.获取枚举数();
         }
         public static readonly int 神煞数;
-        public enum 神煞枚举
-        {
-            青龙, 明堂, 天刑,
-            朱雀, 金匮, 天德,
-            白虎, 玉堂, 天牢,
-            玄武, 司命, 勾陈
-        }
 
         #region 神煞枚举
         public static int 获取神煞序数(神煞 神)

@@ -4,15 +4,15 @@ namespace 阴阳易演.查询类
 {
     using 引用库;
     using 抽象类;
+    using 枚举类;
 
     public static class 八卦表
     {
         static 八卦表()
         {
-            八卦数 = 枚举转换类<八卦枚举>.获取所有枚举().Length;
+            八卦数 = 枚举转换类<八卦枚举>.获取枚举数();
         }
         public static readonly int 八卦数;
-        public enum 八卦枚举 { 乾, 兑, 离, 震, 巽, 坎, 艮, 坤 }
         public static List<八卦> 八卦列表 = new List<八卦>
         {
             八卦.乾, 八卦.兑,

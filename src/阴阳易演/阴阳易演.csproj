@@ -112,11 +112,17 @@
     <Compile Include="枚举类\十六方位.cs" />
     <Compile Include="枚举类\甲子枚举.cs" />
     <Compile Include="查询类\二十四节气.cs" />
+    <Compile Include="枚举类\八卦枚举.cs" />
     <Compile Include="查询类\八卦表.cs" />
+    <Compile Include="枚举类\六神枚举.cs" />
     <Compile Include="查询类\六神表.cs" />
-    <Compile Include="查询类\十二宫表.cs" />
     <Compile Include="查询类\十二神煞表.cs" />
+    <Compile Include="枚举类\地支枚举.cs" />
+    <Compile Include="枚举类\天干枚举.cs" />
     <Compile Include="查询类\干支表.cs" />
+    <Compile Include="枚举类\长生十二宫.cs" />
+    <Compile Include="枚举类\神煞枚举.cs" />
+    <Compile Include="枚举类\节气枚举.cs" />
     <Compile Include="计算类\干支纪年.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

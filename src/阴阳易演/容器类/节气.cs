@@ -2,6 +2,7 @@
 
 namespace 阴阳易演.容器类
 {
+    using 枚举类;
     using static 查询类.二十四节气;
 
     public class 节气

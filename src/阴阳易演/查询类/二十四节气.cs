@@ -5,29 +5,16 @@ namespace 阴阳易演.查询类
     using 容器类;
     using 引用库;
     using 抽象类;
+    using 枚举类;
+
 
     public static class 二十四节气
     {
         static 二十四节气()
         {
-            节气数 = 枚举转换类<节气枚举>.获取所有枚举().Length;
+            节气数 = 枚举转换类<节气枚举>.获取枚举数();
         }
         public static readonly int 节气数;
-        public enum 节气枚举
-        {
-            小寒, 大寒,
-            立春, 雨水,
-            惊蛰, 春分,
-            清明, 谷雨,
-            立夏, 小满,
-            芒种, 夏至,
-            小暑, 大暑,
-            立秋, 处暑,
-            白露, 秋分,
-            寒露, 霜降,
-            立冬, 小雪,
-            大雪, 冬至
-        }
 
         #region 节气枚举
         public static int 获取节气序数(节气 节)
@@ -98,9 +85,13 @@ namespace 阴阳易演.查询类
                 var 节 = (节气枚举)Enum.ToObject(typeof(节气枚举), i);
                 var 时 = 节气查询(年份, 节);
                 if (时.DayOfYear <= 时间.DayOfYear)
+                {
                     节气 = 节;
+                }
                 else
+                {
                     break;
+                }
             }
             switch (节气)
             {
