@@ -4,6 +4,10 @@ namespace 阴阳易演.引用库
 {
     public static class 枚举转换类<T>
     {
+        public static int 获取枚举数()
+        {
+            return Enum.GetValues(typeof(T)).Length;
+        }
         public static T[] 获取所有枚举()
         {
             return (T[])Enum.GetValues(typeof(T));

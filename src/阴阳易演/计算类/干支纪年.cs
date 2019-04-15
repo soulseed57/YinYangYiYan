@@ -21,10 +21,10 @@ namespace 阴阳易演.计算类
             阴历日 = 农历.ChineseDay;
             阴历 = $"{年份名称(阴历年)}{月份名称(阴历月)}{日期名称(阴历日)}";
             //甲子计算
-            年柱 = 甲子表.甲子查询(农历.GanZhiYearString);
-            月柱 = 甲子表.甲子查询(农历.GanZhiMonthString);
-            日柱 = 甲子表.甲子查询(农历.GanZhiDayString);
-            时柱 = 甲子表.甲子查询(农历.GanZhiHourString);
+            年柱 = new 甲子(农历.GanZhiYearString);
+            月柱 = new 甲子(农历.GanZhiMonthString);
+            日柱 = new 甲子(农历.GanZhiDayString);
+            时柱 = new 甲子(农历.GanZhiHourString);
             //旬空计算
             旬空 = 查询旬空(日柱);
         }

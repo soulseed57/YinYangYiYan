@@ -27,7 +27,7 @@
         #region 地浊
         public string 名称 { get; }
         public string 干支 { get; }
-        public string 纳音 { get; }
+        public 纳音 纳音 { get; }
         public 天干 天干 { get; }
         public 地支 地支 { get; }
 

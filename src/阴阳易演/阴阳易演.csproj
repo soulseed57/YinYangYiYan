@@ -92,6 +92,7 @@
     <Compile Include="容器类\河洛数.cs" />
     <Compile Include="容器类\甲子.cs" />
     <Compile Include="容器类\神煞.cs" />
+    <Compile Include="容器类\纳音.cs" />
     <Compile Include="容器类\节气.cs" />
     <Compile Include="引用库\中国农历类.cs" />
     <Compile Include="引用库\常用方法.cs" />
@@ -109,14 +110,13 @@
     <Compile Include="抽象类\季节.cs" />
     <Compile Include="枚举类\八方方位.cs" />
     <Compile Include="枚举类\十六方位.cs" />
+    <Compile Include="枚举类\甲子枚举.cs" />
     <Compile Include="查询类\二十四节气.cs" />
     <Compile Include="查询类\八卦表.cs" />
     <Compile Include="查询类\六神表.cs" />
     <Compile Include="查询类\十二宫表.cs" />
     <Compile Include="查询类\十二神煞表.cs" />
     <Compile Include="查询类\干支表.cs" />
-    <Compile Include="查询类\甲子表.cs" />
-    <Compile Include="查询类\纳音表.cs" />
     <Compile Include="计算类\干支纪年.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

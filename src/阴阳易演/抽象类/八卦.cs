@@ -35,8 +35,8 @@ namespace 阴阳易演.抽象类
         public static 艮 艮 { get; }
         public static 坤 坤 { get; }
         //阳动
-        public int 序数 { get; protected set; }
-        public int 本数 { get; protected set; }
+        public int 先天数 { get; protected set; }
+        public int 后天数 { get; protected set; }
         public 八方方位 卦位 { get; protected set; }
         public 八方方位 方位 { get; protected set; }
         public byte 卦值 { get; protected set; }

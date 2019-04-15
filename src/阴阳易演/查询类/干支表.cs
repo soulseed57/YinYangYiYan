@@ -9,6 +9,7 @@ namespace 阴阳易演.查询类
     using 容器类;
     using 引用库;
     using 抽象类;
+    using 枚举类;
 
     public static class 干支表
     {
@@ -342,7 +343,7 @@ namespace 阴阳易演.查询类
             var 名称 = new StringBuilder();
             名称.Append(干.GetType().Name);
             名称.Append(支.GetType().Name);
-            var 枚 = 枚举转换类<甲子表.甲子枚举>.获取枚举(名称.ToString());
+            var 枚 = 枚举转换类<甲子枚举>.获取枚举(名称.ToString());
             return new 甲子(枚);
         }
 
