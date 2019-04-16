@@ -56,6 +56,5 @@ namespace 阴阳易演.查询类
 
         #endregion
 
-
     }
 }

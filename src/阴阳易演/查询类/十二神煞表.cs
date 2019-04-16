@@ -36,7 +36,7 @@
 
         #endregion
 
-        #region 查询
+        #region 神煞查询
         public static 神煞 十二值日(地支 日支, 地支 时辰)
         {
             地支 起支 = null;

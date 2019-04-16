@@ -36,7 +36,7 @@
 
         #endregion
 
-        #region 查询
+        #region 六神查询
         public static 六神 六神查询(string 名)
         {
             var 枚 = 枚举转换类<六神枚举>.获取枚举(名);
