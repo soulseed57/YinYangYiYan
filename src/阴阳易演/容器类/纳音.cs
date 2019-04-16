@@ -165,6 +165,7 @@ namespace 阴阳易演.容器类
                     throw new ArgumentOutOfRangeException(nameof(枚), 枚, null);
             }
         }
+
         public string 名称 { get; }
         public 五行 五行 { get; }
 

@@ -15,6 +15,5 @@
 
     public class 辛金 : 辛
     {
-
     }
 }

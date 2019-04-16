@@ -7,7 +7,6 @@
 
     public class 甲子
     {
-        #region 天清
         void 初始化(甲子枚举 枚)
         {
             var 枚举名 = 枚.ToString();
@@ -41,9 +40,7 @@
             var 枚 = 枚举转换类<甲子枚举>.获取枚举(序);
             初始化(枚);
         }
-        #endregion
 
-        #region 地浊
         public string 名称 { get; private set; }
         public 甲子枚举 枚举 { get; private set; }
         public int 序数 { get; private set; }
@@ -51,8 +48,6 @@
         public 地支 地支 { get; private set; }
         public 两仪 阴阳 { get; protected set; }
         public 纳音 纳音 { get; private set; }
-
-        #endregion
 
     }
 }

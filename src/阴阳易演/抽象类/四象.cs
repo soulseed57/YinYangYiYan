@@ -17,12 +17,12 @@
         #endregion
 
         #region 地浊
-        //阴静
+        // 阴静
         public static 少阳 少阳 { get; }
         public static 太阳 太阳 { get; }
         public static 少阴 少阴 { get; }
         public static 太阴 太阴 { get; }
-        //阳动
+        // 阳动
         public string 方位 { get; protected set; }
         public string 神兽 { get; protected set; }
         public 季节 四季 { get; protected set; }

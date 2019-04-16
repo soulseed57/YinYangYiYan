@@ -6,8 +6,7 @@ namespace 阴阳易演.查询类
     using 引用库;
     using 抽象类;
     using 枚举类;
-
-
+    
     public static class 二十四节气
     {
         static 二十四节气()
@@ -130,7 +129,7 @@ namespace 阴阳易演.查询类
         #endregion
 
         #region 运算
-        //内部
+        // 内部
         static readonly int[] _sTermInfo =
         {
             0, 21208, 42467, 63836,
@@ -142,7 +141,7 @@ namespace 阴阳易演.查询类
         };
         static readonly DateTime _baseTime = new DateTime(1900, 1, 6, 2, 5, 0);
         static double DiffMinutes(int year) => 525948.76 * (year - _baseTime.Year);
-        //公开
+        // 公开
         public static double? 日期转修正儒略日(DateTime date)
         {
             double? res = null;
@@ -156,7 +155,7 @@ namespace 阴阳易演.查询类
             }
             catch
             {
-                //ignored
+                // ignored
             }
             return res;
         }
@@ -175,7 +174,7 @@ namespace 阴阳易演.查询类
             }
             catch
             {
-                //ignored
+                // ignored
             }
             return res;
         }

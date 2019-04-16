@@ -9,8 +9,9 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>阴阳易演</RootNamespace>
     <AssemblyName>阴阳易演</AssemblyName>
-    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -123,7 +124,8 @@
     <Compile Include="枚举类\长生十二宫.cs" />
     <Compile Include="枚举类\神煞枚举.cs" />
     <Compile Include="枚举类\节气枚举.cs" />
-    <Compile Include="计算类\干支纪年.cs" />
+    <Compile Include="容器类\干支纪年.cs" />
+    <Compile Include="计算类\干支计算.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

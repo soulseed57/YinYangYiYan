@@ -13,13 +13,7 @@ namespace 阴阳易演.查询类
             八卦数 = 枚举转换类<八卦枚举>.获取枚举数();
         }
         public static readonly int 八卦数;
-        public static List<八卦> 八卦列表 = new List<八卦>
-        {
-            八卦.乾, 八卦.兑,
-            八卦.离, 八卦.震,
-            八卦.巽, 八卦.坎,
-            八卦.艮, 八卦.坤
-        };
+        public static List<八卦> 八卦列表 = new List<八卦> { 八卦.乾, 八卦.兑, 八卦.离, 八卦.震, 八卦.巽, 八卦.坎, 八卦.艮, 八卦.坤 };
 
         #region 八卦枚举
         public static int 获取八卦序数(八卦 卦)
@@ -40,13 +34,28 @@ namespace 阴阳易演.查询类
             var 序 = 常用方法.序数取余(数, 八卦数);
             return 枚举转换类<八卦枚举>.获取名称(序);
         }
-        public static 八卦 获取八卦实例(int 数)
+
+        #endregion
+
+        #region 八卦查询
+        public static 八卦 八卦查询(八卦枚举 枚)
         {
-            var 名 = 获取八卦名称(数);
+            var 名 = 枚举转换类<八卦枚举>.获取名称(枚);
+            return 八卦查询(名);
+        }
+        public static 八卦 八卦查询(int 数)
+        {
+            var 序 = 常用方法.序数取余(数, 八卦数);
+            var 名 = 枚举转换类<八卦枚举>.获取名称(序);
+            return 八卦查询(名);
+        }
+        public static 八卦 八卦查询(string 名)
+        {
             return 八卦列表.Find(t => t.名称 == 名);
         }
 
         #endregion
+
 
     }
 }

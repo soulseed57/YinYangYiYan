@@ -2,7 +2,7 @@
 {
     using 抽象类;
 
-    public class 滕蛇 : 六神
+    public class 腾蛇 : 六神
     {
     }
 }

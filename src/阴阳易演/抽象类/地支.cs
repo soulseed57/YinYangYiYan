@@ -25,7 +25,7 @@
         #endregion
 
         #region 地浊
-        //阴静
+        // 阴静
         public static 子 子 { get; }
         public static 丑 丑 { get; }
         public static 寅 寅 { get; }
@@ -38,7 +38,7 @@
         public static 酉 酉 { get; }
         public static 戌 戌 { get; }
         public static 亥 亥 { get; }
-        //阳动
+        // 阳动
         public string 生肖 { get; protected set; }
 
         #endregion

@@ -1,5 +1,4 @@
-﻿
-namespace 阴阳易演.具象类.四象
+﻿namespace 阴阳易演.具象类.四象
 {
     using 抽象类;
 

@@ -15,6 +15,5 @@
 
     public class 戊土 : 戊
     {
-        
     }
 }

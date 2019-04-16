@@ -15,6 +15,5 @@
 
     public class 乙木 : 乙
     {
-
     }
 }

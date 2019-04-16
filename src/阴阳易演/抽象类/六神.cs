@@ -13,7 +13,7 @@
             白虎 = new 白虎();
             玄武 = new 玄武();
             勾陈 = new 勾陈();
-            滕蛇 = new 滕蛇();
+            腾蛇 = new 腾蛇();
         }
 
         #endregion
@@ -24,7 +24,7 @@
         public static 白虎 白虎 { get; }
         public static 玄武 玄武 { get; }
         public static 勾陈 勾陈 { get; }
-        public static 滕蛇 滕蛇 { get; }
+        public static 腾蛇 腾蛇 { get; }
 
         #endregion
 

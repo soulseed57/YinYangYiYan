@@ -19,13 +19,13 @@
         #endregion
 
         #region 地浊
-        //阴静
+        // 阴静
         public static 金 金 { get; }
         public static 水 水 { get; }
         public static 木 木 { get; }
         public static 火 火 { get; }
         public static 土 土 { get; }
-        //阳动
+        // 阳动
         public int 数字 { get; protected set; }
         public string 方位 { get; protected set; }
         public string 神兽 { get; protected set; }
@@ -35,7 +35,7 @@
         #endregion
 
         #region 运算
-        //阴静
+        // 阴静
         public static 五行 父母(五行 行属)
         {
             五行 结果 = null;
@@ -152,7 +152,7 @@
             return 结果;
         }
         public static bool 比和(五行 行1, 五行 行2) => 行1.Equals(行2);
-        //阳动
+        // 阳动
         public bool 比和(五行 行属) => 行属.Equals(this);
 
         #endregion

@@ -8,7 +8,6 @@ namespace 阴阳易演.容器类
 
     public class 河洛数
     {
-        #region 天清
         public 河洛数(int 原数)
         {
             数字 = 常用方法.归零取余(原数, 10);
@@ -63,17 +62,6 @@ namespace 阴阳易演.容器类
             配地支 = 干支表.地支列表.FindAll(t => t.阴阳 == 阴阳 && t.五行 == 五行).ToArray();
         }
 
-        #endregion
-
-        #region 地浊
-        //阴静
-        public static readonly int[][] 洛书九宫 =
-        {
-            new[] { 4, 9, 2 },
-            new[] { 3, 5, 7 },
-            new[] { 8, 1, 6 }
-        };
-        //阳动
         public int 数字 { get; protected set; }
         public 两仪 阴阳 { get; protected set; }
         public 五行 五行 { get; protected set; }
@@ -81,8 +69,6 @@ namespace 阴阳易演.容器类
         public 八卦 后天卦 { get; }
         public 天干 配天干 { get; }
         public 地支[] 配地支 { get; }
-
-        #endregion
 
     }
 }

@@ -17,10 +17,10 @@ namespace 阴阳易演.抽象类
         #endregion
 
         #region 地浊
-        //阴静
+        // 阴静
         public static 阴 阴 { get; }
         public static 阳 阳 { get; }
-        //阳动
+        // 阳动
         public byte 值 { get; protected set; }
         public string 爻 { get; protected set; }
 

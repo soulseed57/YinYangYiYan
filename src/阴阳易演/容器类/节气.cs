@@ -7,7 +7,6 @@ namespace 阴阳易演.容器类
 
     public class 节气
     {
-        #region 天清
         public 节气(DateTime 时间)
         {
             var 节 = 节气查询(时间);
@@ -16,14 +15,9 @@ namespace 阴阳易演.容器类
             交节 = 节气查询(时间.Year, 节);
         }
 
-        #endregion
-
-        #region 地浊
         public string 名称 { get; protected set; }
         public 节气枚举 枚举 { get; protected set; }
         public DateTime 交节 { get; protected set; }
-
-        #endregion
 
     }
 }
