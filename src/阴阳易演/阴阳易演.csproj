@@ -125,6 +125,7 @@
     <Compile Include="枚举类\神煞枚举.cs" />
     <Compile Include="枚举类\节气枚举.cs" />
     <Compile Include="容器类\干支纪年.cs" />
+    <Compile Include="枚举类\十二长生.cs" />
     <Compile Include="计算类\干支计算.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
