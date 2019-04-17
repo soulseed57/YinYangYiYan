@@ -111,6 +111,7 @@
     <Compile Include="抽象类\季节.cs" />
     <Compile Include="枚举类\八方方位.cs" />
     <Compile Include="枚举类\十六方位.cs" />
+    <Compile Include="枚举类\卯酉十二宫.cs" />
     <Compile Include="枚举类\甲子枚举.cs" />
     <Compile Include="查询类\二十四节气.cs" />
     <Compile Include="枚举类\八卦枚举.cs" />
