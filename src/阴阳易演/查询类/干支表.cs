@@ -10,8 +10,8 @@ namespace 阴阳易演.查询类
     {
         static 干支表()
         {
-            天干数 = 枚举转换类<天干枚举>.获取枚举数();
-            地支数 = 枚举转换类<地支枚举>.获取枚举数();
+            天干数 = 枚举转换类<天干枚举>.获取枚举总数();
+            地支数 = 枚举转换类<地支枚举>.获取枚举总数();
         }
         public static readonly int 天干数;
         public static readonly int 地支数;

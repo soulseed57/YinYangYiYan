@@ -151,11 +151,7 @@ namespace 阴阳易演.计算类
                     throw new Exception($"未找到地支匹配的长生,当前天干[{干}],当前地支[{支}]");
             }
         }
-
-        #endregion
-
-        #region 天干扩展
-        public static 天干 五鼠遁(this 天干 干, 地支 支)
+        public static 天干 五鼠遁(天干 干, 地支 支)
         {
             天干 起;
             switch (干)
@@ -188,7 +184,7 @@ namespace 阴阳易演.计算类
             var 干序 = (序首 + 偏移) % 10;
             return 干支表.天干查询(干序);
         }
-        public static 天干 五虎遁(this 天干 干, 地支 支)
+        public static 天干 五虎遁(天干 干, 地支 支)
         {
             天干 起;
             switch (干)
@@ -220,6 +216,33 @@ namespace 阴阳易演.计算类
             var 偏移 = 干支表.获取地支序数(支);
             var 干序 = (序首 + 偏移) % 10;
             return 干支表.天干查询(干序);
+        }
+
+        #endregion
+
+        #region 天干扩展
+        public static 天干 五虎遁(this 天干 干)
+        {
+            switch (干)
+            {
+                case 甲 _:
+                case 己 _:
+                    return 天干.丙;// 甲己之年丙作首
+                case 乙 _:
+                case 庚 _:
+                    return 天干.戊;// 乙庚之岁戊为头
+                case 丙 _:
+                case 辛 _:
+                    return 天干.庚;// 丙辛必定寻庚起
+                case 丁 _:
+                case 壬 _:
+                    return 天干.壬;// 丁壬壬位顺水流
+                case 戊 _:
+                case 癸 _:
+                    return 天干.甲;// 若问戊癸何处起.甲寅之上好追求
+                default:
+                    throw new Exception($"起遁失败,当前给定天干错误[{干}]");
+            }
         }
         public static 天干 合(this 天干 干)
         {

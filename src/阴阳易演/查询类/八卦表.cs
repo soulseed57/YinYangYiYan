@@ -10,7 +10,7 @@ namespace 阴阳易演.查询类
     {
         static 八卦表()
         {
-            八卦数 = 枚举转换类<八卦枚举>.获取枚举数();
+            八卦数 = 枚举转换类<八卦枚举>.获取枚举总数();
         }
         public static readonly int 八卦数;
         public static List<八卦> 八卦列表 = new List<八卦> { 八卦.乾, 八卦.兑, 八卦.离, 八卦.震, 八卦.巽, 八卦.坎, 八卦.艮, 八卦.坤 };

@@ -4,7 +4,7 @@ namespace 阴阳易演.引用库
 {
     public static class 枚举转换类<T>
     {
-        public static int 获取枚举数()
+        public static int 获取枚举总数()
         {
             return Enum.GetValues(typeof(T)).Length;
         }

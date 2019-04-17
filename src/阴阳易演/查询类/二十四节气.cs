@@ -11,7 +11,7 @@ namespace 阴阳易演.查询类
     {
         static 二十四节气()
         {
-            节气数 = 枚举转换类<节气枚举>.获取枚举数();
+            节气数 = 枚举转换类<节气枚举>.获取枚举总数();
         }
         public static readonly int 节气数;
 
