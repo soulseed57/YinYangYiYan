@@ -2,7 +2,6 @@
 {
     using 具象类.五行;
     using 基类;
-    using 枚举类;
 
     public abstract class 五行 : 无极
     {
