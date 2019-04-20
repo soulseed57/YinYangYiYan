@@ -90,8 +90,6 @@
     <Compile Include="具象类\季节\秋季.cs" />
     <Compile Include="具象类\季节\长夏.cs" />
     <Compile Include="容器类\六十四卦.cs" />
-    <Compile Include="容器类\宫.cs" />
-    <Compile Include="容器类\河洛数.cs" />
     <Compile Include="容器类\甲子.cs" />
     <Compile Include="容器类\神煞.cs" />
     <Compile Include="容器类\纳音.cs" />
@@ -127,7 +125,7 @@
     <Compile Include="枚举类\长生十二宫.cs" />
     <Compile Include="枚举类\神煞枚举.cs" />
     <Compile Include="枚举类\节气枚举.cs" />
-    <Compile Include="容器类\干支纪年.cs" />
+    <Compile Include="容器类\干支历.cs" />
     <Compile Include="枚举类\长生枚举.cs" />
     <Compile Include="计算类\五行计算.cs" />
     <Compile Include="计算类\卦爻计算.cs" />

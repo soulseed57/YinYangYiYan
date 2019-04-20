@@ -8,10 +8,10 @@
     using 枚举类;
     using 查询类;
 
-    public class 干支纪年
+    public class 干支历
     {
         #region 构造
-        public 干支纪年(DateTime 时间)
+        public 干支历(DateTime 时间)
         {
             var 农历 = new ChineseCalendar(时间);
             // 阴历计算
