@@ -10,10 +10,10 @@ namespace 阴阳易演.容器类
         #region 构造
         public 节气(DateTime 时间)
         {
-            var 节 = 节气查询(时间);
-            名称 = 节.ToString();
-            枚举 = 节;
-            交节 = 节气查询(时间.Year, 节);
+            var 枚 = 节气枚举查询(时间);
+            名称 = 获取节气名称(枚);
+            枚举 = 枚;
+            交节 = 节气时间查询(时间.Year, 枚);
         }
 
         #endregion

@@ -6,7 +6,7 @@ namespace 阴阳易演.查询类
     using 引用库;
     using 抽象类;
     using 枚举类;
-    
+
     public static class 二十四节气
     {
         static 二十四节气()
@@ -50,38 +50,30 @@ namespace 阴阳易演.查询类
         #endregion
 
         #region 查询
-        public static 节气枚举 节气查询(DateTime 时间)
+        public static 节气枚举 节气枚举查询(DateTime 时间)
         {
-            var 年份 = 时间.Year;
-            var offset = DiffMinutes(年份);
-            var found = -1;
-            for (var i = 0; i < _sTermInfo.Length; i++)
+            var 索引 = -1;
+            for (var i = 0; i < 节气修正分钟.Length; i++)
             {
-                var minutes = offset + _sTermInfo[i];
-                var solarTermDate = _baseTime.AddMinutes(minutes);
-                var span = solarTermDate - 时间;
-                if (span.Days > 0)
+                if ((节气时间查询(时间.Year, i) - 时间).Days > 0)
                 {
                     break;
                 }
-                found = i;
+                索引 = i;
             }
-            if (found == -1)
+            if (索引 == -1)
             {
                 throw new Exception($"未找到日期[{时间}]的节气");
             }
-            else
-            {
-                return 获取节气枚举(found);
-            }
+            return 获取节气枚举(索引);
         }
-        public static DateTime 节气查询(int 年份, 节气枚举 枚)
+        public static DateTime 节气时间查询(int 年份, 节气枚举 枚)
         {
-            var i = (int)枚;
-            var offset = DiffMinutes(年份);
-            var minutes = offset + _sTermInfo[i];
-            var solarTermDate = _baseTime.AddMinutes(minutes);
-            return solarTermDate;
+            return 节气时间查询(年份, 枚举转换类<节气枚举>.获取序数(枚));
+        }
+        public static DateTime 节气时间查询(int 年份, int 序数)
+        {
+            return 基准时间.AddMinutes(年份修正分钟(年份) + 节气修正分钟[序数]);
         }
         public static 季节 季节查询(DateTime 时间)
         {
@@ -90,7 +82,7 @@ namespace 阴阳易演.查询类
             for (var i = 0; i < 24; i++)
             {
                 var 节 = (节气枚举)Enum.ToObject(typeof(节气枚举), i);
-                var 时 = 节气查询(年份, 节);
+                var 时 = 节气时间查询(年份, 节);
                 if (时.DayOfYear <= 时间.DayOfYear)
                 {
                     节气 = 节;
@@ -136,9 +128,10 @@ namespace 阴阳易演.查询类
 
         #endregion
 
-        #region 运算
-        // 内部
-        static readonly int[] _sTermInfo =
+        #region 内部参数
+        static readonly DateTime 基准时间 = new DateTime(1900, 1, 6, 2, 5, 0);
+        static double 年份修正分钟(int year) => 525948.76 * (year - 基准时间.Year);
+        static readonly int[] 节气修正分钟 =
         {
             0, 21208, 42467, 63836,
             85337,107014, 128867, 150921,
@@ -147,45 +140,6 @@ namespace 阴阳易演.查询类
             353350, 375494, 397447, 419210,
             440795, 462224, 483532, 504758
         };
-        static readonly DateTime _baseTime = new DateTime(1900, 1, 6, 2, 5, 0);
-        static double DiffMinutes(int year) => 525948.76 * (year - _baseTime.Year);
-        // 公开
-        public static double? 日期转修正儒略日(DateTime date)
-        {
-            double? res = null;
-            try
-            {
-                var y = date.Year;
-                var m = date.Month;
-                var d = date.Day;
-                var l = m == 1 || m == 2 ? 1 : 0;
-                res = 14956 + d + (int)((y - l) * 365.25) + (int)((m + 1 + l * 12) * 30.6001);
-            }
-            catch
-            {
-                // ignored
-            }
-            return res;
-        }
-        public static DateTime? 修正儒略日转日期(double mjd)
-        {
-            DateTime? res = null;
-            try
-            {
-                var y = (int)((mjd - 15078.2) / 365.25);
-                var m = (int)((int)(mjd - 14956.1 - (int)(y * 365.25)) / 30.6001);
-                var d = (int)(mjd - 14956 - (int)(y * 365.25) - (int)(m * 30.6001));
-                var k = m == 14 || m == 15 ? 1 : 0;
-                y = y + k;
-                m = m - 1 - k * 12;
-                res = new DateTime(y, m, d);
-            }
-            catch
-            {
-                // ignored
-            }
-            return res;
-        }
 
         #endregion
 

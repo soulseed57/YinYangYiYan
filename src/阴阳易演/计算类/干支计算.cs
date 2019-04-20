@@ -85,6 +85,34 @@ namespace 阴阳易演.计算类
                     throw new Exception($"未找到正确的合化五行,当前天干[{干}],合[{合}]");
             }
         }
+        public static 八卦 天干配卦(this 天干 干)
+        {
+            switch (干)
+            {
+                case 甲 _:
+                    return 八卦.乾;
+                case 乙 _:
+                    return 八卦.坤;
+                case 丙 _:
+                    return 八卦.艮;
+                case 丁 _:
+                    return 八卦.兑;
+                case 戊 _:
+                    return 八卦.坎;
+                case 己 _:
+                    return 八卦.离;
+                case 庚 _:
+                    return 八卦.震;
+                case 辛 _:
+                    return 八卦.巽;
+                case 壬 _:
+                    return 八卦.乾;
+                case 癸 _:
+                    return 八卦.坤;
+                default:
+                    throw new Exception($"未找到匹配的天干,当前输入{干}");
+            }
+        }
 
         #endregion
 
@@ -140,6 +168,38 @@ namespace 阴阳易演.计算类
                     return 五行.土;// 午未合化土
                 default:
                     throw new Exception($"未找到正确的合化五行,当前地支[{支}],合[{合}]");
+            }
+        }
+        public static 八卦 地支配卦(this 地支 支)
+        {
+            switch (支)
+            {
+                case 子 _:
+                    return 八卦.坎;
+                case 丑 _:
+                    return 八卦.艮;
+                case 寅 _:
+                    return 八卦.艮;
+                case 卯 _:
+                    return 八卦.震;
+                case 辰 _:
+                    return 八卦.巽;
+                case 巳 _:
+                    return 八卦.巽;
+                case 午 _:
+                    return 八卦.离;
+                case 未 _:
+                    return 八卦.坤;
+                case 申 _:
+                    return 八卦.坤;
+                case 酉 _:
+                    return 八卦.兑;
+                case 戌 _:
+                    return 八卦.乾;
+                case 亥 _:
+                    return 八卦.乾;
+                default:
+                    throw new Exception($"未找到匹配的地支,当前输入{支}");
             }
         }
 
