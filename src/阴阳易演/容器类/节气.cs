@@ -3,17 +3,17 @@
 namespace 阴阳易演.容器类
 {
     using 枚举类;
-    using static 查询类.二十四节气;
+    using 查询类;
 
     public class 节气
     {
         #region 构造
         public 节气(DateTime 时间)
         {
-            var 枚 = 节气枚举查询(时间);
-            名称 = 获取节气名称(枚);
+            var 枚 = 二十四节气.节气枚举查询(时间);
+            名称 = 二十四节气.获取节气名称(枚);
             枚举 = 枚;
-            交节 = 节气时间查询(时间.Year, 枚);
+            交节 = 二十四节气.节气时间查询(时间.Year, 枚);
         }
 
         #endregion
