@@ -8,6 +8,7 @@ namespace 阴阳易演.容器类
 
     public class 神煞
     {
+        #region 构造
         void 初始化(神煞枚举 枚)
         {
             名称 = 枚举转换类<神煞枚举>.获取名称(枚);
@@ -78,11 +79,16 @@ namespace 阴阳易演.容器类
             初始化(枚);
         }
 
+        #endregion
+
+        #region 属性
         public string 名称 { get; private set; }
         public 神煞枚举 枚举 { get; private set; }
         public int 序数 { get; private set; }
         public bool 黄道吉日 { get; private set; }
         public string 论断 { get; private set; }
+
+        #endregion
 
     }
 }

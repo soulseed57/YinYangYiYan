@@ -9,6 +9,7 @@
 
     public class 干支纪年
     {
+        #region 构造
         public 干支纪年(DateTime 时间)
         {
             var 农历 = new ChineseCalendar(时间);
@@ -26,6 +27,9 @@
             旬空 = 查询旬空(日柱);
         }
 
+        #endregion
+
+        #region 属性
         public int 阴历年 { get; protected set; }
         public int 阴历月 { get; protected set; }
         public int 阴历日 { get; protected set; }
@@ -36,6 +40,9 @@
         public 甲子 时柱 { get; protected set; }
         public 地支[] 旬空 { get; protected set; }
 
+        #endregion
+
+        #region 方法
         public static 地支[] 查询旬空(甲子 日柱)
         {
             var 旬空 = new List<地支>();
@@ -132,6 +139,8 @@
 
             return 名称.ToString();
         }
+
+        #endregion
 
     }
 }

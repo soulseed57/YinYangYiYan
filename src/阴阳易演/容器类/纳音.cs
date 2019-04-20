@@ -7,6 +7,7 @@ namespace 阴阳易演.容器类
 
     public class 纳音
     {
+        #region 构造
         public 纳音(甲子枚举 枚)
         {
             switch (枚)
@@ -166,8 +167,17 @@ namespace 阴阳易演.容器类
             }
         }
 
+        #endregion
+
+        #region 属性
         public string 名称 { get; }
         public 五行 五行 { get; }
+
+        #endregion
+
+        #region 方法
+
+        #endregion
 
     }
 }
