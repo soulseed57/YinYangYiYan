@@ -344,7 +344,11 @@ namespace 阴阳易演.引用库
             for (i = MinYear; i <= MaxYear; i++)
             {
                 temp = GetChineseYearDays(i);  //求当年农历年天数
-                if (offset - temp < 1) break;
+                if (offset - temp < 1)
+                {
+                    break;
+                }
+
                 offset = offset - temp;
             }
             _cYear = i;
@@ -368,7 +372,10 @@ namespace 阴阳易演.引用库
                     temp = GetChineseMonthDays(_cYear, i);//计算非闰月天数
                 }
                 offset = offset - temp;
-                if (offset <= 0) break;
+                if (offset <= 0)
+                {
+                    break;
+                }
             }
 
             offset = offset + temp;
@@ -543,9 +550,16 @@ namespace 阴阳易演.引用库
             var hour = dt.Hour;
             var minute = dt.Minute;
 
-            if (minute != 0) hour += 1;
+            if (minute != 0)
+            {
+                hour += 1;
+            }
+
             var offset = hour / 2;
-            if (offset >= 12) offset = 0;
+            if (offset >= 12)
+            {
+                offset = 0;
+            }
             //zhiHour = zhiStr[offset].ToString();
 
             //计算天干
@@ -607,7 +621,11 @@ namespace 阴阳易演.引用库
         ///<returns></returns>
         string ConvertNumToChineseNum(char n)
         {
-            if ((n < '0') || (n > '9')) return "";
+            if ((n < '0') || (n > '9'))
+            {
+                return "";
+            }
+
             switch (n)
             {
                 case '0':
@@ -646,8 +664,9 @@ namespace 阴阳易演.引用库
 
 
             if ((bitpostion > 31) || (bitpostion < 0))
+            {
                 throw new Exception("Error Param: bitpostion[0-31]:" + bitpostion);
-
+            }
 
             var bit = 1 << bitpostion;
 
@@ -1331,18 +1350,37 @@ namespace 阴阳易演.引用库
                 var i = offset % 60;
                 var dayGan = _ganStr[i % 10].ToString();//获取日干
                 var hour = _datetime.Hour;//得到当前小时
-                if (hour % 2 != 0) hour = hour + 1;
+                if (hour % 2 != 0)
+                {
+                    hour = hour + 1;
+                }
+
                 var j = (hour / 2) % 12;//得到时辰
                 if (dayGan == "甲" || dayGan == "己")
+                {
                     return JiaZhi[j];
+                }
+
                 if (dayGan == "乙" || dayGan == "庚")
+                {
                     return JiaZhi[j + 12];
+                }
+
                 if (dayGan == "丙" || dayGan == "辛")
+                {
                     return JiaZhi[j + 24];
+                }
+
                 if (dayGan == "丁" || dayGan == "壬")
+                {
                     return JiaZhi[j + 36];
+                }
+
                 if (dayGan == "戊" || dayGan == "癸")
+                {
                     return JiaZhi[j + 48];
+                }
+
                 return "错误";
             }
         }

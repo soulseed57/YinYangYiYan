@@ -113,7 +113,7 @@
     <Compile Include="枚举类\十六方位.cs" />
     <Compile Include="枚举类\卯酉十二宫.cs" />
     <Compile Include="枚举类\甲子枚举.cs" />
-    <Compile Include="查询类\二十四节气.cs" />
+    <Compile Include="查询类\节气表.cs" />
     <Compile Include="枚举类\八卦枚举.cs" />
     <Compile Include="查询类\八卦表.cs" />
     <Compile Include="枚举类\六神枚举.cs" />

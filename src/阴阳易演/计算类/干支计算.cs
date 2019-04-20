@@ -1,7 +1,6 @@
-﻿using System;
-
-namespace 阴阳易演.计算类
+﻿namespace 阴阳易演.计算类
 {
+    using System;
     using 具象类.地支;
     using 具象类.天干;
     using 抽象类;

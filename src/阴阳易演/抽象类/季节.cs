@@ -1,7 +1,10 @@
 ﻿namespace 阴阳易演.抽象类
 {
+    using System;
     using 具象类.季节;
     using 基类;
+    using 枚举类;
+    using 查询类;
 
     public abstract class 季节 : 无极
     {
@@ -123,6 +126,61 @@
                         return 长夏.死;
                 }
                 return null;
+            }
+        }
+
+        #endregion
+
+        #region 方法
+        public static 季节 季节查询(DateTime 时间)
+        {
+            var 年份 = 时间.Year;
+            var 节气 = 节气枚举.冬至;
+            for (var i = 0; i < 24; i++)
+            {
+                var 节 = (节气枚举)Enum.ToObject(typeof(节气枚举), i);
+                var 时 = 节气表.节气时间查询(年份, 节);
+                if (时.DayOfYear <= 时间.DayOfYear)
+                {
+                    节气 = 节;
+                }
+                else
+                {
+                    break;
+                }
+            }
+            switch (节气)
+            {
+                case 节气枚举.立春:
+                case 节气枚举.雨水:
+                case 节气枚举.惊蛰:
+                case 节气枚举.春分:
+                case 节气枚举.清明:
+                case 节气枚举.谷雨:
+                    return 春季;
+                case 节气枚举.立夏:
+                case 节气枚举.小满:
+                case 节气枚举.芒种:
+                case 节气枚举.夏至:
+                case 节气枚举.小暑:
+                case 节气枚举.大暑:
+                    return 夏季;
+                case 节气枚举.立秋:
+                case 节气枚举.处暑:
+                case 节气枚举.白露:
+                case 节气枚举.秋分:
+                case 节气枚举.寒露:
+                case 节气枚举.霜降:
+                    return 秋季;
+                case 节气枚举.立冬:
+                case 节气枚举.小雪:
+                case 节气枚举.大雪:
+                case 节气枚举.冬至:
+                case 节气枚举.小寒:
+                case 节气枚举.大寒:
+                    return 冬季;
+                default:
+                    throw new Exception($"当前日期[{时间}]未查询到匹配季节");
             }
         }
 

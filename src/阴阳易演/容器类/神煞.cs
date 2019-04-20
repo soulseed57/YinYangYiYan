@@ -1,7 +1,6 @@
-﻿using System;
-
-namespace 阴阳易演.容器类
+﻿namespace 阴阳易演.容器类
 {
+    using System;
     using 引用库;
     using 枚举类;
     using 查询类;

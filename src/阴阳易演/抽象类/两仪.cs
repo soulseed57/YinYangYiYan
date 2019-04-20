@@ -1,10 +1,9 @@
-﻿#pragma warning disable 660,661
-namespace 阴阳易演.抽象类
+﻿namespace 阴阳易演.抽象类
 {
+    using 具象类.两仪;
     using 基类;
     using 查询类;
     using 计算类;
-    using 具象类.两仪;
 
     public abstract class 两仪 : 太极
     {

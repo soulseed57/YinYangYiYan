@@ -1,15 +1,13 @@
-﻿using System;
-
-namespace 阴阳易演.查询类
+﻿namespace 阴阳易演.查询类
 {
+    using System;
     using 容器类;
     using 引用库;
-    using 抽象类;
     using 枚举类;
 
-    public static class 二十四节气
+    public static class 节气表
     {
-        static 二十四节气()
+        static 节气表()
         {
             节气数 = 枚举转换类<节气枚举>.获取枚举总数();
         }
@@ -49,7 +47,7 @@ namespace 阴阳易演.查询类
 
         #endregion
 
-        #region 查询
+        #region 节气查询
         public static 节气枚举 节气枚举查询(DateTime 时间)
         {
             var 索引 = -1;
@@ -74,56 +72,6 @@ namespace 阴阳易演.查询类
         public static DateTime 节气时间查询(int 年份, int 序数)
         {
             return 基准时间.AddMinutes(年份修正分钟(年份) + 节气修正分钟[序数]);
-        }
-        public static 季节 季节查询(DateTime 时间)
-        {
-            var 年份 = 时间.Year;
-            var 节气 = 节气枚举.冬至;
-            for (var i = 0; i < 24; i++)
-            {
-                var 节 = (节气枚举)Enum.ToObject(typeof(节气枚举), i);
-                var 时 = 节气时间查询(年份, 节);
-                if (时.DayOfYear <= 时间.DayOfYear)
-                {
-                    节气 = 节;
-                }
-                else
-                {
-                    break;
-                }
-            }
-            switch (节气)
-            {
-                case 节气枚举.立春:
-                case 节气枚举.雨水:
-                case 节气枚举.惊蛰:
-                case 节气枚举.春分:
-                case 节气枚举.清明:
-                case 节气枚举.谷雨:
-                    return 季节.春季;
-                case 节气枚举.立夏:
-                case 节气枚举.小满:
-                case 节气枚举.芒种:
-                case 节气枚举.夏至:
-                case 节气枚举.小暑:
-                case 节气枚举.大暑:
-                    return 季节.夏季;
-                case 节气枚举.立秋:
-                case 节气枚举.处暑:
-                case 节气枚举.白露:
-                case 节气枚举.秋分:
-                case 节气枚举.寒露:
-                case 节气枚举.霜降:
-                    return 季节.秋季;
-                case 节气枚举.立冬:
-                case 节气枚举.小雪:
-                case 节气枚举.大雪:
-                case 节气枚举.冬至:
-                case 节气枚举.小寒:
-                case 节气枚举.大寒:
-                    return 季节.冬季;
-            }
-            throw new Exception($"当前日期[{时间}]未查询到匹配季节");
         }
 
         #endregion

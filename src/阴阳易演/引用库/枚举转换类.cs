@@ -1,7 +1,7 @@
-﻿using System;
-
-namespace 阴阳易演.引用库
+﻿namespace 阴阳易演.引用库
 {
+    using System;
+
     public static class 枚举转换类<T>
     {
         public static int 获取枚举总数()

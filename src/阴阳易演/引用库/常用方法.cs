@@ -65,7 +65,10 @@
         /// <returns></returns>
         public static T[] 列表顺逆排序<T>(bool isOrder, T[] array)
         {
-            if (isOrder) return array;
+            if (isOrder)
+            {
+                return array;
+            }
             var list = new List<T>();
             var len = array.Length;
             for (var i = 0; i < len; i++)
@@ -93,7 +96,10 @@
         public static T[] 列表指定首位<T>(T[] array, int index)
         {
             // 处理索引
-            if (index == 0) return array;
+            if (index == 0)
+            {
+                return array;
+            }
             index = index % array.Length;
             index = index < 0 ? array.Length + index : index;
             // 出队入队

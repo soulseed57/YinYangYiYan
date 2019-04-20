@@ -1,7 +1,6 @@
-﻿using System.Collections.Generic;
-
-namespace 阴阳易演.查询类
+﻿namespace 阴阳易演.查询类
 {
+    using System.Collections.Generic;
     using 引用库;
     using 抽象类;
     using 枚举类;
