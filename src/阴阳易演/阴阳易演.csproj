@@ -89,6 +89,7 @@
     <Compile Include="具象类\季节\春季.cs" />
     <Compile Include="具象类\季节\秋季.cs" />
     <Compile Include="具象类\季节\长夏.cs" />
+    <Compile Include="容器类\六十四卦.cs" />
     <Compile Include="容器类\宫.cs" />
     <Compile Include="容器类\河洛数.cs" />
     <Compile Include="容器类\甲子.cs" />
@@ -129,7 +130,7 @@
     <Compile Include="容器类\干支纪年.cs" />
     <Compile Include="枚举类\长生枚举.cs" />
     <Compile Include="计算类\五行计算.cs" />
-    <Compile Include="计算类\八卦计算.cs" />
+    <Compile Include="计算类\卦爻计算.cs" />
     <Compile Include="计算类\四象计算.cs" />
     <Compile Include="计算类\干支计算.cs" />
   </ItemGroup>

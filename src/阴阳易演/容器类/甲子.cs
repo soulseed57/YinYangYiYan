@@ -21,6 +21,7 @@
             十二长生 = 十二长生表.长生查询(天干, 地支);
             天干配卦 = 天干.天干配卦();
             地支配卦 = 地支.地支配卦();
+            六十四卦 = new 六十四卦(天干配卦, 地支配卦);
         }
         public 甲子(天干 干, 地支 支)
         {
@@ -58,6 +59,7 @@
         public 长生枚举 十二长生 { get; private set; }
         public 八卦 天干配卦 { get; private set; }
         public 八卦 地支配卦 { get; private set; }
+        public 六十四卦 六十四卦 { get; private set; }
 
         #endregion
 

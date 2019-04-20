@@ -27,7 +27,7 @@
         public string 神兽 { get; protected set; }
         public 季节 四季 { get; protected set; }
         public string 颜色 { get; protected set; }
-        public byte 卦值 { get; protected set; }
+        public byte 爻值 { get; protected set; }
 
         #endregion
 

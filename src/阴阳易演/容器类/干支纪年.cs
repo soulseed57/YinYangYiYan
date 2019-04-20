@@ -25,9 +25,9 @@
             日柱 = new 甲子(农历.GanZhiDayString);
             时柱 = new 甲子(农历.GanZhiHourString);
             // 月破计算
-            月破 = 查月破(月柱.地支);
+            月破 = 月支查月破(月柱.地支);
             // 旬空计算
-            旬空 = 查旬空(日柱);
+            旬空 = 日柱算旬空(日柱);
         }
 
         #endregion
@@ -47,12 +47,12 @@
         #endregion
 
         #region 方法
-        public static 地支 查月破(地支 月支)
+        public static 地支 月支查月破(地支 月支)
         {
             var 序数 = 干支表.获取地支序数(月支);
             return 干支表.地支查询(序数 + 6);
         }
-        public static 地支[] 查旬空(甲子 日柱)
+        public static 地支[] 日柱算旬空(甲子 日柱)
         {
             var 旬空 = new List<地支>();
             var 天干数 = 枚举转换类<天干枚举>.获取序数(日柱.天干.名称) + 1;

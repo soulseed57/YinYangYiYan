@@ -36,10 +36,10 @@
         public int 后天数 { get; protected set; }
         public 八方方位 卦位 { get; protected set; }
         public 八方方位 方位 { get; protected set; }
-        public byte 卦值 { get; protected set; }
+        public byte 爻值 { get; protected set; }
         public 四象 四象 { get; protected set; }
-        public string 人物 { get; protected set; }
-        public string 类象 { get; protected set; }
+        public string 人象 { get; protected set; }
+        public string 卦象 { get; protected set; }
 
         #endregion
 
