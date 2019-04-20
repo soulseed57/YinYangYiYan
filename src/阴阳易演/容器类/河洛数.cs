@@ -66,9 +66,9 @@ namespace 阴阳易演.容器类
         #endregion
 
         #region 属性
-        public int 数字 { get; protected set; }
-        public 两仪 阴阳 { get; protected set; }
-        public 五行 五行 { get; protected set; }
+        public int 数字 { get; }
+        public 两仪 阴阳 { get; }
+        public 五行 五行 { get; }
         public 八卦 先天卦 { get; }
         public 八卦 后天卦 { get; }
         public 天干 配天干 { get; }

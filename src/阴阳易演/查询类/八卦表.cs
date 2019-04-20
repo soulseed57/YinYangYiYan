@@ -24,10 +24,22 @@ namespace 阴阳易演.查询类
         {
             return 枚举转换类<八卦枚举>.获取序数(枚);
         }
+        public static int 获取八卦序数(string 名)
+        {
+            return 枚举转换类<八卦枚举>.获取序数(名);
+        }
         public static 八卦枚举 获取八卦枚举(int 数)
         {
             var 序 = 常用方法.序数取余(数, 八卦数);
             return 枚举转换类<八卦枚举>.获取枚举(序);
+        }
+        public static 八卦枚举 获取八卦枚举(string 名)
+        {
+            return 枚举转换类<八卦枚举>.获取枚举(名);
+        }
+        public static string 获取八卦名称(八卦枚举 枚)
+        {
+            return 枚举转换类<八卦枚举>.获取名称(枚);
         }
         public static string 获取八卦名称(int 数)
         {

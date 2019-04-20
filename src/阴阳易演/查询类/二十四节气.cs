@@ -24,6 +24,10 @@ namespace 阴阳易演.查询类
         {
             return 枚举转换类<节气枚举>.获取序数(枚);
         }
+        public static int 获取节气序数(string 名)
+        {
+            return 枚举转换类<节气枚举>.获取序数(名);
+        }
         public static 节气枚举 获取节气枚举(int 数)
         {
             var 序 = 常用方法.序数取余(数, 节气数);
@@ -32,6 +36,10 @@ namespace 阴阳易演.查询类
         public static 节气枚举 获取节气枚举(string 名)
         {
             return 枚举转换类<节气枚举>.获取枚举(名);
+        }
+        public static string 获取节气名称(节气枚举 枚)
+        {
+            return 枚举转换类<节气枚举>.获取名称(枚);
         }
         public static string 获取节气名称(int 数)
         {

@@ -146,7 +146,7 @@ namespace 阴阳易演.计算类
         #endregion
 
         #region 计算
-        public static 十二长生 长生(天干 干, 地支 支)
+        public static 长生枚举 长生(天干 干, 地支 支)
         {
             switch (干)
             {
@@ -160,7 +160,7 @@ namespace 阴阳易演.计算类
                 case 己 _ when 支 is 酉:
                 case 辛 _ when 支 is 子:
                 case 癸 _ when 支 is 卯:
-                    return 十二长生.长生;
+                    return 长生枚举.长生;
                 case 甲 _ when 支 is 子:
                 case 丙 _ when 支 is 卯:
                 case 戊 _ when 支 is 卯:
@@ -171,7 +171,7 @@ namespace 阴阳易演.计算类
                 case 己 _ when 支 is 申:
                 case 辛 _ when 支 is 亥:
                 case 癸 _ when 支 is 寅:
-                    return 十二长生.沐浴;
+                    return 长生枚举.沐浴;
                 case 甲 _ when 支 is 丑:
                 case 丙 _ when 支 is 辰:
                 case 戊 _ when 支 is 辰:
@@ -182,7 +182,7 @@ namespace 阴阳易演.计算类
                 case 己 _ when 支 is 未:
                 case 辛 _ when 支 is 戌:
                 case 癸 _ when 支 is 丑:
-                    return 十二长生.冠带;
+                    return 长生枚举.冠带;
                 case 甲 _ when 支 is 寅:
                 case 丙 _ when 支 is 巳:
                 case 戊 _ when 支 is 巳:
@@ -193,7 +193,7 @@ namespace 阴阳易演.计算类
                 case 己 _ when 支 is 午:
                 case 辛 _ when 支 is 酉:
                 case 癸 _ when 支 is 子:
-                    return 十二长生.临官;
+                    return 长生枚举.临官;
                 case 甲 _ when 支 is 卯:
                 case 丙 _ when 支 is 午:
                 case 戊 _ when 支 is 午:
@@ -204,7 +204,7 @@ namespace 阴阳易演.计算类
                 case 己 _ when 支 is 巳:
                 case 辛 _ when 支 is 申:
                 case 癸 _ when 支 is 亥:
-                    return 十二长生.帝旺;
+                    return 长生枚举.帝旺;
                 case 甲 _ when 支 is 辰:
                 case 丙 _ when 支 is 未:
                 case 戊 _ when 支 is 未:
@@ -215,7 +215,7 @@ namespace 阴阳易演.计算类
                 case 己 _ when 支 is 辰:
                 case 辛 _ when 支 is 未:
                 case 癸 _ when 支 is 戌:
-                    return 十二长生.衰;
+                    return 长生枚举.衰;
                 case 甲 _ when 支 is 巳:
                 case 丙 _ when 支 is 申:
                 case 戊 _ when 支 is 申:
@@ -226,7 +226,7 @@ namespace 阴阳易演.计算类
                 case 己 _ when 支 is 卯:
                 case 辛 _ when 支 is 午:
                 case 癸 _ when 支 is 酉:
-                    return 十二长生.病;
+                    return 长生枚举.病;
                 case 甲 _ when 支 is 午:
                 case 丙 _ when 支 is 酉:
                 case 戊 _ when 支 is 酉:
@@ -237,7 +237,7 @@ namespace 阴阳易演.计算类
                 case 己 _ when 支 is 寅:
                 case 辛 _ when 支 is 巳:
                 case 癸 _ when 支 is 申:
-                    return 十二长生.死;
+                    return 长生枚举.死;
                 case 甲 _ when 支 is 未:
                 case 丙 _ when 支 is 戌:
                 case 戊 _ when 支 is 戌:
@@ -248,7 +248,7 @@ namespace 阴阳易演.计算类
                 case 己 _ when 支 is 丑:
                 case 辛 _ when 支 is 辰:
                 case 癸 _ when 支 is 未:
-                    return 十二长生.墓;
+                    return 长生枚举.墓;
                 case 甲 _ when 支 is 申:
                 case 丙 _ when 支 is 亥:
                 case 戊 _ when 支 is 亥:
@@ -259,7 +259,7 @@ namespace 阴阳易演.计算类
                 case 己 _ when 支 is 子:
                 case 辛 _ when 支 is 卯:
                 case 癸 _ when 支 is 午:
-                    return 十二长生.绝;
+                    return 长生枚举.绝;
                 case 甲 _ when 支 is 酉:
                 case 丙 _ when 支 is 子:
                 case 戊 _ when 支 is 子:
@@ -270,7 +270,7 @@ namespace 阴阳易演.计算类
                 case 己 _ when 支 is 亥:
                 case 辛 _ when 支 is 寅:
                 case 癸 _ when 支 is 巳:
-                    return 十二长生.胎;
+                    return 长生枚举.胎;
                 case 甲 _ when 支 is 戌:
                 case 丙 _ when 支 is 丑:
                 case 戊 _ when 支 is 丑:
@@ -281,7 +281,7 @@ namespace 阴阳易演.计算类
                 case 己 _ when 支 is 戌:
                 case 辛 _ when 支 is 丑:
                 case 癸 _ when 支 is 辰:
-                    return 十二长生.养;
+                    return 长生枚举.养;
                 default:
                     throw new Exception($"未找到地支匹配的长生,当前天干[{干}],当前地支[{支}]");
             }

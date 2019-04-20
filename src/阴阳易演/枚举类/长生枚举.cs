@@ -1,6 +1,6 @@
 ﻿namespace 阴阳易演.枚举类
 {
-    public enum 十二长生
+    public enum 长生枚举
     {
         长生, 沐浴, 冠带, 临官, 帝旺, 衰, 病, 死, 墓, 绝, 胎, 养
     }

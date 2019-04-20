@@ -19,9 +19,9 @@ namespace 阴阳易演.容器类
         #endregion
 
         #region 属性
-        public string 名称 { get; protected set; }
-        public 节气枚举 枚举 { get; protected set; }
-        public DateTime 交节 { get; protected set; }
+        public string 名称 { get; }
+        public 节气枚举 枚举 { get; }
+        public DateTime 交节 { get; }
 
         #endregion
 

@@ -27,10 +27,22 @@ namespace 阴阳易演.查询类
         {
             return 枚举转换类<天干枚举>.获取序数(枚);
         }
+        public static int 获取天干序数(string 名)
+        {
+            return 枚举转换类<天干枚举>.获取序数(名);
+        }
         public static 天干枚举 获取天干枚举(int 数)
         {
             var 序 = 常用方法.序数取余(数, 天干数);
             return 枚举转换类<天干枚举>.获取枚举(序);
+        }
+        public static 天干枚举 获取天干枚举(string 名)
+        {
+            return 枚举转换类<天干枚举>.获取枚举(名);
+        }
+        public static string 获取天干名称(天干枚举 枚)
+        {
+            return 枚举转换类<天干枚举>.获取名称(枚);
         }
         public static string 获取天干名称(int 数)
         {
@@ -49,10 +61,22 @@ namespace 阴阳易演.查询类
         {
             return 枚举转换类<地支枚举>.获取序数(枚);
         }
+        public static int 获取地支序数(string 名)
+        {
+            return 枚举转换类<地支枚举>.获取序数(名);
+        }
         public static 地支枚举 获取地支枚举(int 数)
         {
             var 序 = 常用方法.序数取余(数, 地支数);
             return 枚举转换类<地支枚举>.获取枚举(序);
+        }
+        public static 地支枚举 获取地支枚举(string 名)
+        {
+            return 枚举转换类<地支枚举>.获取枚举(名);
+        }
+        public static string 获取地支名称(地支枚举 枚)
+        {
+            return 枚举转换类<地支枚举>.获取名称(枚);
         }
         public static string 获取地支名称(int 数)
         {

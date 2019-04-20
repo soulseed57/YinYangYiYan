@@ -6,6 +6,7 @@
     using 引用库;
     using 抽象类;
     using 枚举类;
+    using 查询类;
 
     public class 干支纪年
     {
@@ -23,27 +24,35 @@
             月柱 = new 甲子(农历.GanZhiMonthString);
             日柱 = new 甲子(农历.GanZhiDayString);
             时柱 = new 甲子(农历.GanZhiHourString);
+            // 月破计算
+            月破 = 查月破(月柱.地支);
             // 旬空计算
-            旬空 = 查询旬空(日柱);
+            旬空 = 查旬空(日柱);
         }
 
         #endregion
 
         #region 属性
-        public int 阴历年 { get; protected set; }
-        public int 阴历月 { get; protected set; }
-        public int 阴历日 { get; protected set; }
-        public string 阴历 { get; protected set; }
-        public 甲子 年柱 { get; protected set; }
-        public 甲子 月柱 { get; protected set; }
-        public 甲子 日柱 { get; protected set; }
-        public 甲子 时柱 { get; protected set; }
-        public 地支[] 旬空 { get; protected set; }
+        public int 阴历年 { get; }
+        public int 阴历月 { get; }
+        public int 阴历日 { get; }
+        public string 阴历 { get; }
+        public 甲子 年柱 { get; }
+        public 甲子 月柱 { get; }
+        public 甲子 日柱 { get; }
+        public 甲子 时柱 { get; }
+        public 地支 月破 { get; }
+        public 地支[] 旬空 { get; }
 
         #endregion
 
         #region 方法
-        public static 地支[] 查询旬空(甲子 日柱)
+        public static 地支 查月破(地支 月支)
+        {
+            var 序数 = 干支表.获取地支序数(月支);
+            return 干支表.地支查询(序数 + 6);
+        }
+        public static 地支[] 查旬空(甲子 日柱)
         {
             var 旬空 = new List<地支>();
             var 天干数 = 枚举转换类<天干枚举>.获取序数(日柱.天干.名称) + 1;
