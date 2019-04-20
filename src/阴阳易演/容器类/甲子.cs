@@ -18,6 +18,8 @@
             阴阳 = 地支.阴阳;
             纳音 = new 纳音(枚);
             十二长生 = 十二长生表.长生查询(天干, 地支);
+            天干配卦 = 八卦表.天干配卦(天干);
+            地支配卦 = 八卦表.地支配卦(地支);
         }
         public 甲子(天干 干, 地支 支)
         {
@@ -53,6 +55,8 @@
         public 两仪 阴阳 { get; private set; }
         public 纳音 纳音 { get; private set; }
         public 长生枚举 十二长生 { get; private set; }
+        public 八卦 天干配卦 { get; private set; }
+        public 八卦 地支配卦 { get; private set; }
 
         #endregion
 
