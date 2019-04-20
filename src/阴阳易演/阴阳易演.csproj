@@ -107,7 +107,7 @@
     <Compile Include="抽象类\基类\干支.cs" />
     <Compile Include="抽象类\基类\无极.cs" />
     <Compile Include="抽象类\天干.cs" />
-    <Compile Include="抽象类\太极.cs" />
+    <Compile Include="抽象类\基类\太极.cs" />
     <Compile Include="抽象类\季节.cs" />
     <Compile Include="枚举类\八方方位.cs" />
     <Compile Include="枚举类\十六方位.cs" />
@@ -127,6 +127,9 @@
     <Compile Include="枚举类\节气枚举.cs" />
     <Compile Include="容器类\干支纪年.cs" />
     <Compile Include="枚举类\十二长生.cs" />
+    <Compile Include="计算类\五行计算.cs" />
+    <Compile Include="计算类\八卦计算.cs" />
+    <Compile Include="计算类\四象计算.cs" />
     <Compile Include="计算类\干支计算.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

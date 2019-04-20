@@ -10,6 +10,141 @@ namespace 阴阳易演.计算类
 
     public static class 干支计算
     {
+        #region 天干扩展
+        public static 天干 五虎遁(this 天干 干)
+        {
+            switch (干)
+            {
+                case 甲 _:
+                case 己 _:
+                    return 天干.丙;// 甲己之年丙作首
+                case 乙 _:
+                case 庚 _:
+                    return 天干.戊;// 乙庚之岁戊为头
+                case 丙 _:
+                case 辛 _:
+                    return 天干.庚;// 丙辛必定寻庚起
+                case 丁 _:
+                case 壬 _:
+                    return 天干.壬;// 丁壬壬位顺水流
+                case 戊 _:
+                case 癸 _:
+                    return 天干.甲;// 若问戊癸何处起.甲寅之上好追求
+                default:
+                    throw new Exception($"起遁失败,当前给定天干错误[{干}]");
+            }
+        }
+        public static 天干 合(this 天干 干)
+        {
+            // 甲己合化土，乙庚合化金，丙辛合化水，丁壬合化木，戊癸合化火
+            switch (干)
+            {
+                case 甲 _:
+                    return 天干.己;
+                case 乙 _:
+                    return 天干.庚;
+                case 丙 _:
+                    return 天干.辛;
+                case 丁 _:
+                    return 天干.壬;
+                case 戊 _:
+                    return 天干.癸;
+                case 己 _:
+                    return 天干.甲;
+                case 庚 _:
+                    return 天干.乙;
+                case 辛 _:
+                    return 天干.丙;
+                case 壬 _:
+                    return 天干.丁;
+                case 癸 _:
+                    return 天干.戊;
+                default:
+                    throw new Exception($"未找到正确的合化天干,当前天干[{干}]");
+            }
+        }
+        public static 五行 化(this 天干 干, 天干 合)
+        {
+            switch (干)
+            {
+                case 甲 _ when 合 is 己:
+                    return 五行.土;// 甲己合化土
+
+                case 乙 _ when 合 is 庚:
+                    return 五行.金;// 乙庚合化金
+
+                case 丙 _ when 合 is 辛:
+                    return 五行.水;// 丙辛合化水
+
+                case 丁 _ when 合 is 壬:
+                    return 五行.木;// 丁壬合化木
+
+                case 戊 _ when 合 is 癸:
+                    return 五行.火;// 戊癸合化火
+                default:
+                    throw new Exception($"未找到正确的合化五行,当前天干[{干}],合[{合}]");
+            }
+        }
+
+        #endregion
+
+        #region 地支扩展
+        public static 地支 合(this 地支 支)
+        {
+            // 子丑合化土，寅亥合化木，卯戌合化火，辰酉合化金，巳申合化水，午未合化土。
+            switch (支)
+            {
+                case 子 _:
+                    return 地支.丑;
+                case 寅 _:
+                    return 地支.亥;
+                case 卯 _:
+                    return 地支.戌;
+                case 辰 _:
+                    return 地支.酉;
+                case 巳 _:
+                    return 地支.申;
+                case 午 _:
+                    return 地支.未;
+                case 丑 _:
+                    return 地支.子;
+                case 亥 _:
+                    return 地支.寅;
+                case 戌 _:
+                    return 地支.卯;
+                case 酉 _:
+                    return 地支.辰;
+                case 申 _:
+                    return 地支.巳;
+                case 未 _:
+                    return 地支.午;
+                default:
+                    throw new Exception($"未找到正确的合化地支,当前地支[{支}]");
+            }
+        }
+        public static 五行 化(this 地支 支, 地支 合)
+        {
+            switch (支)
+            {
+                case 子 _ when 合 is 丑:
+                    return 五行.土;// 子丑合化土
+                case 寅 _ when 合 is 亥:
+                    return 五行.木;// 寅亥合化木
+                case 卯 _ when 合 is 戌:
+                    return 五行.火;// 卯戌合化火
+                case 辰 _ when 合 is 酉:
+                    return 五行.金;// 辰酉合化金
+                case 巳 _ when 合 is 申:
+                    return 五行.水;// 巳申合化水
+                case 午 _ when 合 is 未:
+                    return 五行.土;// 午未合化土
+                default:
+                    throw new Exception($"未找到正确的合化五行,当前地支[{支}],合[{合}]");
+            }
+        }
+
+        #endregion
+
         #region 计算
         public static 十二长生 长生(天干 干, 地支 支)
         {
@@ -216,141 +351,6 @@ namespace 阴阳易演.计算类
             var 偏移 = 干支表.获取地支序数(支);
             var 干序 = (序首 + 偏移) % 10;
             return 干支表.天干查询(干序);
-        }
-
-        #endregion
-
-        #region 天干扩展
-        public static 天干 五虎遁(this 天干 干)
-        {
-            switch (干)
-            {
-                case 甲 _:
-                case 己 _:
-                    return 天干.丙;// 甲己之年丙作首
-                case 乙 _:
-                case 庚 _:
-                    return 天干.戊;// 乙庚之岁戊为头
-                case 丙 _:
-                case 辛 _:
-                    return 天干.庚;// 丙辛必定寻庚起
-                case 丁 _:
-                case 壬 _:
-                    return 天干.壬;// 丁壬壬位顺水流
-                case 戊 _:
-                case 癸 _:
-                    return 天干.甲;// 若问戊癸何处起.甲寅之上好追求
-                default:
-                    throw new Exception($"起遁失败,当前给定天干错误[{干}]");
-            }
-        }
-        public static 天干 合(this 天干 干)
-        {
-            // 甲己合化土，乙庚合化金，丙辛合化水，丁壬合化木，戊癸合化火
-            switch (干)
-            {
-                case 甲 _:
-                    return 天干.己;
-                case 乙 _:
-                    return 天干.庚;
-                case 丙 _:
-                    return 天干.辛;
-                case 丁 _:
-                    return 天干.壬;
-                case 戊 _:
-                    return 天干.癸;
-                case 己 _:
-                    return 天干.甲;
-                case 庚 _:
-                    return 天干.乙;
-                case 辛 _:
-                    return 天干.丙;
-                case 壬 _:
-                    return 天干.丁;
-                case 癸 _:
-                    return 天干.戊;
-                default:
-                    throw new Exception($"未找到正确的合化天干,当前天干[{干}]");
-            }
-        }
-        public static 五行 化(this 天干 干, 天干 合)
-        {
-            switch (干)
-            {
-                case 甲 _ when 合 is 己:
-                    return 五行.土;// 甲己合化土
-
-                case 乙 _ when 合 is 庚:
-                    return 五行.金;// 乙庚合化金
-
-                case 丙 _ when 合 is 辛:
-                    return 五行.水;// 丙辛合化水
-
-                case 丁 _ when 合 is 壬:
-                    return 五行.木;// 丁壬合化木
-
-                case 戊 _ when 合 is 癸:
-                    return 五行.火;// 戊癸合化火
-                default:
-                    throw new Exception($"未找到正确的合化五行,当前天干[{干}],合[{合}]");
-            }
-        }
-
-        #endregion
-
-        #region 地支扩展
-        public static 地支 合(this 地支 支)
-        {
-            // 子丑合化土，寅亥合化木，卯戌合化火，辰酉合化金，巳申合化水，午未合化土。
-            switch (支)
-            {
-                case 子 _:
-                    return 地支.丑;
-                case 寅 _:
-                    return 地支.亥;
-                case 卯 _:
-                    return 地支.戌;
-                case 辰 _:
-                    return 地支.酉;
-                case 巳 _:
-                    return 地支.申;
-                case 午 _:
-                    return 地支.未;
-                case 丑 _:
-                    return 地支.子;
-                case 亥 _:
-                    return 地支.寅;
-                case 戌 _:
-                    return 地支.卯;
-                case 酉 _:
-                    return 地支.辰;
-                case 申 _:
-                    return 地支.巳;
-                case 未 _:
-                    return 地支.午;
-                default:
-                    throw new Exception($"未找到正确的合化地支,当前地支[{支}]");
-            }
-        }
-        public static 五行 化(this 地支 支, 地支 合)
-        {
-            switch (支)
-            {
-                case 子 _ when 合 is 丑:
-                    return 五行.土;// 子丑合化土
-                case 寅 _ when 合 is 亥:
-                    return 五行.木;// 寅亥合化木
-                case 卯 _ when 合 is 戌:
-                    return 五行.火;// 卯戌合化火
-                case 辰 _ when 合 is 酉:
-                    return 五行.金;// 辰酉合化金
-                case 巳 _ when 合 is 申:
-                    return 五行.水;// 巳申合化水
-                case 午 _ when 合 is 未:
-                    return 五行.土;// 午未合化土
-                default:
-                    throw new Exception($"未找到正确的合化五行,当前地支[{支}],合[{合}]");
-            }
         }
 
         #endregion

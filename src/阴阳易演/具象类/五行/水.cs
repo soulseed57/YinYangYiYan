@@ -5,12 +5,6 @@
 
     public class 水 : 五行
     {
-        public new 金 父母 => 金;
-        public new 木 子孙 => 木;
-        public new 土 官鬼 => 土;
-        public new 火 妻妾 => 火;
-        public new 水 兄弟 => 水;
-
         public 水()
         {
             数字 = 1;
@@ -19,6 +13,11 @@
             四季 = 象属.四季;
             颜色 = 象属.颜色;
         }
+        public 金 父母 => 金;
+        public 木 子孙 => 木;
+        public 土 官鬼 => 土;
+        public 火 妻妾 => 火;
+        public 水 兄弟 => 水;
         public 太阴 象属 => 四象.太阴;
     }
 }

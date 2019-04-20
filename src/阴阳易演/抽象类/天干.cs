@@ -5,7 +5,7 @@
 
     public abstract class 天干 : 干支
     {
-        #region 天清
+        #region 构造
         static 天干()
         {
             甲 = new 甲();
@@ -22,7 +22,8 @@
 
         #endregion
 
-        #region 地浊
+        #region 属性
+        // 静态属性
         public static 甲 甲 { get; }
         public static 乙 乙 { get; }
         public static 丙 丙 { get; }

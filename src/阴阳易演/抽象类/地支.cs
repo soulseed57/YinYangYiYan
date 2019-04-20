@@ -5,7 +5,7 @@
 
     public abstract class 地支 : 干支
     {
-        #region 天清
+        #region 构造
         static 地支()
         {
             子 = new 子();
@@ -24,8 +24,8 @@
 
         #endregion
 
-        #region 地浊
-        // 阴静
+        #region 属性
+        // 静态属性
         public static 子 子 { get; }
         public static 丑 丑 { get; }
         public static 寅 寅 { get; }
@@ -38,7 +38,7 @@
         public static 酉 酉 { get; }
         public static 戌 戌 { get; }
         public static 亥 亥 { get; }
-        // 阳动
+        // 动态属性
         public string 生肖 { get; protected set; }
 
         #endregion

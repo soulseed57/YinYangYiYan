@@ -4,12 +4,6 @@
 
     public class 土 : 五行
     {
-        public new 火 父母 => 火;
-        public new 金 子孙 => 金;
-        public new 木 官鬼 => 木;
-        public new 水 妻妾 => 水;
-        public new 土 兄弟 => 土;
-
         public 土()
         {
             数字 = 5;
@@ -18,5 +12,10 @@
             四季 = 季节.长夏;
             颜色 = "#FFFF00";
         }
+        public 火 父母 => 火;
+        public 金 子孙 => 金;
+        public 木 官鬼 => 木;
+        public 水 妻妾 => 水;
+        public 土 兄弟 => 土;
     }
 }

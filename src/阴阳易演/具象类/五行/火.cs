@@ -5,12 +5,6 @@
 
     public class 火 : 五行
     {
-        public new 木 父母 => 木;
-        public new 土 子孙 => 土;
-        public new 水 官鬼 => 水;
-        public new 金 妻妾 => 金;
-        public new 火 兄弟 => 火;
-
         public 火()
         {
             数字 = 2;
@@ -19,6 +13,11 @@
             四季 = 象属.四季;
             颜色 = 象属.颜色;
         }
+        public 木 父母 => 木;
+        public 土 子孙 => 土;
+        public 水 官鬼 => 水;
+        public 金 妻妾 => 金;
+        public 火 兄弟 => 火;
         public 太阳 象属 => 四象.太阳;
     }
 }

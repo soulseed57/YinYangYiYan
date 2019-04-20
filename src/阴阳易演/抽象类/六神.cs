@@ -5,7 +5,7 @@
 
     public abstract class 六神 : 无极
     {
-        #region 天清
+        #region 构造
         static 六神()
         {
             青龙 = new 青龙();
@@ -18,7 +18,8 @@
 
         #endregion
 
-        #region 地浊
+        #region 属性
+        // 静态属性
         public static 青龙 青龙 { get; }
         public static 朱雀 朱雀 { get; }
         public static 白虎 白虎 { get; }

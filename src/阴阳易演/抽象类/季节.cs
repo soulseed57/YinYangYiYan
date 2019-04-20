@@ -5,7 +5,7 @@
 
     public abstract class 季节 : 无极
     {
-        #region 天清
+        #region 构造
         static 季节()
         {
             春季 = new 春季();
@@ -17,16 +17,14 @@
 
         #endregion
 
-        #region 地浊
+        #region 属性
+        // 静态属性
         public static 春季 春季 { get; }
         public static 夏季 夏季 { get; }
         public static 秋季 秋季 { get; }
         public static 冬季 冬季 { get; }
         public static 长夏 长夏 { get; }
-
-        #endregion
-
-        #region 运算
+        // 动态属性
         public 五行 旺
         {
             get
