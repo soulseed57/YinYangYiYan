@@ -10,6 +10,29 @@
     public static class 干支计算
     {
         #region 天干扩展
+        public static 天干 五鼠遁(this 天干 干)
+        {
+            switch (干)
+            {
+                case 甲 _:
+                case 己 _:
+                    return 天干.甲;// 甲己合化土，甲木克之
+                case 乙 _:
+                case 庚 _:
+                    return 天干.丙;// 乙庚合化金，丙火克之
+                case 丙 _:
+                case 辛 _:
+                    return 天干.戊;// 丙辛合化水，戊土克之
+                case 丁 _:
+                case 壬 _:
+                    return 天干.庚;// 丁壬合化木，庚金克之
+                case 戊 _:
+                case 癸 _:
+                    return 天干.壬;// 戊癸合化火，壬水克之
+                default:
+                    throw new Exception($"起遁失败,当前给定天干错误[{干}]");
+            }
+        }
         public static 天干 五虎遁(this 天干 干)
         {
             switch (干)
