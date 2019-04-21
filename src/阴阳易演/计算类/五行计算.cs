@@ -1,131 +1,111 @@
 ﻿namespace 阴阳易演.计算类
 {
+    using System;
     using 具象类.五行;
     using 抽象类;
 
     public static class 五行计算
     {
         #region 扩展
-        public static 五行 父母(this 五行 行属)
+        public static 五行 父母(this 五行 行)
         {
-            五行 结果 = null;
-            switch (行属)
+            switch (行)
             {
                 case 金 _:
-                    结果 = 五行.土;
-                    break;
+                    return 五行.土;
                 case 水 _:
-                    结果 = 五行.金;
-                    break;
+                    return 五行.金;
                 case 木 _:
-                    结果 = 五行.水;
-                    break;
+                    return 五行.水;
                 case 火 _:
-                    结果 = 五行.木;
-                    break;
+                    return 五行.木;
                 case 土 _:
-                    结果 = 五行.火;
-                    break;
+                    return 五行.火;
+                default:
+                    throw new Exception($"未找到任何匹配,当前输入[{行.名称}]");
             }
-            return 结果;
         }
-        public static 五行 子孙(this 五行 行属)
+        public static 五行 子孙(this 五行 行)
         {
-            五行 结果 = null;
-            switch (行属)
+            switch (行)
             {
                 case 金 _:
-                    结果 = 五行.水;
-                    break;
+                    return 五行.水;
                 case 水 _:
-                    结果 = 五行.木;
-                    break;
+                    return 五行.木;
                 case 木 _:
-                    结果 = 五行.火;
-                    break;
+                    return 五行.火;
                 case 火 _:
-                    结果 = 五行.土;
-                    break;
+                    return 五行.土;
                 case 土 _:
-                    结果 = 五行.金;
-                    break;
+                    return 五行.金;
+                default:
+                    throw new Exception($"未找到任何匹配,当前输入[{行.名称}]");
             }
-            return 结果;
         }
-        public static 五行 官鬼(this 五行 行属)
+        public static 五行 官鬼(this 五行 行)
         {
-            五行 结果 = null;
-            switch (行属)
+            switch (行)
             {
                 case 金 _:
-                    结果 = 五行.火;
-                    break;
+                    return 五行.火;
                 case 水 _:
-                    结果 = 五行.土;
-                    break;
+                    return 五行.土;
                 case 木 _:
-                    结果 = 五行.金;
-                    break;
+                    return 五行.金;
                 case 火 _:
-                    结果 = 五行.水;
-                    break;
+                    return 五行.水;
                 case 土 _:
-                    结果 = 五行.木;
-                    break;
+                    return 五行.木;
+                default:
+                    throw new Exception($"未找到任何匹配,当前输入[{行.名称}]");
             }
-            return 结果;
         }
-        public static 五行 妻妾(this 五行 行属)
+        public static 五行 妻妾(this 五行 行)
         {
-            五行 结果 = null;
-            switch (行属)
+            switch (行)
             {
                 case 金 _:
-                    结果 = 五行.木;
-                    break;
+                    return 五行.木;
                 case 水 _:
-                    结果 = 五行.火;
-                    break;
+                    return 五行.火;
                 case 木 _:
-                    结果 = 五行.土;
-                    break;
+                    return 五行.土;
                 case 火 _:
-                    结果 = 五行.金;
-                    break;
+                    return 五行.金;
                 case 土 _:
-                    结果 = 五行.水;
-                    break;
+                    return 五行.水;
+                default:
+                    throw new Exception($"未找到任何匹配,当前输入[{行.名称}]");
             }
-            return 结果;
         }
-        public static 五行 兄弟(this 五行 行属)
+        public static 五行 兄弟(this 五行 行)
         {
-            五行 结果 = null;
-            switch (行属)
+            switch (行)
             {
                 case 金 _:
-                    结果 = 五行.金;
-                    break;
+                    return 五行.金;
                 case 水 _:
-                    结果 = 五行.水;
-                    break;
+                    return 五行.水;
                 case 木 _:
-                    结果 = 五行.木;
-                    break;
+                    return 五行.木;
                 case 火 _:
-                    结果 = 五行.火;
-                    break;
+                    return 五行.火;
                 case 土 _:
-                    结果 = 五行.土;
-                    break;
+                    return 五行.土;
+                default:
+                    throw new Exception($"未找到任何匹配,当前输入[{行.名称}]");
             }
-            return 结果;
         }
 
         #endregion
 
         #region 计算
-        public static bool 比和(五行 一, 五行 二) => 一.Equals(二);
+        public static bool 生我(五行 主, 五行 客) => 主.父母() == 客;
+        public static bool 我生(五行 主, 五行 客) => 主.子孙() == 客;
+        public static bool 克我(五行 主, 五行 客) => 主.官鬼() == 客;
+        public static bool 我克(五行 主, 五行 客) => 主.妻妾() == 客;
+        public static bool 同我(五行 主, 五行 客) => 主.兄弟() == 客;
 
         #endregion
 
