@@ -91,6 +91,7 @@
     <Compile Include="具象类\季节\长夏.cs" />
     <Compile Include="容器类\六十四卦.cs" />
     <Compile Include="容器类\十神.cs" />
+    <Compile Include="容器类\地支藏干.cs" />
     <Compile Include="容器类\甲子.cs" />
     <Compile Include="容器类\神煞.cs" />
     <Compile Include="容器类\纳音.cs" />
