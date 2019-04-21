@@ -48,20 +48,28 @@
         #endregion
 
         #region 节气查询
-        public static 节气枚举 节气枚举查询(DateTime 时间)
+        public static 节气枚举 节气枚举查询(DateTime 时间, bool 精确到分钟 = false)
         {
-            var 索引 = -1;
+            var 索引 = 节气数 - 1;
             for (var i = 0; i < 节气修正分钟.Length; i++)
             {
-                if ((节气时间查询(时间.Year, i) - 时间).Days > 0)
+                var 节气时间 = 节气时间查询(时间.Year, i);
+                var 时间差 = 节气时间 - 时间;
+                if (精确到分钟)
                 {
-                    break;
+                    if (时间差.TotalMinutes > 0)
+                    {
+                        break;
+                    }
+                }
+                else
+                {
+                    if (时间差.TotalHours > 24)
+                    {
+                        break;
+                    }
                 }
                 索引 = i;
-            }
-            if (索引 == -1)
-            {
-                throw new Exception($"未找到日期[{时间}]的节气");
             }
             return 获取节气枚举(索引);
         }
