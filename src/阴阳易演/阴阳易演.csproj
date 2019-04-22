@@ -132,7 +132,7 @@
     <Compile Include="容器类\干支历.cs" />
     <Compile Include="枚举类\长生枚举.cs" />
     <Compile Include="计算类\五行计算.cs" />
-    <Compile Include="计算类\十神计算.cs" />
+    <Compile Include="计算类\天干六亲.cs" />
     <Compile Include="计算类\卦爻计算.cs" />
     <Compile Include="计算类\四象计算.cs" />
     <Compile Include="计算类\干支计算.cs" />

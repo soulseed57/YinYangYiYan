@@ -7,7 +7,7 @@
     public static class 天干六亲
     {
         #region 扩展
-        public static List<string> 正官(this 天干 主, 天干 客, 性别枚举 男女)
+        public static List<string> 正官匹配(this 天干 主, 天干 客, 性别枚举 男女)
         {
             if (主.五行.官鬼() == 客.五行 && 主.阴阳 != 客.阴阳)
             {
@@ -15,7 +15,7 @@
             }
             return null;
         }
-        public static List<string> 偏官(this 天干 主, 天干 客, 性别枚举 男女)
+        public static List<string> 偏官匹配(this 天干 主, 天干 客, 性别枚举 男女)
         {
             if (主.五行.官鬼() == 客.五行 && 主.阴阳 == 客.阴阳)
             {
@@ -23,7 +23,7 @@
             }
             return null;
         }
-        public static List<string> 正印(this 天干 主, 天干 客, 性别枚举 男女)
+        public static List<string> 正印匹配(this 天干 主, 天干 客, 性别枚举 男女)
         {
             if (主.五行.父母() == 客.五行 && 主.阴阳 != 客.阴阳)
             {
@@ -31,7 +31,7 @@
             }
             return null;
         }
-        public static List<string> 偏印(this 天干 主, 天干 客, 性别枚举 男女)
+        public static List<string> 偏印匹配(this 天干 主, 天干 客, 性别枚举 男女)
         {
             if (主.五行.父母() == 客.五行 && 主.阴阳 == 客.阴阳)
             {
@@ -39,7 +39,7 @@
             }
             return null;
         }
-        public static List<string> 劫财(this 天干 主, 天干 客, 性别枚举 男女)
+        public static List<string> 劫财匹配(this 天干 主, 天干 客, 性别枚举 男女)
         {
             if (主.五行.兄弟() == 客.五行 && 主.阴阳 != 客.阴阳)
             {
@@ -47,7 +47,7 @@
             }
             return null;
         }
-        public static List<string> 比肩(this 天干 主, 天干 客, 性别枚举 男女)
+        public static List<string> 比肩匹配(this 天干 主, 天干 客, 性别枚举 男女)
         {
             if (主.五行.兄弟() == 客.五行 && 主.阴阳 == 客.阴阳)
             {
@@ -55,7 +55,7 @@
             }
             return null;
         }
-        public static List<string> 伤官(this 天干 主, 天干 客, 性别枚举 男女)
+        public static List<string> 伤官匹配(this 天干 主, 天干 客, 性别枚举 男女)
         {
             if (主.五行.子孙() == 客.五行 && 主.阴阳 != 客.阴阳)
             {
@@ -63,7 +63,7 @@
             }
             return null;
         }
-        public static List<string> 食神(this 天干 主, 天干 客, 性别枚举 男女)
+        public static List<string> 食神匹配(this 天干 主, 天干 客, 性别枚举 男女)
         {
             if (主.五行.子孙() == 客.五行 && 主.阴阳 == 客.阴阳)
             {
@@ -71,7 +71,7 @@
             }
             return null;
         }
-        public static List<string> 正财(this 天干 主, 天干 客, 性别枚举 男女)
+        public static List<string> 正财匹配(this 天干 主, 天干 客, 性别枚举 男女)
         {
             if (主.五行.妻妾() == 客.五行 && 主.阴阳 != 客.阴阳)
             {
@@ -79,7 +79,7 @@
             }
             return null;
         }
-        public static List<string> 偏财(this 天干 主, 天干 客, 性别枚举 男女)
+        public static List<string> 偏财匹配(this 天干 主, 天干 客, 性别枚举 男女)
         {
             if (主.五行.妻妾() == 客.五行 && 主.阴阳 == 客.阴阳)
             {
