@@ -114,6 +114,7 @@
     <Compile Include="枚举类\十六方位.cs" />
     <Compile Include="枚举类\十神枚举.cs" />
     <Compile Include="枚举类\卯酉十二宫.cs" />
+    <Compile Include="枚举类\性别枚举.cs" />
     <Compile Include="枚举类\甲子枚举.cs" />
     <Compile Include="查询类\节气表.cs" />
     <Compile Include="枚举类\八卦枚举.cs" />
@@ -131,6 +132,7 @@
     <Compile Include="容器类\干支历.cs" />
     <Compile Include="枚举类\长生枚举.cs" />
     <Compile Include="计算类\五行计算.cs" />
+    <Compile Include="计算类\十神计算.cs" />
     <Compile Include="计算类\卦爻计算.cs" />
     <Compile Include="计算类\四象计算.cs" />
     <Compile Include="计算类\干支计算.cs" />
