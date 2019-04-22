@@ -37,5 +37,29 @@
 
         #endregion
 
+        #region 运算符
+        public static bool operator ==(天干 一, 天干 二)
+        {
+            if (一 is null && 二 is null)
+            {
+                return true;
+            }
+            if (一 is null || 二 is null)
+            {
+                return false;
+            }
+            return 一.名称 == 二.名称;
+        }
+        public static bool operator !=(天干 一, 天干 二)
+        {
+            return !(一 == 二);
+        }
+        public override bool Equals(object obj)
+        {
+            return this == (天干)obj;
+        }
+
+        #endregion
+
     }
 }

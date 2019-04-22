@@ -8,7 +8,10 @@
 
     public static class 干支计算
     {
-        #region 天干扩展
+        #region 扩展
+        /**
+         * 天干扩展
+         */
         public static 天干 合(this 天干 干)
         {
             // 甲己合化土，乙庚合化金，丙辛合化水，丁壬合化木，戊癸合化火
@@ -88,10 +91,9 @@
                     throw new Exception($"未找到匹配的天干,当前输入{干}");
             }
         }
-
-        #endregion
-
-        #region 地支扩展
+        /** 
+         * 地支扩展
+         */
         public static 地支 合(this 地支 支)
         {
             // 子丑合化土，寅亥合化木，卯戌合化火，辰酉合化金，巳申合化水，午未合化土。
