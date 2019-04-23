@@ -3,6 +3,7 @@
     using System;
     using 具象类.地支;
     using 具象类.天干;
+    using 容器类;
     using 抽象类;
     using 枚举类;
 
@@ -178,6 +179,10 @@
                 default:
                     throw new Exception($"未找到匹配的地支,当前输入{支}");
             }
+        }
+        public static 地支藏干 藏干(this 地支 支)
+        {
+            return new 地支藏干(支);
         }
         /**
          * 长生扩展

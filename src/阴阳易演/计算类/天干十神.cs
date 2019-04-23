@@ -5,22 +5,22 @@
     using 枚举类;
     using 查询类;
 
-    public static class 天干六亲
+    public static class 天干十神
     {
         #region 扩展
         /**
-         * 十神对象 
+         * 十神对象
          */
-        public static 天干 正官(this 天干 主) { return 干支表.天干列表.Find(客 => 主.五行.官鬼() == 客.五行 && 主.阴阳 != 客.阴阳); }
-        public static 天干 偏官(this 天干 主) { return 干支表.天干列表.Find(客 => 主.五行.官鬼() == 客.五行 && 主.阴阳 == 客.阴阳); }
-        public static 天干 正印(this 天干 主) { return 干支表.天干列表.Find(客 => 主.五行.父母() == 客.五行 && 主.阴阳 != 客.阴阳); }
-        public static 天干 偏印(this 天干 主) { return 干支表.天干列表.Find(客 => 主.五行.父母() == 客.五行 && 主.阴阳 == 客.阴阳); }
-        public static 天干 劫财(this 天干 主) { return 干支表.天干列表.Find(客 => 主.五行.兄弟() == 客.五行 && 主.阴阳 != 客.阴阳); }
-        public static 天干 比肩(this 天干 主) { return 干支表.天干列表.Find(客 => 主.五行.兄弟() == 客.五行 && 主.阴阳 == 客.阴阳); }
-        public static 天干 伤官(this 天干 主) { return 干支表.天干列表.Find(客 => 主.五行.子孙() == 客.五行 && 主.阴阳 != 客.阴阳); }
-        public static 天干 食神(this 天干 主) { return 干支表.天干列表.Find(客 => 主.五行.子孙() == 客.五行 && 主.阴阳 == 客.阴阳); }
-        public static 天干 正财(this 天干 主) { return 干支表.天干列表.Find(客 => 主.五行.妻妾() == 客.五行 && 主.阴阳 != 客.阴阳); }
-        public static 天干 偏财(this 天干 主) { return 干支表.天干列表.Find(客 => 主.五行.妻妾() == 客.五行 && 主.阴阳 == 客.阴阳); }
+        public static 天干 正官(this 天干 主) { return 干支表.天干列表.Find(客 => 主.五行.克我() == 客.五行 && 主.阴阳 != 客.阴阳); }
+        public static 天干 偏官(this 天干 主) { return 干支表.天干列表.Find(客 => 主.五行.克我() == 客.五行 && 主.阴阳 == 客.阴阳); }
+        public static 天干 正印(this 天干 主) { return 干支表.天干列表.Find(客 => 主.五行.生我() == 客.五行 && 主.阴阳 != 客.阴阳); }
+        public static 天干 偏印(this 天干 主) { return 干支表.天干列表.Find(客 => 主.五行.生我() == 客.五行 && 主.阴阳 == 客.阴阳); }
+        public static 天干 劫财(this 天干 主) { return 干支表.天干列表.Find(客 => 主.五行.同我() == 客.五行 && 主.阴阳 != 客.阴阳); }
+        public static 天干 比肩(this 天干 主) { return 干支表.天干列表.Find(客 => 主.五行.同我() == 客.五行 && 主.阴阳 == 客.阴阳); }
+        public static 天干 伤官(this 天干 主) { return 干支表.天干列表.Find(客 => 主.五行.我生() == 客.五行 && 主.阴阳 != 客.阴阳); }
+        public static 天干 食神(this 天干 主) { return 干支表.天干列表.Find(客 => 主.五行.我生() == 客.五行 && 主.阴阳 == 客.阴阳); }
+        public static 天干 正财(this 天干 主) { return 干支表.天干列表.Find(客 => 主.五行.我克() == 客.五行 && 主.阴阳 != 客.阴阳); }
+        public static 天干 偏财(this 天干 主) { return 干支表.天干列表.Find(客 => 主.五行.我克() == 客.五行 && 主.阴阳 == 客.阴阳); }
         /**
          * 十神判定
          * 命名规则使用了中文语言习惯,方便调用时阅读

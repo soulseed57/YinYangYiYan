@@ -7,8 +7,8 @@
     <ProjectGuid>{C4DDA94C-2326-479F-8571-32632DE86D08}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>YinYangYiYan.Test</RootNamespace>
-    <AssemblyName>YinYangYiYan.Test</AssemblyName>
+    <RootNamespace>阴阳易演.Test</RootNamespace>
+    <AssemblyName>阴阳易演.Test</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -49,8 +49,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UnitTest2.cs" />
-    <Compile Include="UnitTest3.cs" />
+    <Compile Include="五行测试.cs" />
+    <Compile Include="八卦测试.cs" />
+    <Compile Include="六十四卦测试.cs" />
+    <Compile Include="常用方法测试.cs" />
+    <Compile Include="干支测试.cs" />
+    <Compile Include="甲子测试.cs" />
+    <Compile Include="纪年测试.cs" />
+    <Compile Include="节气测试.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

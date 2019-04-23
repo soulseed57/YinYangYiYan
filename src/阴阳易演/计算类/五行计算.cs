@@ -7,7 +7,10 @@
     public static class 五行计算
     {
         #region 扩展
-        public static 五行 父母(this 五行 行)
+        /**
+         * 五行关系
+         */
+        public static 五行 生我(this 五行 行)
         {
             switch (行)
             {
@@ -25,7 +28,7 @@
                     throw new Exception($"未找到任何匹配,当前输入[{行.名称}]");
             }
         }
-        public static 五行 子孙(this 五行 行)
+        public static 五行 我生(this 五行 行)
         {
             switch (行)
             {
@@ -43,7 +46,7 @@
                     throw new Exception($"未找到任何匹配,当前输入[{行.名称}]");
             }
         }
-        public static 五行 官鬼(this 五行 行)
+        public static 五行 克我(this 五行 行)
         {
             switch (行)
             {
@@ -61,7 +64,7 @@
                     throw new Exception($"未找到任何匹配,当前输入[{行.名称}]");
             }
         }
-        public static 五行 妻妾(this 五行 行)
+        public static 五行 我克(this 五行 行)
         {
             switch (行)
             {
@@ -79,7 +82,7 @@
                     throw new Exception($"未找到任何匹配,当前输入[{行.名称}]");
             }
         }
-        public static 五行 兄弟(this 五行 行)
+        public static 五行 同我(this 五行 行)
         {
             switch (行)
             {
@@ -97,15 +100,18 @@
                     throw new Exception($"未找到任何匹配,当前输入[{行.名称}]");
             }
         }
-
-        #endregion
-
-        #region 计算
-        public static bool 生我(五行 主, 五行 客) => 主.父母() == 客;
-        public static bool 我生(五行 主, 五行 客) => 主.子孙() == 客;
-        public static bool 克我(五行 主, 五行 客) => 主.官鬼() == 客;
-        public static bool 我克(五行 主, 五行 客) => 主.妻妾() == 客;
-        public static bool 同我(五行 主, 五行 客) => 主.兄弟() == 客;
+        /**
+         * 五行判定
+         * 命名规则使用了中文语言习惯,方便调用时阅读
+         * 例如: 
+         * 五行.金.的父母是(五行.土)
+         * 五行.木.的妻妾是(五行.土)
+         */
+        public static bool 的父母是(this 五行 主, 五行 客) => 主.生我() == 客;
+        public static bool 的子孙是(this 五行 主, 五行 客) => 主.我生() == 客;
+        public static bool 的官鬼是(this 五行 主, 五行 客) => 主.克我() == 客;
+        public static bool 的妻妾是(this 五行 主, 五行 客) => 主.我克() == 客;
+        public static bool 的兄弟是(this 五行 主, 五行 客) => 主.同我() == 客;
 
         #endregion
 
