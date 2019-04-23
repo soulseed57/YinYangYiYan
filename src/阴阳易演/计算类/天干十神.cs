@@ -8,9 +8,8 @@
     public static class 天干十神
     {
         #region 扩展
-        /**
-         * 十神对象
-         */
+
+        #region 十神天干
         public static 天干 正官(this 天干 主) { return 干支表.天干列表.Find(客 => 主.五行.克我() == 客.五行 && 主.阴阳 != 客.阴阳); }
         public static 天干 偏官(this 天干 主) { return 干支表.天干列表.Find(客 => 主.五行.克我() == 客.五行 && 主.阴阳 == 客.阴阳); }
         public static 天干 正印(this 天干 主) { return 干支表.天干列表.Find(客 => 主.五行.生我() == 客.五行 && 主.阴阳 != 客.阴阳); }
@@ -21,13 +20,9 @@
         public static 天干 食神(this 天干 主) { return 干支表.天干列表.Find(客 => 主.五行.我生() == 客.五行 && 主.阴阳 == 客.阴阳); }
         public static 天干 正财(this 天干 主) { return 干支表.天干列表.Find(客 => 主.五行.我克() == 客.五行 && 主.阴阳 != 客.阴阳); }
         public static 天干 偏财(this 天干 主) { return 干支表.天干列表.Find(客 => 主.五行.我克() == 客.五行 && 主.阴阳 == 客.阴阳); }
-        /**
-         * 十神判定
-         * 命名规则使用了中文语言习惯,方便调用时阅读
-         * 例如: 
-         * 天干.甲.的正印是(天干.癸)
-         * 天干.乙.的正官是(天干.庚)
-         */
+        #endregion
+
+        #region 十神判定
         public static bool 的正官是(this 天干 主, 天干 客) => 主.正官() == 客;
         public static bool 的偏官是(this 天干 主, 天干 客) => 主.偏官() == 客;
         public static bool 的正印是(this 天干 主, 天干 客) => 主.正印() == 客;
@@ -38,13 +33,9 @@
         public static bool 的食神是(this 天干 主, 天干 客) => 主.食神() == 客;
         public static bool 的正财是(this 天干 主, 天干 客) => 主.正财() == 客;
         public static bool 的偏财是(this 天干 主, 天干 客) => 主.偏财() == 客;
-        /**
-         * 六亲列表
-         * 命名规则使用了中文语言习惯,方便调用时阅读
-         * 例如: 
-         * 天干.甲.的正官六亲(性别枚举.男)
-         * 天干.乙.的偏官六亲(性别枚举.女)
-         */
+        #endregion
+
+        #region 十神六亲
         public static List<string> 的正官六亲(this 天干 主, 性别枚举 男女)
         {
             var 关系组 = new List<string>();
@@ -246,6 +237,7 @@
             }
             return 关系组;
         }
+        #endregion
 
         #endregion
 

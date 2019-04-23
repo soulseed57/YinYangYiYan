@@ -10,9 +10,8 @@
     public static class 干支计算
     {
         #region 扩展
-        /**
-         * 天干扩展
-         */
+
+        #region 天干扩展
         public static 天干 合(this 天干 干)
         {
             // 甲己合化土，乙庚合化金，丙辛合化水，丁壬合化木，戊癸合化火
@@ -92,9 +91,9 @@
                     throw new Exception($"未找到匹配的天干,当前输入{干}");
             }
         }
-        /** 
-         * 地支扩展
-         */
+        #endregion
+
+        #region 地支扩展
         public static 地支 合(this 地支 支)
         {
             // 子丑合化土，寅亥合化木，卯戌合化火，辰酉合化金，巳申合化水，午未合化土。
@@ -180,25 +179,12 @@
                     throw new Exception($"未找到匹配的地支,当前输入{支}");
             }
         }
-        public static 地支藏干 藏干(this 地支 支)
-        {
-            return new 地支藏干(支);
-        }
-        /**
-         * 长生扩展
-         * 命名规则使用了中文语言习惯,方便调用时阅读
-         * 例如: 
-         * 天干.甲.在(地支.子)
-         * 结果: 沐浴
-         * 
-         * 天干.乙.在(地支.午)
-         * 结果: 长生
-         * 
-         */
-        public static 长生枚举 在(this 天干 干, 地支 支)
-        {
-            return 长生(干, 支);
-        }
+        public static 地支藏干 藏干(this 地支 支) => new 地支藏干(支);
+        #endregion
+
+        #region 长生扩展
+        public static 长生枚举 在(this 天干 干, 地支 支) => 长生(干, 支);
+        #endregion
 
         #endregion
 
