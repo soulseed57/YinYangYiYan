@@ -2,6 +2,7 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.Linq;
 
     public static class 常用方法
     {
@@ -110,6 +111,17 @@
                 queue.Enqueue(item);
             }
             return queue.ToArray();
+        }
+        /// <summary>
+        /// 同时包含所有给定元素
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="array"></param>
+        /// <param name="items"></param>
+        /// <returns></returns>
+        public static bool 同时包含<T>(T[] array, params T[] items)
+        {
+            return items.All(array.Contains);
         }
     }
 }

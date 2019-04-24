@@ -4,6 +4,7 @@
     using 具象类.地支;
     using 具象类.天干;
     using 容器类;
+    using 引用库;
     using 抽象类;
     using 枚举类;
 
@@ -189,6 +190,8 @@
         #endregion
 
         #region 计算
+
+        #region 长生计算
         public static 长生枚举 长生(天干 干, 地支 支)
         {
             switch (干)
@@ -329,6 +332,34 @@
                     throw new Exception($"未找到地支匹配的长生,当前天干[{干}],当前地支[{支}]");
             }
         }
+        #endregion
+
+        #region 地支计算
+        public static 五行 地支三合(地支 一, 地支 二, 地支 三)
+        {
+            var 地支组 = new 地支[] { 一, 二, 三 };
+            if (常用方法.同时包含(地支组, 地支.申, 地支.子, 地支.辰))
+            {
+                return 五行.水;
+            }
+            else if (常用方法.同时包含(地支组, 地支.亥, 地支.卯, 地支.未))
+            {
+                return 五行.木;
+            }
+            else if (常用方法.同时包含(地支组, 地支.巳, 地支.酉, 地支.丑))
+            {
+                return 五行.金;
+            }
+            else if (常用方法.同时包含(地支组, 地支.寅, 地支.午, 地支.戌))
+            {
+                return 五行.火;
+            }
+            else
+            {
+                return null;
+            }
+        }
+        #endregion
 
         #endregion
 

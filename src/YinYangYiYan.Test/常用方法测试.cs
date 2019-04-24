@@ -1,8 +1,10 @@
 ﻿namespace 阴阳易演.Test
 {
-    using System;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
+    using System;
     using 引用库;
+    using 抽象类;
+    using 抽象类.基类;
 
     [TestClass]
     public class 常用方法测试
@@ -18,7 +20,10 @@
             {
                 var num = ord[i];
                 Console.Write($"{num} ");
-                if (i == arr.Length - 1) Assert.IsTrue(num == 4);
+                if (i == arr.Length - 1)
+                {
+                    Assert.IsTrue(num == 4);
+                }
             }
             Console.WriteLine();
 
@@ -27,7 +32,10 @@
             {
                 var num = ans[i];
                 Console.Write($"{num} ");
-                if (i == arr.Length - 1) Assert.IsTrue(num == 6);
+                if (i == arr.Length - 1)
+                {
+                    Assert.IsTrue(num == 6);
+                }
             }
             Console.WriteLine();
         }
@@ -98,5 +106,16 @@
             Console.WriteLine();
         }
 
+        [TestMethod]
+        public void 同时包含测试()
+        {
+            // 运算符测试
+            var res = 天干.甲 == 地支.子;
+
+            Assert.IsTrue(常用方法.同时包含(new 干支[] { 天干.甲, 天干.丙, 天干.丁, 地支.子, 地支.申 }, 天干.甲, 天干.丙));
+            Assert.IsFalse(常用方法.同时包含(new 天干[] { 天干.甲, 天干.丙, 天干.丁 }, 天干.甲, 天干.乙, 天干.丁));
+            Assert.IsTrue(常用方法.同时包含(new 天干[] { 天干.甲, 天干.丁 }, 天干.甲, 天干.丁));
+            Assert.IsTrue(常用方法.同时包含(new 干支[] { 天干.甲, 地支.子 }, 天干.甲, 地支.子));
+        }
     }
 }
