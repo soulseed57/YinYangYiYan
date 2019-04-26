@@ -6,6 +6,7 @@
     using 容器类;
     using 引用库;
     using 抽象类;
+    using 枚举类;
     using 查询类;
 
     [TestClass]
@@ -231,6 +232,40 @@
             Assert.IsTrue(历.月柱.名称 == "戊申");
             Assert.IsTrue(历.日柱.名称 == "癸丑");
             Assert.IsTrue(历.时柱.名称 == "壬戌");
+        }
+
+        [TestMethod]
+        public void 时干时支()
+        {
+            var 干支纪年 = new 干支历(DateTime.Now);
+            Console.WriteLine($"时辰:{干支纪年.时柱.名称} 时干:{干支纪年.时柱.天干.名称} 时支:{干支纪年.时柱.地支.名称}");
+        }
+
+        [TestMethod]
+        public void 神煞测试()
+        {
+            Assert.IsTrue(干支历.日支时辰算神煞(地支.子, 地支.亥).名称 == "朱雀");
+            Assert.IsTrue(干支历.日支时辰算神煞(地支.子, 地支.辰).名称 == "天牢");
+            Assert.IsTrue(干支历.日支时辰算神煞(地支.子, 地支.申).名称 == "青龙");
+
+
+            Assert.IsTrue(干支历.日支时辰算神煞(地支.申, 地支.辰).枚举 == 神煞枚举.金匮);
+            Assert.IsTrue(干支历.日支时辰算神煞(地支.卯, 地支.亥).枚举 == 神煞枚举.玄武);
+            Assert.IsTrue(干支历.日支时辰算神煞(地支.戌, 地支.未).枚举 == 神煞枚举.朱雀);
+
+        }
+
+        [TestMethod]
+        public void 名称测试()
+        {
+            Console.WriteLine(八卦.乾.名称);
+            Console.WriteLine(地支.子.名称);
+            Console.WriteLine(季节.冬季.名称);
+            Console.WriteLine(两仪.阴.名称);
+            Console.WriteLine(六神.青龙.名称);
+            Console.WriteLine(四象.太阳.名称);
+            Console.WriteLine(天干.丙.名称);
+            Console.WriteLine(五行.水.名称);
         }
 
     }
