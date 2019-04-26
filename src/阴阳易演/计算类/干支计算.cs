@@ -1,6 +1,7 @@
 ﻿namespace 阴阳易演.计算类
 {
     using System;
+    using System.Collections.Generic;
     using 具象类.地支;
     using 具象类.天干;
     using 容器类;
@@ -184,15 +185,44 @@
         #endregion
 
         #region 长生扩展
-        public static 长生枚举 在(this 天干 干, 地支 支) => 长生(干, 支);
+        public static 长生枚举 在地支的长生(this 天干 干, 地支 支) => 地支长生(干, 支);
+
+        #endregion
+
+        #region 三合扩展
+
+        #region 水局
+        public static bool 是三合水局(this 申 主, 地支 客一, 地支 客二) => 地支三合(new 地支[] { 主, 客一, 客二 }).Contains(五行.水);
+        public static bool 是三合水局(this 子 主, 地支 客一, 地支 客二) => 地支三合(new 地支[] { 主, 客一, 客二 }).Contains(五行.水);
+        public static bool 是三合水局(this 辰 主, 地支 客一, 地支 客二) => 地支三合(new 地支[] { 主, 客一, 客二 }).Contains(五行.水);
+        #endregion
+
+        #region 木局
+        public static bool 是三合木局(this 亥 主, 地支 客一, 地支 客二) => 地支三合(new 地支[] { 主, 客一, 客二 }).Contains(五行.木);
+        public static bool 是三合木局(this 卯 主, 地支 客一, 地支 客二) => 地支三合(new 地支[] { 主, 客一, 客二 }).Contains(五行.木);
+        public static bool 是三合木局(this 未 主, 地支 客一, 地支 客二) => 地支三合(new 地支[] { 主, 客一, 客二 }).Contains(五行.木);
+        #endregion
+
+        #region 金局
+        public static bool 是三合金局(this 巳 主, 地支 客一, 地支 客二) => 地支三合(new 地支[] { 主, 客一, 客二 }).Contains(五行.金);
+        public static bool 是三合金局(this 酉 主, 地支 客一, 地支 客二) => 地支三合(new 地支[] { 主, 客一, 客二 }).Contains(五行.金);
+        public static bool 是三合金局(this 丑 主, 地支 客一, 地支 客二) => 地支三合(new 地支[] { 主, 客一, 客二 }).Contains(五行.金);
+        #endregion
+
+        #region 火局
+        public static bool 是三合火局(this 寅 主, 地支 客一, 地支 客二) => 地支三合(new 地支[] { 主, 客一, 客二 }).Contains(五行.火);
+        public static bool 是三合火局(this 午 主, 地支 客一, 地支 客二) => 地支三合(new 地支[] { 主, 客一, 客二 }).Contains(五行.火);
+        public static bool 是三合火局(this 戌 主, 地支 客一, 地支 客二) => 地支三合(new 地支[] { 主, 客一, 客二 }).Contains(五行.火);
+        #endregion
+
+        public static 五行[] 三合局(this 地支 主, 地支 客一, 地支 客二) => 地支三合(new 地支[] { 主, 客一, 客二 }).ToArray();
+
         #endregion
 
         #endregion
 
         #region 计算
-
-        #region 长生计算
-        public static 长生枚举 长生(天干 干, 地支 支)
+        public static 长生枚举 地支长生(天干 干, 地支 支)
         {
             switch (干)
             {
@@ -332,34 +362,15 @@
                     throw new Exception($"未找到地支匹配的长生,当前天干[{干}],当前地支[{支}]");
             }
         }
-        #endregion
-
-        #region 地支计算
-        public static 五行 地支三合(地支 一, 地支 二, 地支 三)
+        public static List<五行> 地支三合(地支[] 地支组)
         {
-            var 地支组 = new 地支[] { 一, 二, 三 };
-            if (常用方法.同时包含(地支组, 地支.申, 地支.子, 地支.辰))
-            {
-                return 五行.水;
-            }
-            else if (常用方法.同时包含(地支组, 地支.亥, 地支.卯, 地支.未))
-            {
-                return 五行.木;
-            }
-            else if (常用方法.同时包含(地支组, 地支.巳, 地支.酉, 地支.丑))
-            {
-                return 五行.金;
-            }
-            else if (常用方法.同时包含(地支组, 地支.寅, 地支.午, 地支.戌))
-            {
-                return 五行.火;
-            }
-            else
-            {
-                return null;
-            }
+            var 五行列 = new List<五行>();
+            if (常用方法.同时包含(地支组, 地支.申, 地支.子, 地支.辰)) { 五行列.Add(五行.水); }
+            if (常用方法.同时包含(地支组, 地支.亥, 地支.卯, 地支.未)) { 五行列.Add(五行.木); }
+            if (常用方法.同时包含(地支组, 地支.巳, 地支.酉, 地支.丑)) { 五行列.Add(五行.金); }
+            if (常用方法.同时包含(地支组, 地支.寅, 地支.午, 地支.戌)) { 五行列.Add(五行.火); }
+            return 五行列;
         }
-        #endregion
 
         #endregion
 

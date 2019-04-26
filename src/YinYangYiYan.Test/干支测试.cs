@@ -1,8 +1,9 @@
 ﻿namespace 阴阳易演.Test
 {
-    using System;
-    using System.Text;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
+    using System;
+    using System.Linq;
+    using System.Text;
     using 容器类;
     using 抽象类;
     using 枚举类;
@@ -32,10 +33,10 @@
             var showMsg = new StringBuilder();
             天干 g = 天干.甲;
             地支 z = 地支.子;
-            Console.WriteLine($"{g.名称}在{z.名称} {g.在(z)}");
+            Console.WriteLine($"{g.名称}在{z.名称} {g.在地支的长生(z)}");
             g = 天干.乙;
             z = 地支.午;
-            Console.WriteLine($"{g.名称}在{z.名称} {g.在(z)}");
+            Console.WriteLine($"{g.名称}在{z.名称} {g.在地支的长生(z)}");
 
             var 天干表 = new 天干[] { 天干.甲, 天干.乙, 天干.丙, 天干.丁, 天干.戊, 天干.己, 天干.庚, 天干.辛, 天干.壬, 天干.癸 };
             var 地支表 = new 地支[] { 地支.子, 地支.丑, 地支.寅, 地支.卯, 地支.辰, 地支.巳, 地支.午, 地支.未, 地支.申, 地支.酉, 地支.戌, 地支.亥 };
@@ -43,7 +44,7 @@
             {
                 var 干 = 天干表[i % 天干表.Length];
                 var 支 = 地支表[i % 地支表.Length];
-                showMsg.Append($"{干.名称}在{支.名称}:{干.在(支)}\t");
+                showMsg.Append($"{干.名称}在{支.名称}:{干.在地支的长生(支)}\t");
                 if ((i + 1) % 10 == 0)
                 {
                     showMsg.Append("\r\n");
@@ -61,7 +62,7 @@
             Assert.IsTrue(支.藏干().本气 == "癸");
             Assert.IsTrue(支.藏干().藏干.Length == 1);
 
-           var 藏 = 地支.丑.藏干();
+            var 藏 = 地支.丑.藏干();
             Assert.IsTrue(藏.余气 == "癸");
             Assert.IsTrue(藏.中气 == "辛");
             Assert.IsTrue(藏.本气 == "己");
@@ -142,7 +143,6 @@
             Console.WriteLine();
         }
 
-
         [TestMethod]
         public void 天干六亲()
         {
@@ -159,5 +159,44 @@
             Assert.IsTrue(天干.甲.的正官六亲(性别枚举.男).Contains("女儿"));
             Assert.IsTrue(天干.乙.的偏官六亲(性别枚举.女).Contains("儿媳"));
         }
+
+        #region 三合计算
+        static void 三合局计算(地支[] 地支组, 五行 判定合局)
+        {
+            var res = false;
+            foreach (var 合局 in 干支计算.地支三合(地支组))
+            {
+                if (合局 == 判定合局)
+                {
+                    res = true;
+                    Console.WriteLine($"三合{合局.名称}局");
+                    break;
+                }
+            }
+            Assert.IsTrue(res);
+        }
+
+        #endregion
+
+        [TestMethod]
+        public void 三合测试()
+        {
+            // 计算测试
+            var 测试组合 = new 地支[] { 地支.申, 地支.子, 地支.辰, 地支.亥, 地支.卯, 地支.未 };
+            三合局计算(测试组合, 五行.水);
+            三合局计算(测试组合, 五行.木);
+            // 扩展测试
+            Assert.IsFalse(地支.子.是三合水局(地支.亥, 地支.卯));
+            Assert.IsFalse(地支.丑.是三合金局(地支.酉, 地支.丑));
+            Assert.IsTrue(地支.卯.是三合木局(地支.亥, 地支.未));
+            Assert.IsTrue(地支.午.是三合火局(地支.寅, 地支.戌));
+
+            Assert.IsTrue(地支.子.三合局(地支.丑, 地支.未).Length == 0);
+            Assert.IsTrue(地支.戌.三合局(地支.寅, 地支.午).Contains(五行.火));
+            Assert.IsTrue(地支.卯.三合局(地支.未, 地支.亥).Contains(五行.木));
+
+
+        }
+
     }
 }

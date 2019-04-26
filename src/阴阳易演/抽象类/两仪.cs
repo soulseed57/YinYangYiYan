@@ -59,26 +59,6 @@
             var 爻值 = 卦爻计算.生成爻值(爻序);
             return 八卦表.八卦列表.Find(t => t.爻值 == 爻值);
         }
-        public static bool operator ==(两仪 一, 两仪 二)
-        {
-            if (一 is null && 二 is null)
-            {
-                return true;
-            }
-            if (一 is null || 二 is null)
-            {
-                return false;
-            }
-            return 一.值 == 二.值;
-        }
-        public static bool operator !=(两仪 一, 两仪 二)
-        {
-            return !(一 == 二);
-        }
-        public override bool Equals(object obj)
-        {
-            return this == (两仪)obj;
-        }
 
         #endregion
 

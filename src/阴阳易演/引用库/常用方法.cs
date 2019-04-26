@@ -123,5 +123,31 @@
         {
             return items.All(array.Contains);
         }
+        /// <summary>
+        /// 合并主对象和客组为一个列表
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="host"></param>
+        /// <param name="guest_array"></param>
+        /// <returns></returns>
+        public static T[] 合并列表<T>(T host, T[] guest_array)
+        {
+            return 合并列表(new[] { host }, guest_array);
+        }
+        /// <summary>
+        /// 合并主组和客组为一个列表
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="host_array"></param>
+        /// <param name="guest_array"></param>
+        /// <returns></returns>
+        public static T[] 合并列表<T>(T[] host_array, T[] guest_array)
+        {
+            var list = new List<T>();
+            list.AddRange(host_array);
+            list.AddRange(guest_array);
+            return list.ToArray();
+        }
+
     }
 }
