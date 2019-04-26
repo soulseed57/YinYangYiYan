@@ -44,8 +44,9 @@
                         return 冬季.旺;
                     case 长夏 _:
                         return 长夏.旺;
+                    default:
+                        throw new Exception($"未知类型:{this}");
                 }
-                return null;
             }
         }
         public 五行 相
@@ -64,8 +65,9 @@
                         return 冬季.相;
                     case 长夏 _:
                         return 长夏.相;
+                    default:
+                        throw new Exception($"未知类型:{this}");
                 }
-                return null;
             }
         }
         public 五行 休
@@ -84,8 +86,9 @@
                         return 冬季.休;
                     case 长夏 _:
                         return 长夏.休;
+                    default:
+                        throw new Exception($"未知类型:{this}");
                 }
-                return null;
             }
         }
         public 五行 囚
@@ -104,8 +107,9 @@
                         return 冬季.囚;
                     case 长夏 _:
                         return 长夏.囚;
+                    default:
+                        throw new Exception($"未知类型:{this}");
                 }
-                return null;
             }
         }
         public 五行 死
@@ -124,8 +128,9 @@
                         return 冬季.死;
                     case 长夏 _:
                         return 长夏.死;
+                    default:
+                        throw new Exception($"未知类型:{this}");
                 }
-                return null;
             }
         }
 

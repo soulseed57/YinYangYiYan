@@ -1,5 +1,6 @@
 ﻿namespace 阴阳易演.抽象类
 {
+    using System;
     using 具象类.两仪;
     using 基类;
     using 查询类;
@@ -29,23 +30,18 @@
         #region 运算符
         public static 四象 operator +(两仪 一, 两仪 二)
         {
-            四象 四象 = null;
             switch (一)
             {
                 case 阳 _ when 二 is 阳:
-                    四象 = 四象.太阳;
-                    break;
+                    return 四象.太阳;
                 case 阳 _ when 二 is 阴:
-                    四象 = 四象.少阴;
-                    break;
+                    return 四象.少阴;
                 case 阴 _ when 二 is 阳:
-                    四象 = 四象.少阳;
-                    break;
+                    return 四象.少阳;
                 case 阴 _ when 二 is 阴:
-                    四象 = 四象.太阴;
-                    break;
+                    return 四象.太阴;
             }
-            return 四象;
+            throw new Exception($"未找到匹配的计算,当前输入:[{一},{二}]");
         }
         public static 八卦 operator +(四象 象, 两仪 仪)
         {

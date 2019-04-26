@@ -162,7 +162,7 @@
                     五行 = 五行.水;
                     break;
                 default:
-                    throw new ArgumentOutOfRangeException(nameof(枚), 枚, null);
+                    throw new Exception($"未找到匹配的枚举,当前输入:{枚}");
             }
         }
 

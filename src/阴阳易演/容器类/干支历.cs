@@ -29,6 +29,8 @@
             月破 = 月支查月破(月柱.地支);
             // 旬空计算
             旬空 = 日柱算旬空(日柱);
+            // 值日计算
+            值日 = 日支时辰算值日(日柱.地支, 时柱.地支);
         }
 
         #endregion
@@ -44,6 +46,7 @@
         public 甲子 时柱 { get; }
         public 地支 月破 { get; }
         public 地支[] 旬空 { get; }
+        public 神煞 值日 { get; }
 
         #endregion
 
@@ -149,6 +152,15 @@
             }
             return 旬空.ToArray();
         }
+        public static 神煞 日支时辰算值日(地支 日支, 地支 时辰)
+        {
+            var 日序 = 干支表.获取地支序数(日支);
+            var 时序 = 干支表.获取地支序数(时辰);
+            var 起序表 = new int[] { 8, 10, 0, 2, 4, 6 };
+            var 起序 = 起序表[日序 % 6];
+            var 神煞序 = 干支表.地支数 - 起序 + 时序;
+            return new 神煞(神煞序);
+        }
         public static 地支 节气归支查询(节气枚举 枚)
         {
             switch (枚)
@@ -190,7 +202,7 @@
                 case 节气枚举.大寒:
                     return 地支.丑;
                 default:
-                    throw new ArgumentOutOfRangeException(nameof(枚), 枚, null);
+                    throw new Exception($"未找到匹配的枚举,当前输入:{枚}");
             }
         }
         public static int 节气归月查询(节气枚举 枚)
