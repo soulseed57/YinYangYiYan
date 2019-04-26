@@ -164,7 +164,7 @@
         static void 三合局计算(地支[] 地支组, 五行 判定合局)
         {
             var res = false;
-            foreach (var 合局 in 干支计算.地支三合(地支组))
+            foreach (var 合局 in 三合计算.地支三合(地支组))
             {
                 if (合局 == 判定合局)
                 {
