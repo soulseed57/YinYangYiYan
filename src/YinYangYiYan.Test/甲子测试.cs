@@ -19,10 +19,8 @@
             Console.WriteLine($"名称:\t{甲.名称}");
             Console.WriteLine($"阴阳:\t{甲.阴阳.名称}");
             Console.WriteLine($"纳音:\t{甲.纳音.名称}");
-            Console.WriteLine($"长生:\t{甲.十二长生}");
             Console.WriteLine($"配卦:\t{甲.天干配卦.名称}上{甲.地支配卦.名称}下");
             Console.WriteLine("------------------------------");
-            Assert.IsTrue(甲.十二长生 == 长生);
             Assert.IsTrue(甲.天干配卦 == 上卦 && 甲.地支配卦 == 下卦);
         }
 
