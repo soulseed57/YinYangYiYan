@@ -18,7 +18,6 @@
             地支 = 干支表.地支查询(名称.Substring(1, 1));
             阴阳 = 地支.阴阳;
             纳音 = new 纳音(枚);
-            十二长生 = 十二长生表.长生查询(天干, 地支);
             天干配卦 = 天干.天干配卦();
             地支配卦 = 地支.地支配卦();
             六十四卦 = new 六十四卦(天干配卦, 地支配卦);
@@ -56,7 +55,6 @@
         public 地支 地支 { get; private set; }
         public 两仪 阴阳 { get; private set; }
         public 纳音 纳音 { get; private set; }
-        public 长生枚举 十二长生 { get; private set; }
         public 八卦 天干配卦 { get; private set; }
         public 八卦 地支配卦 { get; private set; }
         public 六十四卦 六十四卦 { get; private set; }
