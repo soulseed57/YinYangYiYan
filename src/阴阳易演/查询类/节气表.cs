@@ -75,7 +75,8 @@
         }
         public static DateTime 节气时间查询(int 年份, 节气枚举 枚)
         {
-            return 节气时间查询(年份, 枚举转换类<节气枚举>.获取序数(枚));
+            var 序数 = 枚举转换类<节气枚举>.获取序数(枚);
+            return 节气时间查询(年份, 序数);
         }
         public static DateTime 节气时间查询(int 年份, int 序数)
         {

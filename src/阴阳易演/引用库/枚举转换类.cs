@@ -40,21 +40,17 @@
         }
         public static int 获取序数(string 名称)
         {
-            try
-            {
-                var 枚举 = 获取枚举(名称);
-                return (int)Enum.ToObject(typeof(T), 枚举);
-            }
-            catch (Exception e)
-            {
-                throw new Exception($"[{typeof(T).Name}]使用名称[{名称}]获取序数失败:{e.Message}");
-            }
+            var 枚举 = 获取枚举(名称);
+            return 获取序数(枚举);
         }
         public static int 获取序数(T 枚举)
         {
             try
             {
-                return (int)Enum.ToObject(typeof(T), 枚举);
+                var sum = Enum.GetValues(typeof(T)).Length;
+                var obj = Enum.ToObject(typeof(T), 枚举);
+                var num = (int)obj % sum;
+                return num;
             }
             catch (Exception e)
             {
