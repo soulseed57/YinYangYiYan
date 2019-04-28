@@ -74,5 +74,10 @@
 
         #endregion
 
+        #region 重写
+        public override string ToString() => 卦名;
+
+        #endregion
+
     }
 }

@@ -28,5 +28,10 @@
 
         #endregion
 
+        #region 重写
+        public override string ToString() => 名称;
+
+        #endregion
+
     }
 }

@@ -54,6 +54,20 @@
         }
 
         [TestMethod]
+        public void 合化测试()
+        {
+            天干 干 = 天干.甲;
+            var 合 = 干.合();
+            var 化 = 干.化(合);
+            Console.WriteLine($"{干.名称}{合.名称}合化{化.名称}");
+
+            干 = 天干.乙;
+            合 = 干.合();
+            化 = 干.化(合);
+            Console.WriteLine($"{干.名称}{合.名称}合化{化.名称}");
+        }
+
+        [TestMethod]
         public void 地支藏干()
         {
             var 支 = 地支.子;
