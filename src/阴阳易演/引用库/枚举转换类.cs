@@ -2,7 +2,7 @@
 {
     using System;
 
-    public static class 枚举转换类<T>
+    public static class 枚举转换类<T> where T : struct
     {
         public static int 获取枚举总数()
         {
@@ -78,6 +78,10 @@
             {
                 throw new Exception($"[{typeof(T).Name}]使用序数[{序数}]获取枚举失败:{e.Message}");
             }
+        }
+        public static bool 尝试获取枚举(string 名称, out T 枚举)
+        {
+            return Enum.TryParse(名称, out 枚举);
         }
     }
 }
