@@ -389,7 +389,7 @@ namespace 阴阳易演.引用库
         ///<param name="cy">农历年</param>
         ///<param name="cm">农历月</param>
         ///<param name="cd">农历日</param>
-        ///<param name="LeapFlag">闰月标志</param>
+        ///<param name="leapMonthFlag">闰月标志</param>
         public ChineseCalendar(int cy, int cm, int cd, bool leapMonthFlag)
         {
             CheckChineseDateLimit(cy, cm, cd, leapMonthFlag);
@@ -1040,7 +1040,7 @@ namespace 阴阳易演.引用库
         }
 
         ///<summary>
-        ///取农历日期表示法：农历一九九七年正月初五
+        ///取农历日期表示法：一九九七年正月初五
         ///</summary>
         public string ChineseDateString
         {
@@ -1048,11 +1048,11 @@ namespace 阴阳易演.引用库
             {
                 if (_cIsLeapMonth)
                 {
-                    return "农历" + ChineseYearString + "闰" + ChineseMonthString + ChineseDayString;
+                    return ChineseYearString + "闰" + ChineseMonthString + ChineseDayString;
                 }
                 else
                 {
-                    return "农历" + ChineseYearString + ChineseMonthString + ChineseDayString;
+                    return ChineseYearString + ChineseMonthString + ChineseDayString;
                 }
             }
         }

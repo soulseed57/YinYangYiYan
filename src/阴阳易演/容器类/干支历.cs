@@ -19,12 +19,12 @@
             阴历年 = 农历.ChineseYear;
             阴历月 = 农历.ChineseMonth;
             阴历日 = 农历.ChineseDay;
-            阴历 = $"{年份名称(阴历年)}{月份名称(阴历月)}{日期名称(阴历日)}";
+            阴历 = 农历.ChineseDateString;
             // 甲子计算
-            年柱 = 年柱计算(时间);
-            月柱 = 月柱计算(时间);
-            日柱 = 日柱计算(时间);
-            时柱 = 时柱计算(时间);
+            年柱 = new 甲子(农历.GanZhiYearString);
+            月柱 = 月柱计算(时间, 年柱.天干);
+            日柱 = new 甲子(农历.GanZhiDayString);
+            时柱 = new 甲子(农历.GanZhiHourString);
             // 月破计算
             月破 = 月支查月破(月柱.地支);
             // 旬空计算
@@ -210,22 +210,8 @@
             var 支 = 节气归支查询(枚);
             return 月支列表.IndexOf(支) + 1;
         }
-        public static 甲子 年柱计算(DateTime 时间, bool 公元后 = true)
+        public static 甲子 月柱计算(DateTime 时间, 天干 年干)
         {
-            var 年干余数 = 时间.Year % 10;
-            var 年支余数 = 时间.Year % 12;
-            var 年干序 = 公元后 ? 年干余数 - 3 : 8 - 年干余数;
-            var 年支序 = (公元后 ? 年支余数 - 3 : 10 - 年支余数) + 3;
-            var 年干 = 干支表.天干查询(年干序 - 1);
-            var 年支表 = 常用方法.列表指定首位(干支表.地支列表.ToArray(), 8);
-            var 年支 = 年支表[年支序];
-            return new 甲子(年干, 年支);
-        }
-        public static 甲子 月柱计算(DateTime 时间, bool 公元后 = true)
-        {
-            var 年个位 = 时间.Year % 10;
-            var 年干序 = 公元后 ? 年个位 - 3 : 8 - 年个位;
-            var 年干 = 干支表.天干查询(年干序 - 1);
             var 月首 = 五虎遁(年干);
             var 节气 = 节气表.节气枚举查询(时间);
             var 月支 = 节气归支查询(节气);

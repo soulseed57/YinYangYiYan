@@ -1,8 +1,8 @@
 ﻿namespace 阴阳易演.Test
 {
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
     using System;
     using System.Text;
-    using Microsoft.VisualStudio.TestTools.UnitTesting;
     using 容器类;
     using 引用库;
     using 抽象类;
@@ -116,24 +116,15 @@
         }
 
         [TestMethod]
-        public void 甲子年份()
+        public void 甲子年月()
         {
-            var showMsg = new StringBuilder();
-            var 时间 = DateTime.Now;
-            var yy = 时间.Year;
-
-            //公元前后计算
-            var after = yy;
-            var 公元后 = new 干支历(时间);
-            showMsg.AppendLine($"公元后{after}年:\t{公元后.年柱.名称}年 【{公元后.年柱.地支.生肖}年】");
-            //干支纪年法
-            var 甲子 = new 干支历(时间);
-            showMsg.AppendLine($"阳历:{时间.Year}年{时间.Month}月{时间.Day}日");
-            showMsg.AppendLine($"阴历:{甲子.阴历年}年{甲子.阴历月}月{甲子.阴历日}日");
-            showMsg.AppendLine($"{甲子.年柱.名称}年 【{甲子.年柱.地支.生肖}年】");
-            showMsg.AppendLine($"{甲子.月柱.名称}月 {甲子.日柱.名称}日 {甲子.时柱.名称}时");
-
-            Console.Write(showMsg.ToString());
+            var 时间 = new DateTime(1995, 1, 24, 18, 25, 0);
+            var 历 = new 干支历(时间);
+            //甲戌年 【狗年】丁丑月 乙卯日
+            Assert.IsTrue(历.年柱.名称 == "甲戌");
+            Assert.IsTrue(历.月柱.名称 == "丁丑");
+            Assert.IsTrue(历.日柱.名称 == "乙卯");
+            Console.WriteLine($"{历.年柱.名称}年{历.月柱.名称}月{历.日柱.名称}日");
         }
 
         [TestMethod]
@@ -268,5 +259,20 @@
             Console.WriteLine(五行.水.名称);
         }
 
+        [TestMethod]
+        public void 阴历测试()
+        {
+            var date = new ChineseCalendar(1979, 6, 17, true);
+            Assert.IsTrue(date.Date.Month == 8);
+            Assert.IsTrue(date.Date.Day == 9);
+            Console.WriteLine($"农历:{date.ChineseDateString}");
+            Console.WriteLine($"阳历:{date.Date:yyyy-MM-dd}");
+
+            date = new ChineseCalendar(1979, 7, 18, false);
+            Assert.IsTrue(date.Date.Month == 9);
+            Assert.IsTrue(date.Date.Day == 9);
+            Console.WriteLine($"农历:{date.ChineseDateString}");
+            Console.WriteLine($"阳历:{date.Date:yyyy-MM-dd}");
+        }
     }
 }
