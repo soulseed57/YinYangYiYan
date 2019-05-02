@@ -16,8 +16,10 @@
             序数 = 枚举转换类<甲子枚举>.获取序数(枚);
             天干 = 干支表.天干查询(名称.Substring(0, 1));
             地支 = 干支表.地支查询(名称.Substring(1, 1));
+            地支藏干 = 地支.藏干();
             阴阳 = 地支.阴阳;
             纳音 = new 纳音(枚);
+            长生 = 天干.在地支的长生(地支);
             天干配卦 = 天干.天干配卦();
             地支配卦 = 地支.地支配卦();
             六十四卦 = new 六十四卦(天干配卦, 地支配卦);
@@ -53,8 +55,10 @@
         public int 序数 { get; private set; }
         public 天干 天干 { get; private set; }
         public 地支 地支 { get; private set; }
+        public 地支藏干 地支藏干 { get; private set; }
         public 两仪 阴阳 { get; private set; }
         public 纳音 纳音 { get; private set; }
+        public 长生枚举 长生 { get; private set; }
         public 八卦 天干配卦 { get; private set; }
         public 八卦 地支配卦 { get; private set; }
         public 六十四卦 六十四卦 { get; private set; }
