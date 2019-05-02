@@ -273,6 +273,12 @@
             Assert.IsTrue(date.Date.Day == 9);
             Console.WriteLine($"农历:{date.ChineseDateString}");
             Console.WriteLine($"阳历:{date.Date:yyyy-MM-dd}");
+
+            date = new ChineseCalendar(1979, 6, 17, false);
+            Assert.IsTrue(date.Date.Month == 7);
+            Assert.IsTrue(date.Date.Day == 10);
+            Console.WriteLine($"农历:{date.ChineseDateString}");
+            Console.WriteLine($"阳历:{date.Date:yyyy-MM-dd}");
         }
     }
 }

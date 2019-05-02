@@ -360,7 +360,7 @@ namespace 阴阳易演.引用库
             for (i = 1; i <= 12; i++)
             {
                 //闰月
-                if ((leap > 0) && (i == leap + 1) && (_cIsLeapMonth == false))
+                if (leap > 0 && i == leap + 1 && _cIsLeapMonth == false)
                 {
                     _cIsLeapMonth = true;
                     i = i - 1;
@@ -411,8 +411,8 @@ namespace 阴阳易演.引用库
             var leap = GetChineseLeapMonth(cy);
             _cIsLeapYear = leap != 0;
             _cIsLeapMonth = cm == leap && leapMonthFlag;
-            if ((_cIsLeapYear == false) || //当年没有闰月
-                 (cm < leap)) //计算月份小于闰月     
+            if (_cIsLeapYear == false || //当年没有闰月
+                 cm < leap) //计算月份小于闰月     
             {
                 #region ...
                 for (i = 1; i < cm; i++)
@@ -483,7 +483,7 @@ namespace 阴阳易演.引用库
         ///<returns></returns>
         int GetChineseMonthDays(int year, int month)
         {
-            return BitTest32((_lunarDateArray[year - MinYear] & 0x0000FFFF), (16 - month)) ? 30 : 29;
+            return BitTest32(_lunarDateArray[year - MinYear] & 0x0000FFFF, 16 - month) ? 30 : 29;
         }
 
         ///<summary>
@@ -579,7 +579,7 @@ namespace 阴阳易演.引用库
         ///<param name="dt"></param>
         void CheckDateLimit(DateTime dt)
         {
-            if ((dt < _minDay) || (dt > _maxDay))
+            if (dt < _minDay || dt > _maxDay)
             {
                 throw new Exception("超出可转换的日期");
             }
@@ -594,20 +594,20 @@ namespace 阴阳易演.引用库
         ///<param name="leapMonth"></param>
         void CheckChineseDateLimit(int year, int month, int day, bool leapMonth)
         {
-            if ((year < MinYear) || (year > MaxYear))
+            if (year < MinYear || year > MaxYear)
             {
                 throw new Exception("非法农历日期");
             }
-            if ((month < 1) || (month > 12))
+            if (month < 1 || month > 12)
             {
                 throw new Exception("非法农历日期");
             }
-            if ((day < 1) || (day > 30)) //中国的月最多30天
+            if (day < 1 || day > 30) //中国的月最多30天
             {
                 throw new Exception("非法农历日期");
             }
             var leap = GetChineseLeapMonth(year);//计算该年应该闰哪个月
-            if (leapMonth && (month != leap))
+            if (leapMonth && month != leap)
             {
                 throw new Exception("非法农历日期");
             }
@@ -621,7 +621,7 @@ namespace 阴阳易演.引用库
         ///<returns></returns>
         string ConvertNumToChineseNum(char n)
         {
-            if ((n < '0') || (n > '9'))
+            if (n < '0' || n > '9')
             {
                 return "";
             }
@@ -663,7 +663,7 @@ namespace 阴阳易演.引用库
         {
 
 
-            if ((bitpostion > 31) || (bitpostion < 0))
+            if (bitpostion > 31 || bitpostion < 0)
             {
                 throw new Exception("Error Param: bitpostion[0-31]:" + bitpostion);
             }
@@ -770,7 +770,7 @@ namespace 阴阳易演.引用库
                 {
                     foreach (var lh in _lHolidayInfo)
                     {
-                        if ((lh.Month == _cMonth) && (lh.Day == _cDay))
+                        if (lh.Month == _cMonth && lh.Day == _cDay)
                         {
 
 
@@ -828,7 +828,7 @@ namespace 阴阳易演.引用库
 
                 foreach (var sh in _sHolidayInfo)
                 {
-                    if ((sh.Month == _date.Month) && (sh.Day == _date.Day))
+                    if (sh.Month == _date.Month && sh.Day == _date.Day)
                     {
                         tempStr = sh.HolidayName;
                         break;
@@ -924,7 +924,7 @@ namespace 阴阳易演.引用库
                 var ts = _date - _chineseConstellationReferDay;
                 offset = ts.Days;
                 modStarDay = offset % 28;
-                return (modStarDay >= 0 ? _chineseConstellationName[modStarDay] : _chineseConstellationName[27 + modStarDay]);
+                return modStarDay >= 0 ? _chineseConstellationName[modStarDay] : _chineseConstellationName[27 + modStarDay];
             }
         }
 
@@ -1193,18 +1193,18 @@ namespace 阴阳易演.引用库
                 y = m * 100 + d;
 
 
-                if (((y >= 321) && (y <= 419))) { index = 0; }
-                else if ((y >= 420) && (y <= 520)) { index = 1; }
-                else if ((y >= 521) && (y <= 620)) { index = 2; }
-                else if ((y >= 621) && (y <= 722)) { index = 3; }
-                else if ((y >= 723) && (y <= 822)) { index = 4; }
-                else if ((y >= 823) && (y <= 922)) { index = 5; }
-                else if ((y >= 923) && (y <= 1022)) { index = 6; }
-                else if ((y >= 1023) && (y <= 1121)) { index = 7; }
-                else if ((y >= 1122) && (y <= 1221)) { index = 8; }
-                else if ((y >= 1222) || (y <= 119)) { index = 9; }
-                else if ((y >= 120) && (y <= 218)) { index = 10; }
-                else if ((y >= 219) && (y <= 320)) { index = 11; }
+                if (y >= 321 && y <= 419) { index = 0; }
+                else if (y >= 420 && y <= 520) { index = 1; }
+                else if (y >= 521 && y <= 620) { index = 2; }
+                else if (y >= 621 && y <= 722) { index = 3; }
+                else if (y >= 723 && y <= 822) { index = 4; }
+                else if (y >= 823 && y <= 922) { index = 5; }
+                else if (y >= 923 && y <= 1022) { index = 6; }
+                else if (y >= 1023 && y <= 1121) { index = 7; }
+                else if (y >= 1122 && y <= 1221) { index = 8; }
+                else if (y >= 1222 || y <= 119) { index = 9; }
+                else if (y >= 120 && y <= 218) { index = 10; }
+                else if (y >= 219 && y <= 320) { index = 11; }
                 else { index = 0; }
 
 
@@ -1225,7 +1225,7 @@ namespace 阴阳易演.引用库
             get
             {
                 var offset = _date.Year - AnimalStartYear;
-                return (offset % 12) + 1;
+                return offset % 12 + 1;
             }
         }
 
@@ -1355,7 +1355,7 @@ namespace 阴阳易演.引用库
                     hour = hour + 1;
                 }
 
-                var j = (hour / 2) % 12;//得到时辰
+                var j = hour / 2 % 12;//得到时辰
                 if (dayGan == "甲" || dayGan == "己")
                 {
                     return JiaZhi[j];
