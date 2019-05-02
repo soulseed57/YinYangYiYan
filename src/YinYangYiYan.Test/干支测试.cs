@@ -172,6 +172,9 @@
             // 关系测试
             Assert.IsTrue(天干.甲.的正官六亲(性别枚举.男).Contains("女儿"));
             Assert.IsTrue(天干.乙.的偏官六亲(性别枚举.女).Contains("儿媳"));
+
+            var 十神 = new 十神(天干.己, 天干.乙);
+            Assert.IsTrue(十神.枚举 == 十神枚举.偏官);
         }
 
         #region 三合计算
