@@ -1,8 +1,8 @@
 ﻿namespace 阴阳易演.Test
 {
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
     using System;
     using System.Linq;
-    using Microsoft.VisualStudio.TestTools.UnitTesting;
     using 抽象类;
     using 枚举类;
     using 计算类;
@@ -21,30 +21,30 @@
             Assert.IsTrue(四象.少阴.爻值 == 1);
             Assert.IsTrue(四象.太阴.爻值 == 0);
 
-            Assert.IsTrue(卦爻计算.还原爻序(八卦.兑.爻值, 3) == "110");
-            Assert.IsTrue(卦爻计算.还原爻序(八卦.巽.爻值, 3) == "011");
-            Assert.IsTrue(卦爻计算.还原爻序(八卦.艮.爻值, 3) == "001");
-            Assert.IsTrue(卦爻计算.还原爻序(八卦.震.爻值, 3) == "100");
+            Assert.IsTrue(八卦计算.还原爻序(八卦.兑.爻值, 3) == "110");
+            Assert.IsTrue(八卦计算.还原爻序(八卦.巽.爻值, 3) == "011");
+            Assert.IsTrue(八卦计算.还原爻序(八卦.艮.爻值, 3) == "001");
+            Assert.IsTrue(八卦计算.还原爻序(八卦.震.爻值, 3) == "100");
 
-            Console.WriteLine($"{两仪.阳.名称}\t{卦爻计算.还原爻序(两仪.阳.值, 1)}");
-            Console.WriteLine($"{四象.太阳.名称}\t{卦爻计算.还原爻序(四象.太阳.爻值, 2)}");
-            Console.WriteLine($"{八卦.乾.名称}\t{卦爻计算.还原爻序(八卦.乾.爻值, 3)}");
-            Console.WriteLine($"{八卦.兑.名称}\t{卦爻计算.还原爻序(八卦.兑.爻值, 3)}");
+            Console.WriteLine($"{两仪.阳.名称}\t{八卦计算.还原爻序(两仪.阳.值, 1)}");
+            Console.WriteLine($"{四象.太阳.名称}\t{八卦计算.还原爻序(四象.太阳.爻值, 2)}");
+            Console.WriteLine($"{八卦.乾.名称}\t{八卦计算.还原爻序(八卦.乾.爻值, 3)}");
+            Console.WriteLine($"{八卦.兑.名称}\t{八卦计算.还原爻序(八卦.兑.爻值, 3)}");
             Console.WriteLine();
-            Console.WriteLine($"{两仪.阳.名称}\t{卦爻计算.还原爻序(两仪.阳.值, 1)}");
-            Console.WriteLine($"{四象.少阴.名称}\t{卦爻计算.还原爻序(四象.少阴.爻值, 2)}");
-            Console.WriteLine($"{八卦.离.名称}\t{卦爻计算.还原爻序(八卦.离.爻值, 3)}");
-            Console.WriteLine($"{八卦.震.名称}\t{卦爻计算.还原爻序(八卦.震.爻值, 3)}");
+            Console.WriteLine($"{两仪.阳.名称}\t{八卦计算.还原爻序(两仪.阳.值, 1)}");
+            Console.WriteLine($"{四象.少阴.名称}\t{八卦计算.还原爻序(四象.少阴.爻值, 2)}");
+            Console.WriteLine($"{八卦.离.名称}\t{八卦计算.还原爻序(八卦.离.爻值, 3)}");
+            Console.WriteLine($"{八卦.震.名称}\t{八卦计算.还原爻序(八卦.震.爻值, 3)}");
             Console.WriteLine();
-            Console.WriteLine($"{两仪.阴.名称}\t{卦爻计算.还原爻序(两仪.阴.值, 1)}");
-            Console.WriteLine($"{四象.少阳.名称}\t{卦爻计算.还原爻序(四象.少阳.爻值, 2)}");
-            Console.WriteLine($"{八卦.巽.名称}\t{卦爻计算.还原爻序(八卦.巽.爻值, 3)}");
-            Console.WriteLine($"{八卦.坎.名称}\t{卦爻计算.还原爻序(八卦.坎.爻值, 3)}");
+            Console.WriteLine($"{两仪.阴.名称}\t{八卦计算.还原爻序(两仪.阴.值, 1)}");
+            Console.WriteLine($"{四象.少阳.名称}\t{八卦计算.还原爻序(四象.少阳.爻值, 2)}");
+            Console.WriteLine($"{八卦.巽.名称}\t{八卦计算.还原爻序(八卦.巽.爻值, 3)}");
+            Console.WriteLine($"{八卦.坎.名称}\t{八卦计算.还原爻序(八卦.坎.爻值, 3)}");
             Console.WriteLine();
-            Console.WriteLine($"{两仪.阴.名称}\t{卦爻计算.还原爻序(两仪.阴.值, 1)}");
-            Console.WriteLine($"{四象.太阴.名称}\t{卦爻计算.还原爻序(四象.太阴.爻值, 2)}");
-            Console.WriteLine($"{八卦.艮.名称}\t{卦爻计算.还原爻序(八卦.艮.爻值, 3)}");
-            Console.WriteLine($"{八卦.坤.名称}\t{卦爻计算.还原爻序(八卦.坤.爻值, 3)}");
+            Console.WriteLine($"{两仪.阴.名称}\t{八卦计算.还原爻序(两仪.阴.值, 1)}");
+            Console.WriteLine($"{四象.太阴.名称}\t{八卦计算.还原爻序(四象.太阴.爻值, 2)}");
+            Console.WriteLine($"{八卦.艮.名称}\t{八卦计算.还原爻序(八卦.艮.爻值, 3)}");
+            Console.WriteLine($"{八卦.坤.名称}\t{八卦计算.还原爻序(八卦.坤.爻值, 3)}");
             Console.WriteLine();
         }
 
@@ -124,5 +124,14 @@
             Assert.IsTrue(卦.名称 == "坤");
         }
 
+        [TestMethod]
+        public void 八节旺衰测试()
+        {
+            Assert.IsTrue(八卦.巽.八节旺衰(节气枚举.立夏) == 八卦八节旺衰.旺);
+            Assert.IsTrue(八卦.坤.八节旺衰(八卦八节旺衰.囚) == 节气枚举.冬至);
+            Assert.IsTrue(八卦.兑.八节旺衰(节气枚举.立夏) == 八卦八节旺衰.没);
+            Assert.IsTrue(八卦.震.八节旺衰(节气枚举.立春) == 八卦八节旺衰.相);
+            Assert.IsTrue(八卦.坎.八节旺衰(八卦八节旺衰.胎) == 节气枚举.秋分);
+        }
     }
 }

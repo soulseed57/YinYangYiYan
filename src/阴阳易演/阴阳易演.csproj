@@ -110,6 +110,7 @@
     <Compile Include="抽象类\天干.cs" />
     <Compile Include="抽象类\基类\太极.cs" />
     <Compile Include="抽象类\季节.cs" />
+    <Compile Include="枚举类\八卦八节旺衰.cs" />
     <Compile Include="枚举类\八方方位.cs" />
     <Compile Include="枚举类\十六方位.cs" />
     <Compile Include="枚举类\十神枚举.cs" />
@@ -134,7 +135,7 @@
     <Compile Include="计算类\三合计算.cs" />
     <Compile Include="计算类\五行计算.cs" />
     <Compile Include="计算类\天干十神.cs" />
-    <Compile Include="计算类\卦爻计算.cs" />
+    <Compile Include="计算类\八卦计算.cs" />
     <Compile Include="计算类\四象计算.cs" />
     <Compile Include="计算类\干支计算.cs" />
     <Compile Include="计算类\长生计算.cs" />
