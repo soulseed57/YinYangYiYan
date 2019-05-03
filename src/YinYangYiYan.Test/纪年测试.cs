@@ -223,6 +223,17 @@
             Assert.IsTrue(历.月柱.名称 == "戊申");
             Assert.IsTrue(历.日柱.名称 == "癸丑");
             Assert.IsTrue(历.时柱.名称 == "壬戌");
+
+            历 = new 干支历(new DateTime(2019, 4, 22, 0, 1, 0));
+            Assert.IsTrue(历.年柱.名称 == "己亥");
+            Assert.IsTrue(历.月柱.名称 == "戊辰");
+            Assert.IsTrue(历.日柱.名称 == "己丑");
+
+            历 = new 干支历(new DateTime(1979, 8, 9, 7, 19, 0));
+            Assert.IsTrue(历.年柱.名称 == "己未");
+            Assert.IsTrue(历.月柱.名称 == "壬申");
+            Assert.IsTrue(历.日柱.名称 == "戊申");
+            Assert.IsTrue(历.时柱.名称 == "丙辰");
         }
 
         [TestMethod]

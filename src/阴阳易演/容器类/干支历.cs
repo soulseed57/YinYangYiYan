@@ -23,8 +23,8 @@
             // 甲子计算
             年柱 = new 甲子(农历.GanZhiYearString);
             月柱 = 月柱计算(时间, 年柱.天干);
-            日柱 = new 甲子(农历.GanZhiDayString);
-            时柱 = new 甲子(农历.GanZhiHourString);
+            日柱 = 日柱计算(时间);
+            时柱 = 时柱计算(时间);
             // 月破计算
             月破 = 月支查月破(月柱.地支);
             // 旬空计算
