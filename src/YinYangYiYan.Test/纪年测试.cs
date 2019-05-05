@@ -210,6 +210,34 @@
         }
 
         [TestMethod]
+        public void 时辰计算()
+        {
+            for (var i = 0; i < 24; i++)
+            {
+                var times = new DateTime[]
+                {
+                    new DateTime(2000, 1, 1, i, 0, 0),
+                    new DateTime(2000, 1, 1, i, 0, 1),
+                    new DateTime(2000, 1, 1, i, 59, 59)
+                };
+                foreach (var t in times)
+                {
+                    var 时辰 = 干支历.换算时辰(t);
+                    Console.Write($"{t.Hour:D2}时{t.Minute:D2}分{t.Second:D2}秒\t{时辰.名称}时\t");
+                    if (t.Hour == 0 && t.Minute == 59 && t.Second == 59)
+                    {
+                        Assert.IsTrue(时辰.名称 == "子");
+                    }
+                    if (t.Hour == 1 && t.Minute == 0 && t.Second == 0)
+                    {
+                        Assert.IsTrue(时辰.名称 == "丑");
+                    }
+                }
+                Console.WriteLine();
+            }
+        }
+
+        [TestMethod]
         public void 干支历验证()
         {
             var 历 = new 干支历(new DateTime(1995, 10, 21, 19, 53, 0));

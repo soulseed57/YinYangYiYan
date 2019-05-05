@@ -231,61 +231,6 @@
             var 日支 = 干支表.地支查询(日支序);
             return new 甲子(日干, 日支);
         }
-        public static 地支 换算时辰(DateTime 时间)
-        {
-            var 当天起始 = new DateTime(时间.Year, 时间.Month, 时间.Day);
-            var 当前总时 = 时间 - 当天起始;
-            var 时 = 当前总时.TotalHours;
-            if (时 > 23 || 时 < 1)
-            {
-                return 地支.子;
-            }
-            if (1 < 时 && 时 < 3)
-            {
-                return 地支.丑;
-            }
-            if (3 < 时 && 时 < 5)
-            {
-                return 地支.寅;
-            }
-            if (5 < 时 && 时 < 7)
-            {
-                return 地支.卯;
-            }
-            if (7 < 时 && 时 < 9)
-            {
-                return 地支.辰;
-            }
-            if (9 < 时 && 时 < 11)
-            {
-                return 地支.巳;
-            }
-            if (11 < 时 && 时 < 13)
-            {
-                return 地支.午;
-            }
-            if (13 < 时 && 时 < 15)
-            {
-                return 地支.未;
-            }
-            if (15 < 时 && 时 < 17)
-            {
-                return 地支.申;
-            }
-            if (17 < 时 && 时 < 19)
-            {
-                return 地支.酉;
-            }
-            if (19 < 时 && 时 < 21)
-            {
-                return 地支.戌;
-            }
-            if (21 < 时 && 时 < 23)
-            {
-                return 地支.亥;
-            }
-            throw new Exception("未找到匹配的时辰");
-        }
         public static 甲子 时柱计算(DateTime 时间)
         {
             var 时支 = 换算时辰(时间);
@@ -297,6 +242,65 @@
             var 时干 = 干支表.天干查询(干序);
             var 时柱 = new 甲子(时干, 时支);
             return 时柱;
+        }
+        public static 地支 换算时辰(DateTime 时间)
+        {
+            var 当天起始 = new DateTime(时间.Year, 时间.Month, 时间.Day);
+            var 当前总时 = 时间 - 当天起始;
+            var 时 = 当前总时.TotalHours;
+            if (时 < 1)
+            {
+                return 地支.子;
+            }
+            if (1 <= 时 && 时 < 3)
+            {
+                return 地支.丑;
+            }
+            if (3 <= 时 && 时 < 5)
+            {
+                return 地支.寅;
+            }
+            if (5 <= 时 && 时 < 7)
+            {
+                return 地支.卯;
+            }
+            if (7 <= 时 && 时 < 9)
+            {
+                return 地支.辰;
+            }
+            if (9 <= 时 && 时 < 11)
+            {
+                return 地支.巳;
+            }
+            if (11 <= 时 && 时 < 13)
+            {
+                return 地支.午;
+            }
+            if (13 <= 时 && 时 < 15)
+            {
+                return 地支.未;
+            }
+            if (15 <= 时 && 时 < 17)
+            {
+                return 地支.申;
+            }
+            if (17 <= 时 && 时 < 19)
+            {
+                return 地支.酉;
+            }
+            if (19 <= 时 && 时 < 21)
+            {
+                return 地支.戌;
+            }
+            if (21 <= 时 && 时 < 23)
+            {
+                return 地支.亥;
+            }
+            if (23 <= 时)
+            {
+                return 地支.子;
+            }
+            throw new Exception("未找到匹配的时辰");
         }
         public static 天干 五鼠遁(天干 干)
         {
