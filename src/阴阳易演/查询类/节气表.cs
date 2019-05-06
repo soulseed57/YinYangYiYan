@@ -80,7 +80,9 @@
         }
         public static DateTime 节气时间查询(int 年份, int 序数)
         {
-            return 基准时间.AddMinutes(年份修正分钟(年份) + 节气修正分钟[序数]);
+            var 枚 = 枚举转换类<节气枚举>.获取枚举(序数);
+            var 序 = 枚举转换类<节气枚举>.获取序数(枚);
+            return 基准时间.AddMinutes(年份修正分钟(年份) + 节气修正分钟[序]);
         }
 
         #endregion
