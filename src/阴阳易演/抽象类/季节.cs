@@ -3,8 +3,8 @@
     using System;
     using 具象类.季节;
     using 基类;
+    using 容器类;
     using 枚举类;
-    using 查询类;
 
     public abstract class 季节 : 无极
     {
@@ -140,21 +140,21 @@
         public static 季节 季节查询(DateTime 时间)
         {
             var 年份 = 时间.Year;
-            var 节气 = 节气枚举.冬至;
+            var 节 = 节气枚举.冬至;
             for (var i = 0; i < 24; i++)
             {
-                var 节 = (节气枚举)Enum.ToObject(typeof(节气枚举), i);
-                var 时 = 节气表.节气时间查询(年份, 节);
+                var 查节 = (节气枚举)Enum.ToObject(typeof(节气枚举), i);
+                var 时 = 节气.节气时间查询(年份, 查节);
                 if (时.DayOfYear <= 时间.DayOfYear)
                 {
-                    节气 = 节;
+                    节 = 查节;
                 }
                 else
                 {
                     break;
                 }
             }
-            switch (节气)
+            switch (节)
             {
                 case 节气枚举.立春:
                 case 节气枚举.雨水:

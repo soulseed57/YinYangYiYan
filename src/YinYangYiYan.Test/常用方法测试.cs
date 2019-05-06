@@ -118,6 +118,17 @@
             Assert.IsTrue(常用方法.同时包含(new 干支[] { 天干.甲, 地支.子 }, 天干.甲, 地支.子));
         }
 
-
+        [TestMethod]
+        public void 序数取余()
+        {
+            Assert.IsTrue(常用方法.序数取余(0, 24) == 0);
+            Assert.IsTrue(常用方法.序数取余(-1, 24) == 23);
+            Assert.IsTrue(常用方法.序数取余(-23, 24) == 1);
+            Assert.IsTrue(常用方法.序数取余(-24, 24) == 0);
+            Assert.IsTrue(常用方法.序数取余(-25, 24) == 23);
+            Assert.IsTrue(常用方法.序数取余(47, 24) == 23);
+            Assert.IsTrue(常用方法.序数取余(48, 24) == 0);
+            Assert.IsTrue(常用方法.序数取余(49, 24) == 1);
+        }
     }
 }
