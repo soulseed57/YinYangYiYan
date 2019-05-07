@@ -213,9 +213,9 @@
         public static 甲子 月柱计算(DateTime 时间, 天干 年干)
         {
             var 月首 = 五虎遁(年干);
-            var 节 = 节气.节气枚举查询(时间);
-            var 月支 = 节气归支查询(节);
-            var 归月 = 节气归月查询(节);
+            var 节气时间 = new 节气时间(时间);
+            var 月支 = 节气归支查询(节气时间.枚举);
+            var 归月 = 节气归月查询(节气时间.枚举);
             var 首序 = 干支表.获取天干序数(月首);
             var 月干 = 干支表.天干查询(首序 + 归月 - 1);
             return new 甲子(月干, 月支);
@@ -233,7 +233,7 @@
         }
         public static 甲子 时柱计算(DateTime 时间)
         {
-            var 时支 = 换算时辰(时间);
+            var 时支 = 时辰地支(时间);
             var 支序 = 干支表.地支列表.IndexOf(时支);
             var 日干 = 日柱计算(时间).天干;
             var 首 = 五鼠遁(日干);
@@ -243,7 +243,67 @@
             var 时柱 = new 甲子(时干, 时支);
             return 时柱;
         }
-        public static 地支 换算时辰(DateTime 时间)
+        public static 天干 五鼠遁(天干 干)
+        {
+            switch (干)
+            {
+                case 甲 _:
+                case 己 _:
+                    return 天干.甲;// 甲己还加甲
+                case 乙 _:
+                case 庚 _:
+                    return 天干.丙;// 乙庚丙作初
+                case 丙 _:
+                case 辛 _:
+                    return 天干.戊;// 丙辛寻戊起
+                case 丁 _:
+                case 壬 _:
+                    return 天干.庚;// 丁壬庚子居
+                case 戊 _:
+                case 癸 _:
+                    return 天干.壬;// 戊癸何方发，壬子是真途
+                default:
+                    throw new Exception($"起遁失败,当前给定天干错误[{干}]");
+            }
+        }
+        public static 天干 五虎遁(天干 干)
+        {
+            switch (干)
+            {
+                case 甲 _:
+                case 己 _:
+                    return 天干.丙;// 甲己之年丙作首
+                case 乙 _:
+                case 庚 _:
+                    return 天干.戊;// 乙庚之岁戊为头
+                case 丙 _:
+                case 辛 _:
+                    return 天干.庚;// 丙辛必定寻庚起
+                case 丁 _:
+                case 壬 _:
+                    return 天干.壬;// 丁壬壬位顺水流
+                case 戊 _:
+                case 癸 _:
+                    return 天干.甲;// 若问戊癸何处起，甲寅之上好追求
+                default:
+                    throw new Exception($"起遁失败,当前给定天干错误[{干}]");
+            }
+        }
+
+        #endregion
+
+        #region 内部参数
+        static readonly List<地支> 月支列表 = new List<地支>
+        {
+            地支.寅, 地支.卯, 地支.辰, 地支.巳,
+            地支.午, 地支.未, 地支.申, 地支.酉,
+            地支.戌, 地支.亥, 地支.子, 地支.丑,
+        };
+
+        #endregion
+
+        #region 内部方法
+        static 地支 时辰地支(DateTime 时间)
         {
             var 当天起始 = new DateTime(时间.Year, 时间.Month, 时间.Day);
             var 当前总时 = 时间 - 当天起始;
@@ -302,62 +362,6 @@
             }
             throw new Exception("未找到匹配的时辰");
         }
-        public static 天干 五鼠遁(天干 干)
-        {
-            switch (干)
-            {
-                case 甲 _:
-                case 己 _:
-                    return 天干.甲;// 甲己还加甲
-                case 乙 _:
-                case 庚 _:
-                    return 天干.丙;// 乙庚丙作初
-                case 丙 _:
-                case 辛 _:
-                    return 天干.戊;// 丙辛寻戊起
-                case 丁 _:
-                case 壬 _:
-                    return 天干.庚;// 丁壬庚子居
-                case 戊 _:
-                case 癸 _:
-                    return 天干.壬;// 戊癸何方发，壬子是真途
-                default:
-                    throw new Exception($"起遁失败,当前给定天干错误[{干}]");
-            }
-        }
-        public static 天干 五虎遁(天干 干)
-        {
-            switch (干)
-            {
-                case 甲 _:
-                case 己 _:
-                    return 天干.丙;// 甲己之年丙作首
-                case 乙 _:
-                case 庚 _:
-                    return 天干.戊;// 乙庚之岁戊为头
-                case 丙 _:
-                case 辛 _:
-                    return 天干.庚;// 丙辛必定寻庚起
-                case 丁 _:
-                case 壬 _:
-                    return 天干.壬;// 丁壬壬位顺水流
-                case 戊 _:
-                case 癸 _:
-                    return 天干.甲;// 若问戊癸何处起，甲寅之上好追求
-                default:
-                    throw new Exception($"起遁失败,当前给定天干错误[{干}]");
-            }
-        }
-
-        #endregion
-
-        #region 内部参数
-        static readonly List<地支> 月支列表 = new List<地支>
-        {
-            地支.寅, 地支.卯, 地支.辰, 地支.巳,
-            地支.午, 地支.未, 地支.申, 地支.酉,
-            地支.戌, 地支.亥, 地支.子, 地支.丑,
-        };
 
         #endregion
 

@@ -96,6 +96,7 @@
     <Compile Include="容器类\神煞.cs" />
     <Compile Include="容器类\纳音.cs" />
     <Compile Include="容器类\节气.cs" />
+    <Compile Include="容器类\节气时间.cs" />
     <Compile Include="引用库\中国农历类.cs" />
     <Compile Include="引用库\常用方法.cs" />
     <Compile Include="引用库\枚举转换类.cs" />
@@ -137,6 +138,7 @@
     <Compile Include="计算类\八卦计算.cs" />
     <Compile Include="计算类\四象计算.cs" />
     <Compile Include="计算类\干支计算.cs" />
+    <Compile Include="计算类\时间计算.cs" />
     <Compile Include="计算类\长生计算.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

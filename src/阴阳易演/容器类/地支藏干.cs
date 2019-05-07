@@ -5,6 +5,7 @@
 
     public class 地支藏干
     {
+        #region 构造
         public 地支藏干(地支 支)
         {
             天干 本 = null, 中 = null, 余 = null;
@@ -63,9 +64,16 @@
             中气 = 中?.名称;
             余气 = 余?.名称;
         }
+
+        #endregion
+
+        #region 属性
         public string 本气 { get; }
         public string 中气 { get; }
         public string 余气 { get; }
         public 天干[] 藏干 { get; }
+
+        #endregion
+
     }
 }

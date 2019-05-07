@@ -12,28 +12,33 @@
     public class 节气测试
     {
         #region 便捷测试
-        static void 便捷节气表(DateTime date, 节气枚举 测试节气, bool 精确到分钟 = false)
+        static void 便捷节气表(DateTime date, 节气枚举 测试节气)
         {
-            var 节 = 节气.节气枚举查询(date, 精确到分钟);
-            Assert.IsTrue(节 == 测试节气);
+            var 节 = new 节气时间(date);
+            Assert.IsTrue(节.枚举 == 测试节气);
             Console.WriteLine($"时间: {date:yyyy年MM月dd日}\t节气: {节}");
             Console.WriteLine("--------------------");
+        }
+
+        static void 上下节气(DateTime date)
+        {
+            var j = new 节气(date);
+            Assert.IsTrue(j.上一节气时间 < date);
+            Assert.IsTrue(j.下一节气时间 > date);
         }
 
         #endregion
 
         [TestMethod]
-        public void 节气时间测试()
+        public void 节气表测试()
         {
-            // 精确到天
-            便捷节气表(new DateTime(2018, 12, 23), 节气枚举.冬至);
-            便捷节气表(new DateTime(2019, 12, 21), 节气枚举.大雪);
-            便捷节气表(new DateTime(2019, 1, 4), 节气枚举.冬至);
-            便捷节气表(new DateTime(2019, 1, 5), 节气枚举.小寒);
-            // 精确到分钟
-            便捷节气表(new DateTime(2019, 1, 5, 21, 0, 0), 节气枚举.冬至, true);
-            便捷节气表(new DateTime(2019, 1, 5, 22, 0, 0), 节气枚举.小寒, true);
+            便捷节气表(new DateTime(2018, 12, 23, 0, 0, 0), 节气枚举.冬至);
 
+            便捷节气表(new DateTime(2019, 12, 21, 0, 0, 0), 节气枚举.大雪);
+            便捷节气表(new DateTime(2019, 1, 4, 0, 0, 0), 节气枚举.冬至);
+
+            便捷节气表(new DateTime(2019, 1, 5, 21, 0, 0), 节气枚举.冬至);
+            便捷节气表(new DateTime(2019, 1, 5, 22, 0, 0), 节气枚举.小寒);
         }
 
         [TestMethod]
@@ -42,10 +47,10 @@
             var showMsg = new StringBuilder();
             for (var i = 0; i < 24; i++)
             {
-                var 查节 = (节气枚举)Enum.ToObject(typeof(节气枚举), i);
-                var 时间 = 节气.节气时间查询(2017, 查节);
+                var 枚 = 枚举转换类<节气枚举>.获取枚举(i);
+                var 时间 = 节气时间.节气时间查询(2017, 枚);
                 var 季节名 = 季节.季节查询(时间).GetType().Name;
-                showMsg.AppendLine($"{查节}:{时间:MM-dd}\t{季节名}");
+                showMsg.AppendLine($"{i}:{时间:MM-dd}\t{季节名}");
             }
             var t = new DateTime(2017, 1, 1);
             var r = new Random();
@@ -57,7 +62,7 @@
             Console.Write(showMsg.ToString());
         }
 
-        void 节气查询判断(int 年份, int 索引, int 判定年, int 判定号)
+        static void 节气查询判断(int 年份, int 索引, int 判定年, int 判定号)
         {
             var 进位数 = 24;
             var 序号 = 常用方法.序数取余(索引, 进位数);
@@ -87,6 +92,22 @@
             节气查询判断(2000, 47, 2001, 23);
             节气查询判断(2000, 48, 2002, 0);
             节气查询判断(2000, 49, 2002, 1);
+        }
+
+        [TestMethod]
+        public void 上下节气测试()
+        {
+            上下节气(new DateTime(2019, 1, 1, 0, 0, 0));
+            上下节气(new DateTime(2019, 12, 31, 0, 0, 0));
+        }
+
+        [TestMethod]
+        public void 节气时间测试()
+        {
+            var d = new DateTime(2019, 1, 1, 0, 0, 0);
+            var t = new 节气时间(d);
+            Assert.IsTrue(t.枚举 == 节气枚举.冬至);
+            Console.WriteLine($"出生日期:{d:yyyy/MM/dd HH:mm}\t节气时间:{t.时间:yyyy/MM/dd HH:mm}\t生于{t.枚举}后第\t{t.节后日}日");
         }
     }
 }

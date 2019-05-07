@@ -137,24 +137,10 @@
         #endregion
 
         #region 方法
-        public static 季节 季节查询(DateTime 时间)
+        public static 季节 季节查询(DateTime 日期)
         {
-            var 年份 = 时间.Year;
-            var 节 = 节气枚举.冬至;
-            for (var i = 0; i < 24; i++)
-            {
-                var 查节 = (节气枚举)Enum.ToObject(typeof(节气枚举), i);
-                var 时 = 节气.节气时间查询(年份, 查节);
-                if (时.DayOfYear <= 时间.DayOfYear)
-                {
-                    节 = 查节;
-                }
-                else
-                {
-                    break;
-                }
-            }
-            switch (节)
+            var 节气时间 = new 节气时间(日期);
+            switch (节气时间.枚举)
             {
                 case 节气枚举.立春:
                 case 节气枚举.雨水:
@@ -185,7 +171,7 @@
                 case 节气枚举.大寒:
                     return 冬季;
                 default:
-                    throw new Exception($"当前日期[{时间}]未查询到匹配季节");
+                    throw new Exception($"当前日期[{日期}]未查询到匹配季节");
             }
         }
 
