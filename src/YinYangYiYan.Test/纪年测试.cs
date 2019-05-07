@@ -8,6 +8,7 @@
     using 抽象类;
     using 枚举类;
     using 查询类;
+    using 计算类;
 
     [TestClass]
     public class 纪年测试
@@ -222,7 +223,7 @@
                 };
                 foreach (var t in times)
                 {
-                    var 时辰 = 干支历.换算时辰(t);
+                    var 时辰 = t.时辰地支();
                     Console.Write($"{t.Hour:D2}时{t.Minute:D2}分{t.Second:D2}秒\t{时辰.名称}时\t");
                     if (t.Hour == 0 && t.Minute == 59 && t.Second == 59)
                     {

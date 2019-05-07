@@ -28,6 +28,8 @@
             var 索引 = 常用方法.序数取余(末次索引, 总节气数);
             枚举 = 枚举字典[索引];
             名称 = 枚举转换类<节气枚举>.获取名称(枚举);
+            上节时间 = 上一节气时间(日期);
+            下节时间 = 下一节气时间(日期);
         }
 
         #endregion
@@ -37,6 +39,8 @@
         public DateTime 时间 { get; }
         public 节气枚举 枚举 { get; }
         public int 节后日 { get; }
+        public DateTime? 上节时间 { get; }
+        public DateTime? 下节时间 { get; }
 
         #endregion
 
