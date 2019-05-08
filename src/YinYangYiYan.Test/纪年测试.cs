@@ -219,19 +219,35 @@
                 {
                     new DateTime(2000, 1, 1, i, 0, 0),
                     new DateTime(2000, 1, 1, i, 0, 1),
-                    new DateTime(2000, 1, 1, i, 59, 59)
+                    new DateTime(2000, 1, 1, i, 59, 59),
                 };
                 foreach (var t in times)
                 {
-                    var 时辰 = t.时辰地支();
+                    var 时辰 = t.时辰地支(out var 项);
                     Console.Write($"{t.Hour:D2}时{t.Minute:D2}分{t.Second:D2}秒\t{时辰.名称}时\t");
-                    if (t.Hour == 0 && t.Minute == 59 && t.Second == 59)
+                    if (t.Hour == 0)
                     {
-                        Assert.IsTrue(时辰.名称 == "子");
+                        Assert.IsTrue(时辰.名称 == "子" && 项 == 时间计算.早晚子.早子时);
                     }
                     if (t.Hour == 1 && t.Minute == 0 && t.Second == 0)
                     {
-                        Assert.IsTrue(时辰.名称 == "丑");
+                        Assert.IsTrue(时辰.名称 == "丑" && 项 == 时间计算.早晚子.无);
+                    }
+                    if (t.Hour == 2 && t.Minute == 0 && t.Second == 0)
+                    {
+                        Assert.IsTrue(时辰.名称 == "丑" && 项 == 时间计算.早晚子.无);
+                    }
+                    if (t.Hour == 2 && t.Minute == 59 && t.Second == 59)
+                    {
+                        Assert.IsTrue(时辰.名称 == "丑" && 项 == 时间计算.早晚子.无);
+                    }
+                    if (t.Hour == 3 && t.Minute == 0 && t.Second == 0)
+                    {
+                        Assert.IsTrue(时辰.名称 == "寅" && 项 == 时间计算.早晚子.无);
+                    }
+                    if (t.Hour == 23)
+                    {
+                        Assert.IsTrue(时辰.名称 == "子" && 项 == 时间计算.早晚子.晚子时);
                     }
                 }
                 Console.WriteLine();
