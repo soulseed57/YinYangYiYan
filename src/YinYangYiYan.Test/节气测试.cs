@@ -23,8 +23,8 @@
         static void 上下节气(DateTime date)
         {
             var j = new 节气(date);
-            Assert.IsTrue(j.上一节气时间 < date);
-            Assert.IsTrue(j.下一节气时间 > date);
+            Assert.IsTrue(j.上一节令时间 < date);
+            Assert.IsTrue(j.下一节令时间 > date);
         }
 
         #endregion

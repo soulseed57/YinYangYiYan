@@ -13,8 +13,8 @@
             名称 = 枚举转换类<节气节令>.获取名称(节气时间.枚举);
             枚举 = 节气时间.枚举;
             交节 = 节气时间.时间;
-            上一节气时间 = 节气时间.上一节令时间(日期);
-            下一节气时间 = 节气时间.下一节令时间(日期);
+            上一节令时间 = 节气时间.上一节令时间(日期);
+            下一节令时间 = 节气时间.下一节令时间(日期);
         }
 
         #endregion
@@ -23,8 +23,8 @@
         public string 名称 { get; }
         public 节气节令 枚举 { get; }
         public DateTime 交节 { get; }
-        public DateTime? 上一节气时间 { get; }
-        public DateTime? 下一节气时间 { get; }
+        public DateTime? 上一节令时间 { get; }
+        public DateTime? 下一节令时间 { get; }
 
         #endregion
 
