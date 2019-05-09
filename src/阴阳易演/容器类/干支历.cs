@@ -3,11 +3,11 @@
     using System;
     using System.Collections.Generic;
     using System.Text;
-    using 具象类.天干;
     using 引用库;
     using 抽象类;
     using 枚举类;
     using 查询类;
+    using 计算类;
 
     public class 干支历
     {
@@ -23,8 +23,11 @@
             // 甲子计算
             年柱 = new 甲子(农历.GanZhiYearString);
             月柱 = 月柱计算(时间, 年柱.天干);
-            日柱 = 日柱计算(时间);
-            时柱 = 时柱计算(时间);
+            日时计算(时间, (日, 时) =>
+            {
+                日柱 = 日;
+                时柱 = 时;
+            });
             // 月破计算
             月破 = 月支查月破(月柱.地支);
             // 旬空计算
@@ -42,8 +45,8 @@
         public string 阴历 { get; }
         public 甲子 年柱 { get; }
         public 甲子 月柱 { get; }
-        public 甲子 日柱 { get; }
-        public 甲子 时柱 { get; }
+        public 甲子 日柱 { get; private set; }
+        public 甲子 时柱 { get; private set; }
         public 地支 月破 { get; }
         public 地支[] 旬空 { get; }
         public 神煞 神煞 { get; }
@@ -212,7 +215,7 @@
         }
         public static 甲子 月柱计算(DateTime 时间, 天干 年干)
         {
-            var 月首 = 五虎遁(年干);
+            var 月首 = 年干.五虎遁();
             var 节气时间 = new 节气时间(时间);
             var 月支 = 节气归支查询(节气时间.枚举);
             var 归月 = 节气归月查询(节气时间.枚举);
@@ -220,74 +223,27 @@
             var 月干 = 干支表.天干查询(首序 + 归月 - 1);
             return new 甲子(月干, 月支);
         }
-        public static 甲子 日柱计算(DateTime 时间)
+        public static void 日时计算(DateTime 时间, Action<甲子, 甲子> 返回结果)
         {
-            var 公元年数 = 时间.Year;
-            var 当年日数 = (int)(时间 - new DateTime(时间.Year, 1, 1)).TotalDays + 1;
-            var 甲子余数 = ((公元年数 - 1) * 5 + (公元年数 - 1) / 4 + 当年日数) % 60;
+            // 计算日柱
+            var 年份 = 时间.Year;
+            var 当年日数 = (int)(时间 - new DateTime(年份, 1, 1)).TotalDays + 1;
+            var 甲子余数 = ((年份 - 1) * 5 + (年份 - 1) / 4 + 当年日数) % 60;
             var 日干序 = 甲子余数 % 10 - 1;
             var 日支序 = 甲子余数 % 12 - 1;
             var 日干 = 干支表.天干查询(日干序);
             var 日支 = 干支表.地支查询(日支序);
-            return new 甲子(日干, 日支);
-        }
-        public static 甲子 时柱计算(DateTime 时间)
-        {
-            var 时支 = 时辰地支(时间);
-            var 支序 = 干支表.地支列表.IndexOf(时支);
-            var 日干 = 日柱计算(时间).天干;
-            var 首 = 五鼠遁(日干);
-            var 序首 = 干支表.天干列表.IndexOf(首);
-            var 干序 = 序首 + 支序;
-            var 时干 = 干支表.天干查询(干序);
+            var 日柱 = new 甲子(日干, 日支);
+            // 计算时柱
+            var 时支 = 时间.时辰地支(out var 选项);
+            // 晚子时算下一天
+            if (选项 == 时间计算.早晚子.晚子时)
+            {
+                日柱 = new 甲子(日柱.序数 + 1);
+            }
+            var 时干 = 日柱.天干.五鼠遁(时支);
             var 时柱 = new 甲子(时干, 时支);
-            return 时柱;
-        }
-        public static 天干 五鼠遁(天干 干)
-        {
-            switch (干)
-            {
-                case 甲 _:
-                case 己 _:
-                    return 天干.甲;// 甲己还加甲
-                case 乙 _:
-                case 庚 _:
-                    return 天干.丙;// 乙庚丙作初
-                case 丙 _:
-                case 辛 _:
-                    return 天干.戊;// 丙辛寻戊起
-                case 丁 _:
-                case 壬 _:
-                    return 天干.庚;// 丁壬庚子居
-                case 戊 _:
-                case 癸 _:
-                    return 天干.壬;// 戊癸何方发，壬子是真途
-                default:
-                    throw new Exception($"起遁失败,当前给定天干错误[{干}]");
-            }
-        }
-        public static 天干 五虎遁(天干 干)
-        {
-            switch (干)
-            {
-                case 甲 _:
-                case 己 _:
-                    return 天干.丙;// 甲己之年丙作首
-                case 乙 _:
-                case 庚 _:
-                    return 天干.戊;// 乙庚之岁戊为头
-                case 丙 _:
-                case 辛 _:
-                    return 天干.庚;// 丙辛必定寻庚起
-                case 丁 _:
-                case 壬 _:
-                    return 天干.壬;// 丁壬壬位顺水流
-                case 戊 _:
-                case 癸 _:
-                    return 天干.甲;// 若问戊癸何处起，甲寅之上好追求
-                default:
-                    throw new Exception($"起遁失败,当前给定天干错误[{干}]");
-            }
+            返回结果.Invoke(日柱, 时柱);
         }
 
         #endregion
@@ -301,69 +257,5 @@
         };
 
         #endregion
-
-        #region 内部方法
-        static 地支 时辰地支(DateTime 时间)
-        {
-            var 当天起始 = new DateTime(时间.Year, 时间.Month, 时间.Day);
-            var 当前总时 = 时间 - 当天起始;
-            var 时 = 当前总时.TotalHours;
-            if (时 < 1)
-            {
-                return 地支.子;
-            }
-            if (1 <= 时 && 时 < 3)
-            {
-                return 地支.丑;
-            }
-            if (3 <= 时 && 时 < 5)
-            {
-                return 地支.寅;
-            }
-            if (5 <= 时 && 时 < 7)
-            {
-                return 地支.卯;
-            }
-            if (7 <= 时 && 时 < 9)
-            {
-                return 地支.辰;
-            }
-            if (9 <= 时 && 时 < 11)
-            {
-                return 地支.巳;
-            }
-            if (11 <= 时 && 时 < 13)
-            {
-                return 地支.午;
-            }
-            if (13 <= 时 && 时 < 15)
-            {
-                return 地支.未;
-            }
-            if (15 <= 时 && 时 < 17)
-            {
-                return 地支.申;
-            }
-            if (17 <= 时 && 时 < 19)
-            {
-                return 地支.酉;
-            }
-            if (19 <= 时 && 时 < 21)
-            {
-                return 地支.戌;
-            }
-            if (21 <= 时 && 时 < 23)
-            {
-                return 地支.亥;
-            }
-            if (23 <= 时)
-            {
-                return 地支.子;
-            }
-            throw new Exception("未找到匹配的时辰");
-        }
-
-        #endregion
-
     }
 }

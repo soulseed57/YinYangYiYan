@@ -5,6 +5,7 @@
     using 具象类.天干;
     using 容器类;
     using 抽象类;
+    using 查询类;
 
     public static class 干支计算
     {
@@ -89,6 +90,68 @@
                 default:
                     throw new Exception($"未找到匹配的天干,当前输入{干}");
             }
+        }
+        public static 天干 五鼠遁(this 天干 干)
+        {
+            switch (干)
+            {
+                case 甲 _:
+                case 己 _:
+                    return 天干.甲;// 甲己还加甲
+                case 乙 _:
+                case 庚 _:
+                    return 天干.丙;// 乙庚丙作初
+                case 丙 _:
+                case 辛 _:
+                    return 天干.戊;// 丙辛寻戊起
+                case 丁 _:
+                case 壬 _:
+                    return 天干.庚;// 丁壬庚子居
+                case 戊 _:
+                case 癸 _:
+                    return 天干.壬;// 戊癸何方发，壬子是真途
+                default:
+                    throw new Exception($"起遁失败,当前给定天干错误[{干}]");
+            }
+        }
+        public static 天干 五鼠遁(this 天干 干, 地支 支)
+        {
+            var 起遁 = 干.五鼠遁();
+            var 遁序 = 干支表.获取天干序数(起遁);
+            var 支序 = 干支表.获取地支序数(支);
+            var 干序 = (遁序 + 支序) % 10;
+            return 干支表.天干查询(干序);
+        }
+        public static 天干 五虎遁(this 天干 干)
+        {
+            switch (干)
+            {
+                case 甲 _:
+                case 己 _:
+                    return 天干.丙;// 甲己之年丙作首
+                case 乙 _:
+                case 庚 _:
+                    return 天干.戊;// 乙庚之岁戊为头
+                case 丙 _:
+                case 辛 _:
+                    return 天干.庚;// 丙辛必定寻庚起
+                case 丁 _:
+                case 壬 _:
+                    return 天干.壬;// 丁壬壬位顺水流
+                case 戊 _:
+                case 癸 _:
+                    return 天干.甲;// 若问戊癸何处起，甲寅之上好追求
+                default:
+                    throw new Exception($"起遁失败,当前给定天干错误[{干}]");
+            }
+        }
+        public static 天干 五虎遁(this 天干 干, 地支 支)
+        {
+            var 起遁 = 干.五虎遁();
+            var 遁序 = 干支表.获取天干序数(起遁);
+            var 支序 = 干支表.获取地支序数(支);
+            var 干序 = (遁序 + 支序) % 10;
+            return 干支表.天干查询(干序);
         }
         #endregion
 
@@ -182,6 +245,5 @@
         #endregion
 
         #endregion
-
     }
 }
