@@ -12,7 +12,7 @@
     public class 节气测试
     {
         #region 便捷测试
-        static void 便捷节气表(DateTime date, 节气枚举 测试节气)
+        static void 便捷节气表(DateTime date, 节气节令 测试节气)
         {
             var 节 = new 节气时间(date);
             Assert.IsTrue(节.枚举 == 测试节气);
@@ -32,13 +32,13 @@
         [TestMethod]
         public void 节气表测试()
         {
-            便捷节气表(new DateTime(2018, 12, 23, 0, 0, 0), 节气枚举.冬至);
+            便捷节气表(new DateTime(2018, 12, 23, 0, 0, 0), 节气节令.冬至);
 
-            便捷节气表(new DateTime(2019, 12, 21, 0, 0, 0), 节气枚举.大雪);
-            便捷节气表(new DateTime(2019, 1, 4, 0, 0, 0), 节气枚举.冬至);
+            便捷节气表(new DateTime(2019, 12, 21, 0, 0, 0), 节气节令.大雪);
+            便捷节气表(new DateTime(2019, 1, 4, 0, 0, 0), 节气节令.冬至);
 
-            便捷节气表(new DateTime(2019, 1, 5, 21, 0, 0), 节气枚举.冬至);
-            便捷节气表(new DateTime(2019, 1, 5, 22, 0, 0), 节气枚举.小寒);
+            便捷节气表(new DateTime(2019, 1, 5, 21, 0, 0), 节气节令.冬至);
+            便捷节气表(new DateTime(2019, 1, 5, 22, 0, 0), 节气节令.小寒);
         }
 
         [TestMethod]
@@ -47,7 +47,7 @@
             var showMsg = new StringBuilder();
             for (var i = 0; i < 24; i++)
             {
-                var 枚 = 枚举转换类<节气枚举>.获取枚举(i);
+                var 枚 = 枚举转换类<节气节令>.获取枚举(i);
                 var 时间 = 节气时间.节气时间查询(2017, 枚);
                 var 季节名 = 季节.季节查询(时间).GetType().Name;
                 showMsg.AppendLine($"{i}:{时间:MM-dd}\t{季节名}");
@@ -106,7 +106,7 @@
         {
             var d = new DateTime(2019, 1, 1, 0, 0, 0);
             var t = new 节气时间(d);
-            Assert.IsTrue(t.枚举 == 节气枚举.冬至);
+            Assert.IsTrue(t.枚举 == 节气节令.冬至);
             Console.WriteLine($"出生日期:{d:yyyy/MM/dd HH:mm}\t节气时间:{t.时间:yyyy/MM/dd HH:mm}\t生于{t.枚举}后第\t{t.节后日}日");
         }
     }

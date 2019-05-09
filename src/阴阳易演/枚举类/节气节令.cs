@@ -1,6 +1,6 @@
 ﻿namespace 阴阳易演.枚举类
 {
-    public enum 节气枚举
+    public enum 节气节令
     {
         小寒, 大寒,
         立春, 雨水,

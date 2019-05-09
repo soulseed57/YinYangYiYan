@@ -129,7 +129,7 @@
     <Compile Include="查询类\干支表.cs" />
     <Compile Include="枚举类\长生十二宫.cs" />
     <Compile Include="枚举类\神煞枚举.cs" />
-    <Compile Include="枚举类\节气枚举.cs" />
+    <Compile Include="枚举类\节气节令.cs" />
     <Compile Include="容器类\干支历.cs" />
     <Compile Include="枚举类\长生枚举.cs" />
     <Compile Include="计算类\三合计算.cs" />

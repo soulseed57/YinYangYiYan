@@ -10,18 +10,18 @@
         public 节气(DateTime 日期)
         {
             var 节气时间 = new 节气时间(日期);
-            名称 = 枚举转换类<节气枚举>.获取名称(节气时间.枚举);
+            名称 = 枚举转换类<节气节令>.获取名称(节气时间.枚举);
             枚举 = 节气时间.枚举;
             交节 = 节气时间.时间;
-            上一节气时间 = 节气时间.上一节气时间(日期);
-            下一节气时间 = 节气时间.下一节气时间(日期);
+            上一节气时间 = 节气时间.上一节令时间(日期);
+            下一节气时间 = 节气时间.下一节令时间(日期);
         }
 
         #endregion
 
         #region 属性
         public string 名称 { get; }
-        public 节气枚举 枚举 { get; }
+        public 节气节令 枚举 { get; }
         public DateTime 交节 { get; }
         public DateTime? 上一节气时间 { get; }
         public DateTime? 下一节气时间 { get; }

@@ -164,51 +164,51 @@
             var 神煞序 = 干支表.地支数 - 起序 + 时序;
             return new 神煞(神煞序);
         }
-        public static 地支 节气归支查询(节气枚举 枚)
+        public static 地支 节气归支查询(节气节令 枚)
         {
             switch (枚)
             {
-                case 节气枚举.立春:
-                case 节气枚举.雨水:
+                case 节气节令.立春:
+                case 节气节令.雨水:
                     return 地支.寅;
-                case 节气枚举.惊蛰:
-                case 节气枚举.春分:
+                case 节气节令.惊蛰:
+                case 节气节令.春分:
                     return 地支.卯;
-                case 节气枚举.清明:
-                case 节气枚举.谷雨:
+                case 节气节令.清明:
+                case 节气节令.谷雨:
                     return 地支.辰;
-                case 节气枚举.立夏:
-                case 节气枚举.小满:
+                case 节气节令.立夏:
+                case 节气节令.小满:
                     return 地支.巳;
-                case 节气枚举.芒种:
-                case 节气枚举.夏至:
+                case 节气节令.芒种:
+                case 节气节令.夏至:
                     return 地支.午;
-                case 节气枚举.小暑:
-                case 节气枚举.大暑:
+                case 节气节令.小暑:
+                case 节气节令.大暑:
                     return 地支.未;
-                case 节气枚举.立秋:
-                case 节气枚举.处暑:
+                case 节气节令.立秋:
+                case 节气节令.处暑:
                     return 地支.申;
-                case 节气枚举.白露:
-                case 节气枚举.秋分:
+                case 节气节令.白露:
+                case 节气节令.秋分:
                     return 地支.酉;
-                case 节气枚举.寒露:
-                case 节气枚举.霜降:
+                case 节气节令.寒露:
+                case 节气节令.霜降:
                     return 地支.戌;
-                case 节气枚举.立冬:
-                case 节气枚举.小雪:
+                case 节气节令.立冬:
+                case 节气节令.小雪:
                     return 地支.亥;
-                case 节气枚举.大雪:
-                case 节气枚举.冬至:
+                case 节气节令.大雪:
+                case 节气节令.冬至:
                     return 地支.子;
-                case 节气枚举.小寒:
-                case 节气枚举.大寒:
+                case 节气节令.小寒:
+                case 节气节令.大寒:
                     return 地支.丑;
                 default:
                     throw new Exception($"未找到匹配的枚举,当前输入:{枚}");
             }
         }
-        public static int 节气归月查询(节气枚举 枚)
+        public static int 节气归月查询(节气节令 枚)
         {
             var 支 = 节气归支查询(枚);
             return 月支列表.IndexOf(支) + 1;
