@@ -10,37 +10,22 @@
         #region 构造
         public 节气时间(DateTime 日期)
         {
-            var 年 = 日期.Year;
-            var 末次时间 = DateTime.MinValue;
-            var 末次索引 = -1;
-            for (var i = -1; i <= 总节气数; i++)
+            节气时间查询(日期, (时, 节) =>
             {
-                var 节气时间 = 节气时间索引(年, i);
-                if (节气时间 > 日期)
-                {
-                    break;
-                }
-                末次时间 = 节气时间;
-                末次索引 = i;
-            }
-            时间 = 末次时间;
-            节后日 = (int)(日期 - 末次时间).TotalDays;
-            var 索引 = 常用方法.序数取余(末次索引, 总节气数);
-            枚举 = 枚举字典[索引];
-            名称 = 枚举转换类<节气节令>.获取名称(枚举);
-            上节令时间 = 上一节令时间(日期);
-            下节令时间 = 下一节令时间(日期);
+                名称 = 枚举转换类<节气节令>.获取名称(节);
+                时间 = 时;
+                枚举 = 节;
+                节后日 = (int)(日期 - 时).TotalDays;
+            }, 文 => throw new Exception(文));
         }
 
         #endregion
 
         #region 属性
-        public string 名称 { get; }
-        public DateTime 时间 { get; }
-        public 节气节令 枚举 { get; }
-        public int 节后日 { get; }
-        public DateTime? 上节令时间 { get; }
-        public DateTime? 下节令时间 { get; }
+        public string 名称 { get; private set; }
+        public DateTime 时间 { get; private set; }
+        public 节气节令 枚举 { get; private set; }
+        public int 节后日 { get; private set; }
 
         #endregion
 
@@ -50,27 +35,32 @@
             var 索引 = 索引字典[枚举];
             return 节气时间索引(年份, 索引);
         }
-        public static DateTime? 上一节令时间(DateTime 日期)
+        public static void 节气时间查询(DateTime 日期, Action<DateTime, 节气节令> 返回成功, Action<string> 返回失败)
         {
-            var 年 = 日期.Year;
             DateTime? 末次时间 = null;
-            for (var i = -2; i <= 总节气数 + 1; i++)
+            var 末次索引 = -1;
+            for (var i = -1; i <= 总节气数; i++)
             {
-                var 查节序 = 常用方法.序数取余(i, 总节气数);
-                var 查节枚 = 枚举转换类<节气节令>.获取枚举(查节序);
-                if (节令列表.Contains(查节枚))
+                var 节气时间 = 节气时间索引(日期.Year, i);
+                if (节气时间 > 日期)
                 {
-                    var 节气时间 = 节气时间索引(年, i);
-                    if (节气时间 > 日期)
-                    {
-                        break;
-                    }
-                    末次时间 = 节气时间;
+                    break;
                 }
+                末次时间 = 节气时间;
+                末次索引 = i;
             }
-            return 末次时间;
+            if (末次时间 != null)
+            {
+                var 索引 = 常用方法.序数取余(末次索引, 总节气数);
+                var 枚举 = 枚举字典[索引];
+                返回成功.Invoke(末次时间.Value, 枚举);
+            }
+            else
+            {
+                返回失败.Invoke($"日期[{日期:yyyy-MM-dd HH:mm:ss}]的节气时间未找到");
+            }
         }
-        public static DateTime? 下一节令时间(DateTime 日期)
+        public static DateTime 上一节令时间(DateTime 日期)
         {
             var 年 = 日期.Year;
             DateTime? 末次时间 = null;
@@ -78,17 +68,39 @@
             {
                 var 查节序 = 常用方法.序数取余(i, 总节气数);
                 var 查节枚 = 枚举转换类<节气节令>.获取枚举(查节序);
-                if (节令列表.Contains(查节枚))
+                if (!节令列表.Contains(查节枚))
                 {
-                    var 节气时间 = 节气时间索引(年, i);
-                    if (节气时间 > 日期)
-                    {
-                        末次时间 = 节气时间;
-                        break;
-                    }
+                    continue;
+                }
+                var 节气时间 = 节气时间索引(年, i);
+                if (节气时间 > 日期)
+                {
+                    break;
+                }
+                末次时间 = 节气时间;
+            }
+            return 末次时间 ?? throw new Exception($"时间[{日期}]上一节令时间未找到");
+        }
+        public static DateTime 下一节令时间(DateTime 日期)
+        {
+            var 年 = 日期.Year;
+            DateTime? 末次时间 = null;
+            for (var i = -2; i <= 总节气数 + 1; i++)
+            {
+                var 查节序 = 常用方法.序数取余(i, 总节气数);
+                var 查节枚 = 枚举转换类<节气节令>.获取枚举(查节序);
+                if (!节令列表.Contains(查节枚))
+                {
+                    continue;
+                }
+                var 节气时间 = 节气时间索引(年, i);
+                if (节气时间 > 日期)
+                {
+                    末次时间 = 节气时间;
+                    break;
                 }
             }
-            return 末次时间;
+            return 末次时间 ?? throw new Exception($"时间[{日期}]下一节令时间未找到");
         }
 
         #endregion

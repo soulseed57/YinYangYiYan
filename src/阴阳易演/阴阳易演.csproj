@@ -95,7 +95,7 @@
     <Compile Include="容器类\甲子.cs" />
     <Compile Include="容器类\神煞.cs" />
     <Compile Include="容器类\纳音.cs" />
-    <Compile Include="容器类\节气.cs" />
+    <Compile Include="容器类\节令.cs" />
     <Compile Include="容器类\节气时间.cs" />
     <Compile Include="引用库\中国农历类.cs" />
     <Compile Include="引用库\常用方法.cs" />
