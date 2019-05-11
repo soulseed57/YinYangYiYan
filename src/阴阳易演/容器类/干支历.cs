@@ -285,9 +285,16 @@
         {
             var 阴历 = new ChineseLunisolarCalendar();
             var 闰月 = 阴历.GetLeapMonth(阴历年);
-            if (是闰月 && 闰月 - 1 == 阴历月)
+            if (闰月 > 0)
             {
-                阴历月 = 闰月;
+                if (是闰月 && 闰月 - 1 == 阴历月)
+                {
+                    阴历月 = 闰月;
+                }
+                else if (阴历月 > 闰月)
+                {
+                    阴历月++;
+                }
             }
             return new DateTime(阴历年, 阴历月, 阴历日, 阴历);
         }
