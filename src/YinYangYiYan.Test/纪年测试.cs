@@ -3,7 +3,6 @@
     using Microsoft.VisualStudio.TestTools.UnitTesting;
     using System;
     using 容器类;
-    using 引用库;
     using 抽象类;
     using 枚举类;
     using 计算类;
@@ -143,7 +142,7 @@
         }
 
         [TestMethod]
-        public void 干支历验证()
+        public void 干支历测试()
         {
             var 历 = new 干支历(new DateTime(1995, 10, 21, 19, 53, 0));
             Assert.IsTrue(历.年柱.名称 == "乙亥");
@@ -183,26 +182,56 @@
 
         }
 
+        static void 阴历验证(int cy, int cm, int cd, bool isLeapMon, int verifyMon, int verifyDay)
+        {
+            var c2 = 干支历.阴历转阳历(cy, cm, cd, isLeapMon);
+            Assert.IsTrue(c2.Month == verifyMon && c2.Day == verifyDay);
+        }
+
+        static void 干支历验证(int cy, int cm, int cd, int verifyMon, int verifyDay, bool verifyIsLeap = false)
+        {
+            var d = new DateTime(cy, cm, cd);
+            var y = new 干支历(d);
+            Assert.IsTrue(y.阴历月 == verifyMon && y.阴历日 == verifyDay && y.是闰月 == verifyIsLeap);
+            Console.WriteLine($"阳历:{d:yyyy-MM-dd}\t阴历:{y.阴历}");
+        }
+
         [TestMethod]
         public void 阴历测试()
         {
-            var date = new ChineseCalendar(1979, 6, 17, true);
-            Assert.IsTrue(date.Date.Month == 8);
-            Assert.IsTrue(date.Date.Day == 9);
-            Console.WriteLine($"农历:{date.ChineseDateString}");
-            Console.WriteLine($"阳历:{date.Date:yyyy-MM-dd}");
+            阴历验证(1979, 6, 18, true, 8, 10);
+            阴历验证(1979, 6, 17, false, 7, 10);
 
-            date = new ChineseCalendar(1979, 7, 18, false);
-            Assert.IsTrue(date.Date.Month == 9);
-            Assert.IsTrue(date.Date.Day == 9);
-            Console.WriteLine($"农历:{date.ChineseDateString}");
-            Console.WriteLine($"阳历:{date.Date:yyyy-MM-dd}");
+            阴历验证(2020, 4, 23, true, 6, 14);
+            阴历验证(2020, 4, 23, false, 5, 15);
 
-            date = new ChineseCalendar(1979, 6, 17, false);
-            Assert.IsTrue(date.Date.Month == 7);
-            Assert.IsTrue(date.Date.Day == 10);
-            Console.WriteLine($"农历:{date.ChineseDateString}");
-            Console.WriteLine($"阳历:{date.Date:yyyy-MM-dd}");
+            阴历验证(1979, 7, 18, false, 8, 10);
+            阴历验证(1979, 7, 24, false, 8, 16);
+            阴历验证(2020, 4, 23, false, 5, 15);
+
+            干支历验证(1979, 7, 18, 6, 25);
+            干支历验证(1979, 7, 24, 6, 1, true);
+            干支历验证(1979, 8, 22, 6, 30, true);
+            干支历验证(1979, 8, 23, 7, 1);
+
         }
+
+        [TestMethod]
+        public void 春节前后甲子测试()
+        {
+            // 公元前
+            Assert.IsTrue(干支历.春节后年柱计算(-22).名称 == "己亥");
+            Assert.IsTrue(干支历.春节后年柱计算(-159).名称 == "壬午");
+            // 公元后
+            Assert.IsTrue(干支历.春节后年柱计算(1900).名称 == "庚子");
+            Assert.IsTrue(干支历.春节后年柱计算(1905).名称 == "乙巳");
+            Assert.IsTrue(干支历.春节后年柱计算(1962).名称 == "壬寅");
+            Assert.IsTrue(干支历.春节后年柱计算(2019).名称 == "己亥");
+            Assert.IsTrue(干支历.春节后年柱计算(2050).名称 == "庚午");
+            Assert.IsTrue(干支历.春节后年柱计算(2066).名称 == "丙戌");
+            // 春节前
+            Assert.IsTrue(干支历.年柱计算(new DateTime(1995, 1, 24)).名称 == "甲戌");
+        }
+
     }
 }

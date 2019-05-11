@@ -2,8 +2,11 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.Linq;
     using 引用库;
+    using 抽象类;
     using 枚举类;
+    using 查询类;
 
     public class 节气时间
     {
@@ -15,6 +18,8 @@
                 名称 = 枚举转换类<节气节令>.获取名称(节);
                 时间 = 时;
                 枚举 = 节;
+                地支月 = 节气地支月查询(节);
+                阴历月 = 节气阴历月查询(节);
                 节后日 = (int)(日期 - 时).TotalDays;
             }, 文 => throw new Exception(文));
         }
@@ -25,6 +30,8 @@
         public string 名称 { get; private set; }
         public DateTime 时间 { get; private set; }
         public 节气节令 枚举 { get; private set; }
+        public 地支 地支月 { get; private set; }
+        public int 阴历月 { get; private set; }
         public int 节后日 { get; private set; }
 
         #endregion
@@ -101,6 +108,56 @@
                 }
             }
             return 末次时间 ?? throw new Exception($"时间[{日期}]下一节令时间未找到");
+        }
+        public static 地支 节气地支月查询(节气节令 枚举)
+        {
+            switch (枚举)
+            {
+                case 节气节令.立春:
+                case 节气节令.雨水:
+                    return 地支.寅;
+                case 节气节令.惊蛰:
+                case 节气节令.春分:
+                    return 地支.卯;
+                case 节气节令.清明:
+                case 节气节令.谷雨:
+                    return 地支.辰;
+                case 节气节令.立夏:
+                case 节气节令.小满:
+                    return 地支.巳;
+                case 节气节令.芒种:
+                case 节气节令.夏至:
+                    return 地支.午;
+                case 节气节令.小暑:
+                case 节气节令.大暑:
+                    return 地支.未;
+                case 节气节令.立秋:
+                case 节气节令.处暑:
+                    return 地支.申;
+                case 节气节令.白露:
+                case 节气节令.秋分:
+                    return 地支.酉;
+                case 节气节令.寒露:
+                case 节气节令.霜降:
+                    return 地支.戌;
+                case 节气节令.立冬:
+                case 节气节令.小雪:
+                    return 地支.亥;
+                case 节气节令.大雪:
+                case 节气节令.冬至:
+                    return 地支.子;
+                case 节气节令.小寒:
+                case 节气节令.大寒:
+                    return 地支.丑;
+                default:
+                    throw new Exception($"未找到匹配的枚举,当前输入:{枚举}");
+            }
+        }
+        public static int 节气阴历月查询(节气节令 枚举)
+        {
+            var 支 = 节气地支月查询(枚举);
+            var 月支列表 = 常用方法.列表指定首位(干支表.地支列表.ToArray(), 2).ToList();
+            return 月支列表.IndexOf(支) + 1;
         }
 
         #endregion
