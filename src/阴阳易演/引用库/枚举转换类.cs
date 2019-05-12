@@ -16,27 +16,16 @@
         {
             return Enum.GetNames(typeof(T));
         }
-        public static string 获取名称(int 序数)
+        public static string 获取名称(int 原数)
         {
-            try
-            {
-                return Enum.GetName(typeof(T), 序数);
-            }
-            catch (Exception e)
-            {
-                throw new Exception($"[{typeof(T).Name}]使用序数[{序数}]获取名称失败:{e.Message}");
-            }
+            var 进位数 = 获取枚举总数();
+            var 余数 = 原数 % 进位数;
+            var 序数 = 余数 < 0 ? 进位数 + 余数 : 余数;
+            return Enum.GetName(typeof(T), 序数);
         }
         public static string 获取名称(T 枚举)
         {
-            try
-            {
-                return Enum.GetName(typeof(T), 枚举);
-            }
-            catch (Exception e)
-            {
-                throw new Exception($"[{typeof(T).Name}]使用枚举[{枚举}]获取名称失败:{e.Message}");
-            }
+            return Enum.GetName(typeof(T), 枚举);
         }
         public static int 获取序数(string 名称)
         {
@@ -45,17 +34,12 @@
         }
         public static int 获取序数(T 枚举)
         {
-            try
-            {
-                var sum = Enum.GetValues(typeof(T)).Length;
-                var obj = Enum.ToObject(typeof(T), 枚举);
-                var num = (int)obj % sum;
-                return num;
-            }
-            catch (Exception e)
-            {
-                throw new Exception($"[{typeof(T).Name}]使用枚举[{枚举}]获取序数失败:{e.Message}");
-            }
+            var 对象 = Enum.ToObject(typeof(T), 枚举);
+            var 原数 = (int)对象;
+            var 进位数 = 获取枚举总数();
+            var 余数 = 原数 % 进位数;
+            var 序数 = 余数 < 0 ? 进位数 + 余数 : 余数;
+            return 序数;
         }
         public static T 获取枚举(string 名称)
         {
@@ -63,21 +47,17 @@
             {
                 return (T)Enum.Parse(typeof(T), 名称, true);
             }
-            catch (Exception e)
+            catch
             {
-                throw new Exception($"[{typeof(T).Name}]使用名称[{名称}]获取枚举失败:{e.Message}");
+                throw new Exception($"枚举[{typeof(T).Name}]不包含名称{名称}");
             }
         }
-        public static T 获取枚举(int 序数)
+        public static T 获取枚举(int 原数)
         {
-            try
-            {
-                return (T)Enum.ToObject(typeof(T), 序数);
-            }
-            catch (Exception e)
-            {
-                throw new Exception($"[{typeof(T).Name}]使用序数[{序数}]获取枚举失败:{e.Message}");
-            }
+            var 进位数 = 获取枚举总数();
+            var 余数 = 原数 % 进位数;
+            var 序数 = 余数 < 0 ? 进位数 + 余数 : 余数;
+            return (T)Enum.ToObject(typeof(T), 序数);
         }
         public static bool 尝试获取枚举(string 名称, out T 枚举)
         {
