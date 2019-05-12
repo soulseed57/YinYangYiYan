@@ -25,7 +25,7 @@
                 阴历 = $"{年份名称(阴历年)}{(闰 ? "闰" : string.Empty)}{月份名称(阴历月)}{日期名称(阴历日, false)}";
             });
             // 甲子计算
-            年柱 = 年柱计算(时间);
+            年柱 = 年柱计算(时间.Year, 时间.Month, 时间.Day);
             月柱 = 月柱计算(时间, 年柱.天干);
             日时计算(时间, (日, 时) =>
             {
@@ -244,12 +244,19 @@
                 return new 甲子(年干, 年支);
             }
         }
-        public static 甲子 年柱计算(DateTime 时间)
+        public static 甲子 年柱计算(int 年, int 月, int 日)
         {
-            var 年份 = 时间.Year;
-            var 春节 = new DateTime(年份, 1, 1, new ChineseLunisolarCalendar());
-            var 年柱 = 春节后年柱计算(年份);
-            return 时间 < 春节 ? new 甲子(年柱.序数 - 1) : 年柱;
+            if (年 <= 2100)
+            {
+                var 春节 = new DateTime(年, 1, 1, new ChineseLunisolarCalendar());
+                var 年柱 = 春节后年柱计算(年);
+                return new DateTime(年, 月, 日) < 春节 ? new 甲子(年柱.序数 - 1) : 年柱;
+            }
+            else
+            {
+                // 因为DateTime最大只能算到2100年,所以后面的时间不能计算春节了
+                return 春节后年柱计算(年);
+            }
         }
         public static 甲子 月柱计算(DateTime 时间, 天干 年干)
         {

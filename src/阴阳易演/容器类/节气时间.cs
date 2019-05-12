@@ -86,7 +86,7 @@
                 }
                 末次时间 = 节气时间;
             }
-            return 末次时间 ?? throw new Exception($"时间[{日期}]上一节令时间未找到");
+            return 末次时间 ?? throw new Exception($"[{日期:yyyy-MM-dd HH:mm:ss}]的上一节令时间未找到");
         }
         public static DateTime 下一节令时间(DateTime 日期)
         {
@@ -107,7 +107,7 @@
                     break;
                 }
             }
-            return 末次时间 ?? throw new Exception($"时间[{日期}]下一节令时间未找到");
+            return 末次时间 ?? throw new Exception($"[{日期:yyyy-MM-dd HH:mm:ss}]的下一节令时间未找到");
         }
         public static 地支 节气地支月查询(节气节令 枚举)
         {
