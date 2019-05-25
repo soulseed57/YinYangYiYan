@@ -1,4 +1,4 @@
-﻿namespace 阴阳易演.Test
+﻿namespace 阴阳易演.测试
 {
     using System;
     using System.Linq;
