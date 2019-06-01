@@ -101,7 +101,7 @@
             t = new DateTime(2019, 1, 1, 23, 0, 0);
             干支历.日时计算(t, (日柱, 时柱) =>
             {
-                Assert.IsTrue(日柱.名称 == "己亥" && 时柱.名称 == "甲子");
+                Assert.IsTrue(日柱.名称 == "戊戌" && 时柱.名称 == "壬子");
                 Console.WriteLine($"{t:yyyy年MM月dd日 HH时mm分ss秒}\t日柱:{日柱.名称}\t时柱:{时柱.名称}");
             });
 
@@ -109,7 +109,7 @@
             t = new DateTime(2019, 1, 1, 23, 59, 59);
             干支历.日时计算(t, (日柱, 时柱) =>
             {
-                Assert.IsTrue(日柱.名称 == "己亥" && 时柱.名称 == "甲子");
+                Assert.IsTrue(日柱.名称 == "戊戌" && 时柱.名称 == "壬子");
                 Console.WriteLine($"{t:yyyy年MM月dd日 HH时mm分ss秒}\t日柱:{日柱.名称}\t时柱:{时柱.名称}");
             });
 
@@ -163,15 +163,7 @@
         public void 干支历测试()
         {
             干支历 历 = null;
-            /* 开启早晚子进位 */
-            历 = new 干支历(new DateTime(1984, 3, 26, 23, 15, 0), true);
-            Assert.IsTrue(历.年柱.名称 == "甲子");
-            Assert.IsTrue(历.月柱.名称 == "丁卯");
-            Assert.IsTrue(历.日柱.名称 == "庚申");
-            Assert.IsTrue(历.时柱.名称 == "丙子");
-
-            /* 关闭早晚子进位 */
-            历 = new 干支历(new DateTime(1984, 3, 26, 23, 15, 0), false);
+            历 = new 干支历(new DateTime(1984, 3, 26, 23, 15, 0));
             Assert.IsTrue(历.年柱.名称 == "甲子");
             Assert.IsTrue(历.月柱.名称 == "丁卯");
             Assert.IsTrue(历.日柱.名称 == "己未");
