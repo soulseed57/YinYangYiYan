@@ -1,7 +1,7 @@
 ﻿namespace 阴阳易演.测试
 {
-    using System;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
+    using System;
     using 容器类;
     using 抽象类;
     using 枚举类;
@@ -10,6 +10,24 @@
     [TestClass]
     public class 纪年测试
     {
+        #region 便捷测试
+
+        static void 阴历验证(int cy, int cm, int cd, bool isLeapMon, int verifyMon, int verifyDay)
+        {
+            var c2 = 干支历.阴历转阳历(cy, cm, cd, isLeapMon);
+            Assert.IsTrue(c2.Month == verifyMon && c2.Day == verifyDay);
+        }
+
+        static void 干支历验证(int cy, int cm, int cd, int verifyMon, int verifyDay, bool verifyIsLeap = false)
+        {
+            var d = new DateTime(cy, cm, cd);
+            var y = new 干支历(d);
+            Assert.IsTrue(y.阴历月 == verifyMon && y.阴历日 == verifyDay && y.是闰月 == verifyIsLeap);
+            Console.WriteLine($"阳历:{d:yyyy-MM-dd}\t阴历:{y.阴历}");
+        }
+
+        #endregion
+
         [TestMethod]
         public void 干支纪年测试()
         {
@@ -144,7 +162,22 @@
         [TestMethod]
         public void 干支历测试()
         {
-            var 历 = new 干支历(new DateTime(1995, 10, 21, 19, 53, 0));
+            干支历 历 = null;
+            /* 开启早晚子进位 */
+            历 = new 干支历(new DateTime(1984, 3, 26, 23, 15, 0), true);
+            Assert.IsTrue(历.年柱.名称 == "甲子");
+            Assert.IsTrue(历.月柱.名称 == "丁卯");
+            Assert.IsTrue(历.日柱.名称 == "庚申");
+            Assert.IsTrue(历.时柱.名称 == "丙子");
+
+            /* 关闭早晚子进位 */
+            历 = new 干支历(new DateTime(1984, 3, 26, 23, 15, 0), false);
+            Assert.IsTrue(历.年柱.名称 == "甲子");
+            Assert.IsTrue(历.月柱.名称 == "丁卯");
+            Assert.IsTrue(历.日柱.名称 == "己未");
+            Assert.IsTrue(历.时柱.名称 == "甲子");
+
+            历 = new 干支历(new DateTime(1995, 10, 21, 19, 53, 0));
             Assert.IsTrue(历.年柱.名称 == "乙亥");
             Assert.IsTrue(历.月柱.名称 == "丙戌");
             Assert.IsTrue(历.日柱.名称 == "乙酉");
@@ -166,6 +199,7 @@
             Assert.IsTrue(历.月柱.名称 == "壬申");
             Assert.IsTrue(历.日柱.名称 == "戊申");
             Assert.IsTrue(历.时柱.名称 == "丙辰");
+
         }
 
         [TestMethod]
@@ -180,20 +214,6 @@
             Assert.IsTrue(干支历.日支时辰算神煞(地支.卯, 地支.亥).枚举 == 神煞枚举.玄武);
             Assert.IsTrue(干支历.日支时辰算神煞(地支.戌, 地支.未).枚举 == 神煞枚举.朱雀);
 
-        }
-
-        static void 阴历验证(int cy, int cm, int cd, bool isLeapMon, int verifyMon, int verifyDay)
-        {
-            var c2 = 干支历.阴历转阳历(cy, cm, cd, isLeapMon);
-            Assert.IsTrue(c2.Month == verifyMon && c2.Day == verifyDay);
-        }
-
-        static void 干支历验证(int cy, int cm, int cd, int verifyMon, int verifyDay, bool verifyIsLeap = false)
-        {
-            var d = new DateTime(cy, cm, cd);
-            var y = new 干支历(d);
-            Assert.IsTrue(y.阴历月 == verifyMon && y.阴历日 == verifyDay && y.是闰月 == verifyIsLeap);
-            Console.WriteLine($"阳历:{d:yyyy-MM-dd}\t阴历:{y.阴历}");
         }
 
         [TestMethod]
