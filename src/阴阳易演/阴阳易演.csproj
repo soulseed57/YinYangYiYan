@@ -4,4 +4,8 @@
     <TargetFramework>netcoreapp2.2</TargetFramework>
   </PropertyGroup>
 
+  <Target Name="PreBuild" BeforeTargets="PreBuildEvent">
+    <Exec Command="rem 删除文件夹&#xD;&#xA;rd /s/q $(SolutionDir)阴阳易演.NF4\查询类\&#xD;&#xA;rd /s/q $(SolutionDir)阴阳易演.NF4\抽象类\&#xD;&#xA;rd /s/q $(SolutionDir)阴阳易演.NF4\计算类\&#xD;&#xA;rd /s/q $(SolutionDir)阴阳易演.NF4\具象类\&#xD;&#xA;rd /s/q $(SolutionDir)阴阳易演.NF4\枚举类\&#xD;&#xA;rd /s/q $(SolutionDir)阴阳易演.NF4\容器类\&#xD;&#xA;rd /s/q $(SolutionDir)阴阳易演.NF4\引用库\&#xD;&#xA;rem 复制文件夹&#xD;&#xA;xcopy /e/r/y $(ProjectDir)\查询类\*.* $(SolutionDir)阴阳易演.NF4\查询类\&#xD;&#xA;xcopy /e/r/y $(ProjectDir)\抽象类\*.* $(SolutionDir)阴阳易演.NF4\抽象类\&#xD;&#xA;xcopy /e/r/y $(ProjectDir)\计算类\*.* $(SolutionDir)阴阳易演.NF4\计算类\&#xD;&#xA;xcopy /e/r/y $(ProjectDir)\具象类\*.* $(SolutionDir)阴阳易演.NF4\具象类\&#xD;&#xA;xcopy /e/r/y $(ProjectDir)\枚举类\*.* $(SolutionDir)阴阳易演.NF4\枚举类\&#xD;&#xA;xcopy /e/r/y $(ProjectDir)\容器类\*.* $(SolutionDir)阴阳易演.NF4\容器类\&#xD;&#xA;xcopy /e/r/y $(ProjectDir)\引用库\*.* $(SolutionDir)阴阳易演.NF4\引用库\&#xD;&#xA;" />
+  </Target>
+
 </Project>
