@@ -25,7 +25,8 @@
         public static 火 火 { get; }
         public static 土 土 { get; }
         // 动态属性
-        public int 数字 { get; protected set; }
+        public int 生数 { get; protected set; }
+        public int 成数 { get; protected set; }
         public string 方位 { get; protected set; }
         public string 神兽 { get; protected set; }
         public 季节 四季 { get; protected set; }
