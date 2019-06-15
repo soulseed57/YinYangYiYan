@@ -5,9 +5,9 @@ VisualStudioVersion = 15.0.27703.2026
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "阴阳易演", "阴阳易演\阴阳易演.csproj", "{D0BC52B3-1595-4A81-9877-59DD29D2F427}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "模型", "模型", "{97D99CE4-4799-42E6-ABD0-7E0B1E7F44AC}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "阴阳易演.测试", "阴阳易演.测试\阴阳易演.测试.csproj", "{81A84164-E063-4CE4-B21C-20C2DFDA309E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "阴阳易演.解析", "阴阳易演.解析\阴阳易演.解析.csproj", "{C7B077F9-61C3-4A75-8970-A2E646988BA2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,12 +23,13 @@ Global
 		{81A84164-E063-4CE4-B21C-20C2DFDA309E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{81A84164-E063-4CE4-B21C-20C2DFDA309E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{81A84164-E063-4CE4-B21C-20C2DFDA309E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C7B077F9-61C3-4A75-8970-A2E646988BA2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C7B077F9-61C3-4A75-8970-A2E646988BA2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C7B077F9-61C3-4A75-8970-A2E646988BA2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C7B077F9-61C3-4A75-8970-A2E646988BA2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(NestedProjects) = preSolution
-		{D0BC52B3-1595-4A81-9877-59DD29D2F427} = {97D99CE4-4799-42E6-ABD0-7E0B1E7F44AC}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {43E651DC-48E1-43C6-BCF7-E84CDB6BACE8}
