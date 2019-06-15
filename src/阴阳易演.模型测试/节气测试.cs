@@ -1,4 +1,4 @@
-﻿namespace 阴阳易演.测试
+﻿namespace 阴阳易演.模型测试
 {
     using System;
     using System.Text;
