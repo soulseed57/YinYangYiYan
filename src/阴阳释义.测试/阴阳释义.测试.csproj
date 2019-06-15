@@ -12,4 +12,8 @@
     <PackageReference Include="MSTest.TestFramework" Version="1.3.2" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\阴阳易演\阴阳易演.csproj" />
+  </ItemGroup>
+
 </Project>
