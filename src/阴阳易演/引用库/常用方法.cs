@@ -43,35 +43,35 @@
         /// 列表顺逆插入,按指定顺逆方向插入项,顺序时向后插入,逆序时向前插入
         /// </summary>
         /// <typeparam name="T"></typeparam>
-        /// <param name="isOrder"></param>
-        /// <param name="list"></param>
-        /// <param name="item"></param>
-        public static void 列表顺逆插入<T>(bool isOrder, List<T> list, T item)
+        /// <param name="顺序插入"></param>
+        /// <param name="列表"></param>
+        /// <param name="项"></param>
+        public static void 列表顺逆插入<T>(bool 顺序插入, List<T> 列表, T 项)
         {
-            if (isOrder)
+            if (顺序插入)
             {
-                list.Add(item);
+                列表.Add(项);
             }
             else
             {
-                list.Insert(0, item);
+                列表.Insert(0, 项);
             }
         }
         /// <summary>
         /// 列表顺逆排序,按照指定方向排序,首位不变
         /// </summary>
         /// <typeparam name="T"></typeparam>
-        /// <param name="isOrder"></param>
-        /// <param name="array"></param>
+        /// <param name="顺序插入"></param>
+        /// <param name="集合"></param>
         /// <returns></returns>
-        public static T[] 列表顺逆排序<T>(bool isOrder, T[] array)
+        public static T[] 列表顺逆排序<T>(bool 顺序插入, T[] 集合)
         {
-            if (isOrder)
+            if (顺序插入)
             {
-                return array;
+                return 集合;
             }
             var list = new List<T>();
-            var len = array.Length;
+            var len = 集合.Length;
             for (var i = 0; i < len; i++)
             {
                 int index;
@@ -83,7 +83,7 @@
                 {
                     index = len - i;
                 }
-                list.Add(array[index]);
+                list.Add(集合[index]);
             }
             return list.ToArray();
         }
@@ -91,21 +91,21 @@
         /// 列表指定首位,将指定位置的项提前至首位,其他项依次排在队尾
         /// </summary>
         /// <typeparam name="T"></typeparam>
-        /// <param name="array"></param>
-        /// <param name="index"></param>
+        /// <param name="集合"></param>
+        /// <param name="索引"></param>
         /// <returns></returns>
-        public static T[] 列表指定首位<T>(T[] array, int index)
+        public static T[] 列表指定首位<T>(T[] 集合, int 索引)
         {
             // 处理索引
-            if (index == 0)
+            if (索引 == 0)
             {
-                return array;
+                return 集合;
             }
-            index = index % array.Length;
-            index = index < 0 ? array.Length + index : index;
+            索引 = 索引 % 集合.Length;
+            索引 = 索引 < 0 ? 集合.Length + 索引 : 索引;
             // 出队入队
-            var queue = new Queue<T>(array);
-            for (var i = 0; i < index; i++)
+            var queue = new Queue<T>(集合);
+            for (var i = 0; i < 索引; i++)
             {
                 var item = queue.Dequeue();
                 queue.Enqueue(item);
@@ -116,36 +116,25 @@
         /// 同时包含所有给定元素
         /// </summary>
         /// <typeparam name="T"></typeparam>
-        /// <param name="array"></param>
-        /// <param name="items"></param>
+        /// <param name="集合"></param>
+        /// <param name="包含项"></param>
         /// <returns></returns>
-        public static bool 同时包含<T>(T[] array, params T[] items)
+        public static bool 同时包含<T>(T[] 集合, params T[] 包含项)
         {
-            return items.All(array.Contains);
-        }
-        /// <summary>
-        /// 合并主对象和客组为一个列表
-        /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="host"></param>
-        /// <param name="guest_array"></param>
-        /// <returns></returns>
-        public static T[] 合并列表<T>(T host, T[] guest_array)
-        {
-            return 合并列表(new[] { host }, guest_array);
+            return 包含项.All(集合.Contains);
         }
         /// <summary>
         /// 合并主组和客组为一个列表
         /// </summary>
         /// <typeparam name="T"></typeparam>
-        /// <param name="host_array"></param>
-        /// <param name="guest_array"></param>
+        /// <param name="主集合"></param>
+        /// <param name="客集合"></param>
         /// <returns></returns>
-        public static T[] 合并列表<T>(T[] host_array, T[] guest_array)
+        public static T[] 合并列表<T>(T[] 主集合, T[] 客集合)
         {
             var list = new List<T>();
-            list.AddRange(host_array);
-            list.AddRange(guest_array);
+            list.AddRange(主集合);
+            list.AddRange(客集合);
             return list.ToArray();
         }
 

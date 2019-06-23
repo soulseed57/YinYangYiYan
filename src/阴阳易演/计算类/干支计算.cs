@@ -145,14 +145,6 @@
                     throw new Exception($"起遁失败,当前给定天干错误[{干}]");
             }
         }
-        public static 天干 五虎遁(this 天干 干, 地支 支)
-        {
-            var 起遁 = 干.五虎遁();
-            var 遁序 = 干支表.获取天干序数(起遁);
-            var 支序 = 干支表.获取地支序数(支);
-            var 干序 = (遁序 + 支序) % 10;
-            return 干支表.天干查询(干序);
-        }
         #endregion
 
         #region 地支扩展
