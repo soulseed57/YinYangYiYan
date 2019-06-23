@@ -9,7 +9,7 @@ namespace 阴阳释义
     {
         static void Main(string[] args)
         {
-            string input = @"(8 对应)为";
+            string input = @"5 对应地支取1,五行为.";
 
             var stream = new AntlrInputStream(input);
             var lexer = new UniverseChangesParaphraseLexer(stream);
