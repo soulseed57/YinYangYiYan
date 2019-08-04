@@ -1,6 +1,6 @@
 ﻿namespace 阴阳释义.Grammar
 {
-    partial class UniverseChangesParaphraseLexer
+    partial class YinYangShiYiLexer
     {
     }
 }
