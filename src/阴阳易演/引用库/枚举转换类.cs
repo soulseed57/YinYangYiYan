@@ -1,8 +1,8 @@
-﻿namespace 阴阳易演.引用库
-{
-    using System;
-    using System.Linq;
+﻿using System;
+using System.Linq;
 
+namespace 阴阳易演.引用库
+{
     public static class 枚举转换类<T> where T : struct
     {
         public static int 获取枚举总数()
@@ -65,13 +65,13 @@
 
         public static T 获取枚举(int 原数)
         {
-            if (包含(原数))
+            var 序数 = 原数;
+            if (!包含(原数))
             {
-                return (T)Enum.ToObject(typeof(T), 原数);
+                var 进位数 = 获取枚举总数();
+                var 余数 = 原数 % 进位数;
+                序数 = 余数 < 0 ? 进位数 + 余数 : 余数;
             }
-            var 进位数 = 获取枚举总数();
-            var 余数 = 原数 % 进位数;
-            var 序数 = 余数 < 0 ? 进位数 + 余数 : 余数;
             return (T)Enum.ToObject(typeof(T), 序数);
         }
 
