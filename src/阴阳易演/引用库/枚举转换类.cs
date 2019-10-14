@@ -5,95 +5,116 @@ namespace 阴阳易演.引用库
 {
     public static class 枚举转换类<T> where T : struct
     {
-        public static int 获取枚举总数()
-        {
-            return Enum.GetValues(typeof(T)).Length;
-        }
+        #region 内部处理
 
-        public static T[] 获取所有枚举()
-        {
-            return (T[])Enum.GetValues(typeof(T));
-        }
-
-        public static string[] 获取所有名称()
+        static string[] GetNames()
         {
             return Enum.GetNames(typeof(T));
         }
 
-        public static string 获取名称(int 原数)
+        static TValue[] GetValues<TValue>()
         {
-            var 枚举 = 获取枚举(原数);
-            return 获取名称(枚举);
+            return (TValue[])Enum.GetValues(typeof(T));
         }
 
-        public static string 获取名称(T 枚举)
+        static int Count()
         {
-            return Enum.GetName(typeof(T), 枚举);
+            return GetNames().Length;
         }
 
-        public static int 获取序数(string 名称)
+        static bool Contains(string name)
         {
-            var 枚举 = 获取枚举(名称);
-            return 获取序数(枚举);
+            return GetNames().Contains(name);
         }
 
-        public static int 获取序数(T 枚举)
+        static bool Contains<TValue>(TValue value)
         {
-            var 对象 = Enum.ToObject(typeof(T), 枚举);
-            var 原数 = (int)对象;
-            if (包含(枚举))
+            return GetValues<TValue>().Contains(value);
+        }
+
+        static TValue ToObject<TKey, TValue>(TKey key)
+        {
+            return (TValue)Enum.ToObject(typeof(T), key);
+        }
+
+        static TValue Parse<TValue>(string name)
+        {
+            if (Contains(name))
             {
-                return 原数;
+                return (TValue)Enum.Parse(typeof(T), name, true);
             }
-            var 进位数 = 获取枚举总数();
-            var 余数 = 原数 % 进位数;
-            var 序数 = 余数 < 0 ? 进位数 + 余数 : 余数;
-            return 序数;
+            throw new Exception($"枚举[{typeof(T).Name}]不包含名称{name}");
         }
 
-        public static T 获取枚举(string 名称)
+        static int GetIndex(int num)
         {
-            try
-            {
-                return (T)Enum.Parse(typeof(T), 名称, true);
-            }
-            catch
-            {
-                throw new Exception($"枚举[{typeof(T).Name}]不包含名称{名称}");
-            }
+            if (Contains(num)) return num;
+            // 在取余后判断是否包含数值
+            var count = Count();
+            var mod = num % count;
+            var index = mod < 0 ? count + mod : mod;
+            if (Contains(index)) return index;
+            // 取余后依然不存在直接报错
+            throw new Exception($"枚举[{typeof(T).Name}]不包含数值{num}");
         }
 
-        public static T 获取枚举(int 原数)
+        #endregion
+
+        public static int 获取枚举总数()
         {
-            var 序数 = 原数;
-            if (!包含(原数))
-            {
-                var 进位数 = 获取枚举总数();
-                var 余数 = 原数 % 进位数;
-                序数 = 余数 < 0 ? 进位数 + 余数 : 余数;
-            }
-            return (T)Enum.ToObject(typeof(T), 序数);
+            return Count();
         }
 
-        public static bool 尝试获取枚举(string 名称, out T 枚举)
+        public static T[] 获取所有枚举()
         {
-            return Enum.TryParse(名称, out 枚举);
+            return GetValues<T>();
         }
 
-        public static bool 包含(int 原数)
+        public static string[] 获取所有名称()
         {
-            return 获取所有枚举().Any(t => (int)Enum.ToObject(typeof(T), t) == 原数);
+            return GetNames();
         }
 
-        public static bool 包含(T 枚举)
+        public static string 获取名称(int num)
         {
-            var 名称 = 获取名称(枚举);
-            return 包含(名称);
+            var index = GetIndex(num);
+            return Enum.GetName(typeof(T), index);
         }
 
-        public static bool 包含(string 名称)
+        public static string 获取名称(T obj)
         {
-            return 获取所有名称().Contains(名称);
+            return Enum.GetName(typeof(T), obj);
+        }
+
+        public static int 获取序数(T obj)
+        {
+            return ToObject<T, int>(obj);
+        }
+
+        public static int 获取序数(string name)
+        {
+            return Parse<int>(name);
+        }
+
+        public static T 获取枚举(int num)
+        {
+            var index = GetIndex(num);
+            return ToObject<int, T>(index);
+        }
+
+        public static T 获取枚举(string name)
+        {
+            return Parse<T>(name);
+        }
+
+        public static bool 尝试获取枚举(string name, out T obj)
+        {
+            return Enum.TryParse(name, out obj);
+        }
+
+        public static bool 包含(string name)
+        {
+            return Contains(name);
         }
 
     }
